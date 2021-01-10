@@ -1,6 +1,7 @@
 <template>
   <nav>
     <img src="@/assets/NavLogo.svg" alt="" class="Navlogo" />
+    <Sidebar class="Sidebar smShow" />
     <div class="menu smHide">
       <div class="navCase">
         <img src="@/assets/Home.svg" alt="" />
@@ -35,7 +36,10 @@
 </template>
 
 <script>
-export default {};
+import Sidebar from "@/components/Sidebar.vue";
+export default {
+  components: { Sidebar },
+};
 </script>
 
 <style scoped>
@@ -74,6 +78,10 @@ nav {
 .Navlogo {
   height: 20px;
   /* width:auto; */
+}
+
+.Sidebar {
+  display: none;
 }
 
 @media (max-width: 800px) {

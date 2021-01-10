@@ -3,7 +3,7 @@
     <div>
       <label for="card" class="card">
         Home
-        <img src="@/assets/Home.svg" alt="" />
+        <img src="@/assets/icon/Home.svg" alt="" />
       </label>
       <input type="checkbox" id="card" />
     </div>
@@ -11,7 +11,7 @@
     <div>
       <label for="card" class="card">
         Popular
-        <img src="@/assets/Star.svg" alt="" />
+        <img src="@/assets/icon/Star.svg" alt="" />
       </label>
       <input type="checkbox" id="card" />
     </div>

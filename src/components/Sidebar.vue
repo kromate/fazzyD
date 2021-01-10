@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="right material-icons menu" @click="menu">
-      {{ sideNav.sign }}
+      <img src="@/assets/icon/menu.svg" alt="" v-if="sideNav.sign == 'menu'" />
+      <img src="@/assets/icon/close.svg" alt="" v-else />
     </div>
     <transition name="slide" appear>
       <div class="sidebar fade" v-show="!sideNav.show">
@@ -66,7 +67,7 @@ export default {
   name: "Menu",
   data() {
     return {
-      sideNav: { show: "false", sign: "x" },
+      sideNav: { show: "false", sign: "menu" },
       auth: "",
     };
   },
@@ -74,9 +75,9 @@ export default {
     menu() {
       this.sideNav.show = !this.sideNav.show;
       if (this.sideNav.sign == "close") {
-        this.sideNav.sign = "x";
+        this.sideNav.sign = "menu";
       } else {
-        this.sideNav.sign = "1";
+        this.sideNav.sign = "close";
       }
     },
   },
@@ -84,6 +85,9 @@ export default {
 </script>
 
 <style scoped>
+.menu img {
+  height: 24px;
+}
 .box-text {
   text-align: center;
   color: #6c63ff !important;
@@ -147,25 +151,26 @@ a {
 }
 
 .menu {
-  color: #6c63ff;
-  background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 1px 4px 2px 0 rgba(0, 0, 0, 0.14), -3px 4px 1px -2px rgba(0, 0, 0, 0.12),
     1px 3px 5px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 20%;
-  padding: 0.2rem;
+  border-radius: 100%;
+  width: 27px;
+  height: 27px;
   position: relative;
-  /* left: 1rem; */
-  /* top: 0.7rem; */
-  z-index: 500000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 5000;
+  border: 1px solid #d79947;
 }
 .menu:hover {
-  background-color: #6c63ff;
-  color: white;
   cursor: pointer;
 }
 @media screen and (max-width: 445px) {
   .menu {
-    padding: 0.4rem;
+    padding: 0.2rem;
   }
 }
 .sidebar {

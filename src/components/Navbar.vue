@@ -4,19 +4,19 @@
     <Sidebar class="Sidebar smShow" />
     <div class="menu smHide">
       <div class="navCase">
-        <img src="@/assets/Home.svg" alt="" />
+        <img src="@/assets/icon/Home.svg" alt="" />
         <p>Home</p>
       </div>
       <div class="navCase">
-        <img src="@/assets/Heart.svg" alt="" />
+        <img src="@/assets/icon/Heart.svg" alt="" />
         <p>Favourite</p>
       </div>
       <div class="navCase">
-        <img src="@/assets/Category.svg" alt="" />
+        <img src="@/assets/icon/Category.svg" alt="" />
         <p>Gallery</p>
       </div>
       <div class="navCase">
-        <img src="@/assets/Buy.svg" alt="" />
+        <img src="@/assets/icon/Buy.svg" alt="" />
         <p>Cart</p>
       </div>
     </div>

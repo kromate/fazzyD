@@ -55,6 +55,11 @@ export default {
   width: 100%;
   flex-direction: column;
 }
+@media (max-width: 800px) {
+  .catCardCont {
+    flex-direction: row;
+  }
+}
 .card {
   padding: 0px 0.8rem;
   background-color: black;

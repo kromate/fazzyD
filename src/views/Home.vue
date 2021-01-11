@@ -41,11 +41,20 @@ img.caro {
   margin-top: 2rem;
   display: flex;
 }
+
 .gallery {
   margin-top: 0.7rem;
   margin-left: 2rem;
 }
 .categories {
   margin-left: 2rem;
+}
+@media (max-width: 800px) {
+  .content {
+    flex-direction: column;
+  }
+  .categories {
+    margin-left: 0rem;
+  }
 }
 </style>

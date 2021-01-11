@@ -9,13 +9,13 @@
         <div>
           <h3>Follow us on</h3>
           <div class="social">
-            <a href="http://what.com">
+            <a href="https://wa.me/message/UNJ6CX6YICVEK1" target="_blank">
               <img src="@/assets/social/whatsapp.svg" alt="" />
             </a>
-            <a href="https://twitter.com/Fazzy_D_?s=09">
+            <a href="https://twitter.com/Fazzy_D_?s=09" target="_blank">
               <img src="@/assets/social/twitter.svg" alt="" />
             </a>
-            <a href="http://what.com">
+            <a href="https://www.instagram.com/fazzy_d_" target="_blank">
               <img src="@/assets/social/insta.svg" alt="" />
             </a>
           </div>

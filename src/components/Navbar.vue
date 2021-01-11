@@ -25,7 +25,7 @@
       <a href="http://what.com">
         <img src="@/assets/social/whatsapp.svg" alt="" />
       </a>
-      <a href="http://what.com">
+      <a href="https://twitter.com/Fazzy_D_?s=09">
         <img src="@/assets/social/twitter.svg" alt="" />
       </a>
       <a href="http://what.com">

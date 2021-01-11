@@ -6,57 +6,45 @@
     </div>
     <transition name="slide" appear>
       <div class="sidebar fade" v-show="!sideNav.show">
-        <div class="row">
-          <div v-if="auth">
-            <router-link class="box" to="/home" style="margin: 1rem;">
-              <h1>Kon</h1>
-            </router-link>
-            <h3 class="box-text">Home</h3>
-          </div>
-          <div v-else>
-            <router-link class="box" to="/" style="margin: 1rem;">
-              <h1>Kon</h1>
-            </router-link>
-            <h3 class="box-text">Home</h3>
-          </div>
-
-          <div>
-            <router-link class="box" to="/pastquestions" style="margin: 1rem;">
-              <h1>Kon</h1>
-            </router-link>
-            <h3 class="box-text">Past Questions</h3>
-          </div>
-
-          <div>
-            <router-link class="box" to="/courses" style="margin: 1rem;">
-              <h1>Kon</h1>
-            </router-link>
-            <h3 class="box-text">Course Outline</h3>
+        <div>
+          <h3>Follow us on</h3>
+          <div class="social">
+            <a href="http://what.com">
+              <img src="@/assets/social/whatsapp.svg" alt="" />
+            </a>
+            <a href="https://twitter.com/Fazzy_D_?s=09">
+              <img src="@/assets/social/twitter.svg" alt="" />
+            </a>
+            <a href="http://what.com">
+              <img src="@/assets/social/insta.svg" alt="" />
+            </a>
           </div>
         </div>
 
-        <div class="row">
-          <div>
-            <router-link class="box" to="/tutor" style="margin: 1rem;">
-              <h1>Kon</h1>
-            </router-link>
-            <h3 class="box-text">Find a Tutor</h3>
+        <router-link class="box" to="/" style="margin: 1rem;">
+          <div class="navCase">
+            <img src="@/assets/icon/Home.svg" alt="" />
+            <p>Home</p>
           </div>
-
-          <div>
-            <router-link class="box" to="/profile" style="margin: 1rem;">
-              <h1>Kon</h1>
-            </router-link>
-            <h3 class="box-text">Profile</h3>
+        </router-link>
+        <router-link class="box" to="/favourite" style="margin: 1rem;">
+          <div class="navCase">
+            <img src="@/assets/icon/Heart.svg" alt="" />
+            <p>Favourite</p>
           </div>
-
-          <div>
-            <router-link class="box" to="/questions" style="margin: 1rem;">
-              <h1>Kon</h1>
-            </router-link>
-            <h3 class="box-text">Ask Questions</h3>
+        </router-link>
+        <router-link class="box" to="/gallery" style="margin: 1rem;">
+          <div class="navCase">
+            <img src="@/assets/icon/Category.svg" alt="" />
+            <p>Gallery</p>
           </div>
-        </div>
+        </router-link>
+        <router-link class="box" to="/cart" style="margin: 1rem;">
+          <div class="navCase">
+            <img src="@/assets/icon/Buy.svg" alt="" />
+            <p>Cart</p>
+          </div>
+        </router-link>
       </div>
     </transition>
   </div>
@@ -85,59 +73,49 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  text-align: center;
+  color: #d79947;
+}
+.router-link-exact-active.router-link-active > .navCase {
+  background: #291800;
+}
+.navCase {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px;
+  padding: 0.8rem;
+  border-radius: 3px;
+  width: 150px;
+  border: 1px solid #d79947;
+}
+
+.navCase:hover {
+  background-color: rgb(63, 43, 11);
+}
+.navCase img {
+  height: 22px;
+  margin-right: 10px;
+}
+.navCase p {
+  color: #d79947;
+  letter-spacing: 2px;
+  font-size: 17px;
+}
+.social {
+  display: flex;
+  display: flex;
+  height: 40px;
+  margin-bottom: 2rem;
+}
 .menu img {
   height: 24px;
 }
-.box-text {
-  text-align: center;
-  color: #6c63ff !important;
-}
-.row {
-  display: flex;
-}
-.box {
-  width: 120px;
-  height: 120px;
-  max-width: 120px;
-  max-height: 120px;
-  background-color: #fff;
-  border-radius: 10px;
-  margin: 15px 25px !important;
-  border: 1px solid #6c63ff;
-}
-@media screen and (max-width: 1300px) {
-  .box {
-    width: 100px;
-    height: 100px;
-  }
-  .box-text {
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .box {
-    width: 70px;
-    height: 70px;
-  }
-  .box-text {
-    font-size: 13px;
-  }
-}
-@media screen and (max-width: 400px) {
-  .box {
-    width: 50px;
-    height: 50px;
-  }
-  .box-text {
-    font-size: 12px;
-  }
-}
-.box:hover {
-  background: linear-gradient(180deg, #5a578a 0%, #150e89 100%);
-}
-a.box.router-link-exact-active.router-link-active {
-  background: linear-gradient(180deg, #5a578a 0%, #150e89 100%);
+a {
+  width: 21px;
+  margin: 0px 10px;
 }
 a {
   text-decoration: none;
@@ -153,7 +131,7 @@ a {
 .menu {
   box-shadow: 1px 4px 2px 0 rgba(0, 0, 0, 0.14), -3px 4px 1px -2px rgba(0, 0, 0, 0.12),
     1px 3px 5px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 100%;
+  border-radius: 10%;
   width: 27px;
   height: 27px;
   position: relative;
@@ -174,7 +152,7 @@ a {
   }
 }
 .sidebar {
-  background-color: rgb(220, 220, 220);
+  background-color: #643f0b;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -194,7 +172,7 @@ a {
   transition: 0.5s;
 }
 
-.slide-enter,
+.slide-enter-from,
 .slide-leave-to {
   transform: translateX(-100vw);
 }

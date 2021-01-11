@@ -60,11 +60,13 @@ export default {
   margin-bottom: 3px;
 }
 .name {
-  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 2px 2px rgba(206, 199, 184, 0.235);
+  /* text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 2px 2px rgba(206, 199, 184, 0.235); */
   font-size: 1.2rem;
-  /* text-align: center; */
+  text-align: center;
   font-weight: 600;
-  margin-top: -1.5rem;
+  margin-top: -5.5rem;
+  color: #d79947;
+  text-decoration: dotted;
 }
 .catItem {
   margin: 12px 9px;

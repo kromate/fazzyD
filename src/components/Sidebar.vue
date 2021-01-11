@@ -152,7 +152,7 @@ a {
   }
 }
 .sidebar {
-  background-color: #643f0b;
+  background-color: #462e0e;
   width: 100%;
   height: 100%;
   position: fixed;

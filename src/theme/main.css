@@ -10,3 +10,15 @@
 body {
   background-color: #291800;
 }
+.flex {
+  display: flex;
+}
+.align {
+  align-items: center;
+}
+.justify {
+  justify-content: center;
+}
+.column {
+  flex-direction: column;
+}

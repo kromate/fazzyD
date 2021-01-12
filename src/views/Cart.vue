@@ -26,6 +26,10 @@
           </div>
         </div>
       </div>
+
+      <p class="otherCol ItSel justify align flex bod">QUANTITY</p>
+      <p class="otherCol ItSel justify align flex bod">UNIT PRICE</p>
+      <p class="otherCol ItSel justify align flex ">SUBTOTAL</p>
     </div>
   </div>
 </template>
@@ -37,6 +41,9 @@ export default {
 </script>
 
 <style scoped>
+.ItSel {
+  color: #d79947;
+}
 .ml {
   margin-left: 12px;
 }
@@ -68,6 +75,7 @@ h1 {
 }
 .bod {
   border-right: 1px solid #d79947;
+  height: 86px;
 }
 .cartImg {
   height: 70px;

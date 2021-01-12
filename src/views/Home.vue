@@ -56,5 +56,9 @@ img.caro {
   .categories {
     margin-left: 0rem;
   }
+  .gallery {
+    margin-top: 0.7rem;
+    margin-left: 0rem;
+  }
 }
 </style>

@@ -1,41 +1,19 @@
 <template>
   <div class="catCardCont">
-    <div>
-      <label for="card" class="card">
-        Home
-        <img src="@/assets/icon/Home.svg" alt="" />
+    <div v-for="(card, index) in cardsIcon" :key="index">
+      <label :for="card.name" class="card">
+        {{ card.name }}
+        <img :src="card.img" alt="" />
       </label>
-      <input type="checkbox" id="card" />
+      <input type="radio" :id="card.name" :value="card.name" name="item" />
     </div>
 
-    <div>
-      <label for="card" class="card">
-        Popular
-        <img src="@/assets/icon/Star.svg" alt="" />
+    <div v-for="(card, index) in cardsImage" :key="index">
+      <label :for="card.name" class="card">
+        {{ card.name }}
+        <img :src="card.img" alt="" class="custom" />
       </label>
-      <input type="checkbox" id="card" />
-    </div>
-    <div>
-      <label for="card" class="card">
-        Hoodie
-        <img src="@/assets/gallery/black_hoodie.png" alt="" class="custom" />
-      </label>
-      <input type="checkbox" id="card" />
-    </div>
-    <div>
-      <label for="card" class="card">
-        Trousers
-        <img src="@/assets/gallery/trousers.png" alt="" class="custom" />
-      </label>
-      <input type="checkbox" id="card" />
-    </div>
-
-    <div>
-      <label for="card" class="card">
-        Crops
-        <img src="@/assets/gallery/f_crop.png" alt="" class="custom" />
-      </label>
-      <input type="checkbox" id="card" />
+      <input type="radio" :id="card.name" :value="card.name" name="item" />
     </div>
   </div>
 </template>
@@ -43,10 +21,23 @@
 <script>
 export default {
   name: "catCard",
+  data() {
+    return {
+      cardsIcon: [
+        { name: "Home", img: require("@/assets/icon/Home.svg") },
+        { name: "Popular", img: require("@/assets/icon/Star.svg") },
+      ],
+      cardsImage: [
+        { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
+        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
+        { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
+      ],
+    };
+  },
 };
 </script>
 
-<style scoped>
+<style scooped>
 .catCardCont {
   display: flex;
   flex-wrap: wrap;
@@ -60,18 +51,19 @@ export default {
     flex-direction: row;
   }
 }
-.card {
+label {
   padding: 0px 0.8rem;
   background-color: black;
   color: #d79947;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 15px;
+  margin: 15px 7px;
   border-radius: 7px;
   width: 110px;
   height: 50px;
 }
+
 input {
   display: none;
 }

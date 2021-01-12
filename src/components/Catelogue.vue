@@ -55,7 +55,7 @@ export default {
   height: 22px;
   position: relative;
   top: -105px;
-  right: -5px;
+  right: -15px;
   cursor: pointer;
   margin-bottom: 3px;
 }
@@ -85,7 +85,7 @@ h1 {
   font-weight: 700;
   font-size: 1 0.8rem;
   margin-bottom: 1rem;
-  margin-left: 9px;
+  margin-left: 24px;
 }
 .container {
   display: flex;

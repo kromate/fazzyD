@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import CatCard from "@/components/catCard.vue";
-import Catelogue from "@/components/Catelogue.vue";
+import CatCard from "@/components/home/catCard.vue";
+import Catelogue from "@/components/home/Catelogue.vue";
 export default {
   name: "Home",
   components: { CatCard, Catelogue },

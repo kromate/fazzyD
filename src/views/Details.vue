@@ -13,29 +13,43 @@
         <p class="sItem">XS</p>
         <p class="sItem">S</p>
         <p class="sItem">M</p>
+        <p class="sItem">L</p>
+        <p class="sItem">XL</p>
       </div>
+
+      <button class="cartbtn">ADD TO CART</button>
     </div>
 
     <div class="detImg">
-      <img src="@/assets/gallery/black_hoodie.png" class="main" />
-      <div class="casing">
-        <img src="@/assets/gallery/black_hoodie.png" class="mini" />
-        <img src="@/assets/gallery/brown_hoodie.png" class="mini" />
-        <img src="@/assets/gallery/white_hoodie.png" class="mini" />
-        <img src="@/assets/gallery/white_hoodie.png" class="mini" />
-        <img src="@/assets/gallery/white_hoodie.png" class="mini" />
-        <img src="@/assets/gallery/white_hoodie.png" class="mini" />
-        <img src="@/assets/gallery/white_hoodie.png" class="mini" />
-      </div>
+      <CardImg />
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import CardImg from "@/components/details/cardImg.vue";
+export default {
+  name: "Details",
+  components: { CardImg },
+};
 </script>
 
 <style scoped>
+.cartbtn {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #d79947;
+  width: 100%;
+  background: transparent;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #d79947;
+  max-width: 180px;
+}
+.cartbtn:hover {
+  background: black;
+  cursor: pointer;
+}
 .sItem {
   margin: 0px 4px;
   border: 1px solid #d79947;
@@ -63,15 +77,7 @@ h1 {
   margin-left: 1rem;
   margin-top: 6rem;
 }
-.casing {
-  display: flex;
-  flex-wrap: wrap;
-  max-height: 500px;
-  align-items: flex-start;
-}
-.casing img {
-  margin: 2px 4px;
-}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -88,17 +94,31 @@ h1 {
   display: flex;
   align-items: flex-end;
 }
-
-img {
-  margin: 0pc 4px;
-}
-img.main {
-  height: 500px;
-  /* width: 210px; */
-  border-radius: 6px;
-}
-img.mini {
-  height: 100px;
-  border-radius: 6px;
+@media (max-width: 800px) {
+  .detImg {
+    order: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .details {
+    order: 2;
+    text-align: center;
+    margin: 0px;
+    margin-left: 0px;
+    max-width: 400px;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -65px;
+    max-width: 100%;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    flex-direction: column;
+  }
 }
 </style>

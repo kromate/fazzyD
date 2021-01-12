@@ -7,6 +7,13 @@
         ratione rerum, voluptate magnam vel maiores, porro ipsum esse animi optio veritatis numquam
         voluptatibus facere consequatur libero quam.
       </p>
+      <h2>$20</h2>
+
+      <div class="size">
+        <p class="sItem">XS</p>
+        <p class="sItem">S</p>
+        <p class="sItem">M</p>
+      </div>
     </div>
 
     <div class="detImg">
@@ -29,9 +36,31 @@ export default {};
 </script>
 
 <style scoped>
+.sItem {
+  margin: 0px 4px;
+  border: 1px solid #d79947;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-weight: 400;
+  color: #d79947;
+}
+.size {
+  display: flex;
+  margin-top: 2rem;
+}
+h2 {
+  margin-top: 0.8rem;
+  font-size: 2.5rem;
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 4px 2px rgba(0, 0, 0, 0.541);
+}
 h1 {
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 4px 2px rgba(0, 0, 0, 0.541);
   font-size: 4rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
   margin-top: 6rem;
 }
 .casing {

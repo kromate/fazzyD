@@ -86,6 +86,7 @@ h1 {
   font-size: 1 0.8rem;
   margin-bottom: 1rem;
   margin-left: 24px;
+  color: #d79947;
 }
 .container {
   display: flex;

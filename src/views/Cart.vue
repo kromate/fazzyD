@@ -67,7 +67,9 @@ export default {
   max-width: 90vw;
   display: flex;
 }
+
 .shopBtn {
+  margin: 10px;
   height: 40px;
   display: flex;
   justify-content: center;

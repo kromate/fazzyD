@@ -10,7 +10,6 @@
 button {
   outline: none;
   border: none;
-  margin: 0px 10px;
 }
 body {
   background-color: #291800;
@@ -46,7 +45,7 @@ body {
 .primaryBtn:hover {
   background: black;
   cursor: pointer;
-  border: none;
+  border: 1px solid #d79947;
 }
 .secondaryBtn {
   margin-top: 1rem;
@@ -60,7 +59,7 @@ body {
   background: black;
 }
 .secondaryBtn:hover {
-  border: 1px solid #d79947;
+  border: 1px solid #000;
   background: transparent;
   cursor: pointer;
 }

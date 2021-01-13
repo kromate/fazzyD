@@ -17,7 +17,7 @@
         <p class="sItem">XL</p>
       </div>
 
-      <button class="cartbtn">ADD TO CART</button>
+      <button class="primaryBtn cartbtn">ADD TO CART</button>
     </div>
 
     <div class="detImg">
@@ -36,19 +36,7 @@ export default {
 
 <style scoped>
 .cartbtn {
-  margin-top: 1rem;
-  padding: 0.8rem;
-  border: 1px solid #d79947;
-  width: 100%;
-  background: transparent;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #d79947;
   max-width: 180px;
-}
-.cartbtn:hover {
-  background: black;
-  cursor: pointer;
 }
 .sItem {
   margin: 0px 4px;

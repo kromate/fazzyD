@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div class="header">
-      <p class="firstCol">ITEM</p>
-      <p class="otherCol">QUANTITY</p>
-      <p class="otherCol">UNIT PRICE</p>
-      <p class="otherCol">SUBTOTAL</p>
+      <p class="firstCol ml">ITEM</p>
+      <p class="otherCol ml">QUANTITY</p>
+      <p class="otherCol ml">UNIT PRICE</p>
+      <p class="otherCol ml">SUBTOTAL</p>
     </div>
 
-    <div class="row">
+    <div class="row" v-for="n in 2" :key="n">
       <div class="firstCol bod flex align">
         <img src="@/assets/gallery/black_hoodie.png" class="cartImg" />
         <div class="cartDet">
@@ -15,11 +15,11 @@
           <p>Color: black</p>
           <p>Size: XL</p>
           <div class=" flex opt">
-            <div class="flex align">
+            <div class="flex align point">
               <img src="@/assets/icon/Heart.svg" class="icon" />
               <p class="iconText">Add To Favourite</p>
             </div>
-            <div class="flex align ml">
+            <div class="flex align ml point">
               <img src="@/assets/icon/Delete.svg" class="icon" />
               <p class="iconText">Remove</p>
             </div>
@@ -27,9 +27,30 @@
         </div>
       </div>
 
-      <p class="otherCol ItSel justify align flex bod">QUANTITY</p>
-      <p class="otherCol ItSel justify align flex bod">UNIT PRICE</p>
-      <p class="otherCol ItSel justify align flex ">SUBTOTAL</p>
+      <p class="otherCol ItSel justify align flex bod">
+        <select>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </p>
+      <p class="otherCol ItSel justify align flex bod">$ 20</p>
+      <p class="otherCol ItSel justify align flex ">$ 20</p>
+    </div>
+
+    <div class="header end">
+      <p class="otherCol bright">Total</p>
+      <p class="otherCol bright">$ 100</p>
+    </div>
+    <div class="header end">
+      <p class="dev">Delivery Fees not included Yet</p>
+    </div>
+
+    <div class="flex end length ">
+      <button class="primaryBtn shopBtn">CONTINUE SHOPPING</button>
+      <button class="secondaryBtn shopBtn">PROCEED TO PAYMENT</button>
     </div>
   </div>
 </template>
@@ -41,11 +62,37 @@ export default {
 </script>
 
 <style scoped>
+.length {
+  width: 837px;
+  max-width: 90vw;
+  display: flex;
+}
+.shopBtn {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  width: 15rem;
+  /* font-size: 0.5rem; */
+}
+.dev {
+  font-size: 0.8rem;
+  margin-right: 30px;
+}
+select {
+  background: transparent;
+  color: #d79947;
+  font-size: 1.3rem;
+  border: none;
+}
 .ItSel {
   color: #d79947;
+  font-weight: 600;
+  font-size: 1.4rem;
 }
 .ml {
-  margin-left: 12px;
+  margin-left: 15px;
 }
 
 .iconText {
@@ -89,13 +136,14 @@ h1 {
   padding: 3px 9px;
   height: 100px;
   align-items: center;
+  margin-bottom: 15px;
 }
 .header {
   margin-bottom: 5px;
   display: flex;
   width: 800px;
   max-width: 90vw;
-  text-align: center;
+  /* text-align: center; */
 }
 .firstCol {
   flex-basis: 40%;
@@ -114,5 +162,13 @@ h1 {
 .header > p {
   color: #d79947;
   font-weight: 600;
+}
+
+.end {
+  justify-content: flex-end;
+
+  font-weight: 500;
+  font-size: 1.3rem;
+  text-align: center;
 }
 </style>

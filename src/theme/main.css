@@ -7,6 +7,11 @@
   /* overflow-x: hidden; */
   outline: none !important;
 }
+button {
+  outline: none;
+  border: none;
+  margin: 0px 10px;
+}
 body {
   background-color: #291800;
 }
@@ -21,4 +26,41 @@ body {
 }
 .column {
   flex-direction: column;
+}
+.point {
+  cursor: pointer;
+}
+.bright {
+  color: #ff9409 !important;
+}
+.primaryBtn {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #d79947;
+  width: 100%;
+  background: transparent;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #d79947;
+}
+.primaryBtn:hover {
+  background: black;
+  cursor: pointer;
+  border: none;
+}
+.secondaryBtn {
+  margin-top: 1rem;
+  padding: 0.8rem;
+
+  width: 100%;
+
+  font-weight: 600;
+  font-size: 1rem;
+  color: #d79947;
+  background: black;
+}
+.secondaryBtn:hover {
+  border: 1px solid #d79947;
+  background: transparent;
+  cursor: pointer;
 }

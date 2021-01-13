@@ -1,5 +1,5 @@
 <template>
-  <div class="row" v-for="n in 7" :key="n">
+  <div class="row" v-for="n in 3" :key="n">
     <div class="firstCol bod flex align">
       <img src="@/assets/gallery/black_hoodie.png" class="cartImg" />
       <div class="cartDet">

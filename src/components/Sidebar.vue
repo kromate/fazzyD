@@ -69,6 +69,16 @@ export default {
       }
     },
   },
+  computed: {
+    changes() {
+      return this.$store.state.menu;
+    },
+  },
+  watch: {
+    changes() {
+      this.menu();
+    },
+  },
 };
 </script>
 

@@ -5,6 +5,7 @@ const Cart = () => import('@/views/Cart.vue')
 const Checkout = () => import('@/views/Checkout.vue')
 const Order = () => import('@/views/Order.vue')
 const Login = () => import('@/views/Login.vue')
+const Signup = () => import('@/views/Signup.vue')
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: Signup
   },
 
 ]

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <img src="@/assets/logo.jpeg" alt="" class="logo" />
-    <h1>Login</h1>
+    <h1>Sign Up</h1>
     <div>
       <form action="">
         <div class="inputBox">
@@ -13,7 +13,7 @@
           <input type="password" id="password" placeholder="Enter Your Password" />
         </div>
         <div class="inputBox end flex">
-          <p class="bright" @click="$router.push('signup')">Create an Account ?</p>
+          <p class="bright point" @click="$router.push('login')">Already have an Account ?</p>
         </div>
       </form>
       <p class="or">OR</p>

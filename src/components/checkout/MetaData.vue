@@ -33,6 +33,7 @@ export default {
   padding: 10px;
   width: 500px;
   max-width: 95vw;
+  max-height: 300px;
 }
 .inputBox {
   margin-top: 15px;

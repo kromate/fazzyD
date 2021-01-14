@@ -76,4 +76,15 @@ option {
   border: none;
   outline: none;
 }
+@media (max-width: 700px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .metaData {
+    margin-bottom: 1rem;
+  }
+}
 </style>

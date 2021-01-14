@@ -1,6 +1,6 @@
 <template>
   <Navbar />
-  <Notifications v-if="false" />
+  <Notifications />
   <router-view />
 </template>
 

@@ -3,6 +3,8 @@ const Home = () => import('@/views/Home.vue')
 const Details = () => import('@/views/Details.vue')
 const Cart = () => import('@/views/Cart.vue')
 const Checkout = () => import('@/views/Checkout.vue')
+const Order = () => import('@/views/Order.vue')
+const Login = () => import('@/views/Login.vue')
 
 const routes = [
   {
@@ -24,6 +26,16 @@ const routes = [
     path: '/checkout',
     name: 'Checkout',
     component: Checkout
+  },
+  {
+    path: '/order',
+    name: 'Order',
+    component: Order
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
 
 ]

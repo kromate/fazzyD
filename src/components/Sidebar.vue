@@ -27,6 +27,18 @@
             <p>Home</p>
           </div>
         </router-link>
+        <router-link class="box" to="/cart" style="margin: 1rem;">
+          <div class="navCase">
+            <img src="@/assets/icon/Buy.svg" alt="" />
+            <p>Cart</p>
+          </div>
+        </router-link>
+        <router-link class="box" to="/custom_order" style="margin: 1rem;">
+          <div class="navCase">
+            <img src="@/assets/icon/Buy.svg" alt="" />
+            <p>Custom Order</p>
+          </div>
+        </router-link>
         <router-link class="box" to="/favourite" style="margin: 1rem;">
           <div class="navCase">
             <img src="@/assets/icon/Heart.svg" alt="" />
@@ -37,12 +49,6 @@
           <div class="navCase">
             <img src="@/assets/icon/Category.svg" alt="" />
             <p>Gallery</p>
-          </div>
-        </router-link>
-        <router-link class="box" to="/cart" style="margin: 1rem;">
-          <div class="navCase">
-            <img src="@/assets/icon/Buy.svg" alt="" />
-            <p>Cart</p>
           </div>
         </router-link>
       </div>
@@ -102,7 +108,7 @@ h3 {
   margin: 0px 10px;
   padding: 0.8rem;
   border-radius: 3px;
-  width: 150px;
+  width: 180px;
   border: 1px solid #d79947;
 }
 

@@ -9,6 +9,7 @@ const Login = () => import('@/views/Login.vue')
 const Signup = () => import('@/views/Signup.vue')
 const Favourite = () => import('@/views/Favourite.vue')
 const Gallery = () => import('@/views/Gallery.vue')
+const Custom_order = () => import('@/views/Custom_order.vue')
 
 const routes = [
   {
@@ -55,6 +56,11 @@ const routes = [
     path: '/gallery',
     name: 'Gallery',
     component: Gallery
+  },
+  {
+    path: '/custom_order',
+    name: 'Custom_order',
+    component: Custom_order
   },
 
 ]

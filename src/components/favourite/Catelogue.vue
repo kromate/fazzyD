@@ -5,9 +5,8 @@
         <div class="item">
           <img :src="cat.img" alt="" class="custom" />
           <div class="flex">
-            <img src="@/assets/icon/Heart.svg" alt="" class="icon" />
+            <img src="@/assets/icon/Cancel_Heart.svg" alt="" class="icon" />
             <img src="@/assets/icon/addCart.svg" alt="" class="icon" />
-            <img src="@/assets/icon/share.svg" alt="" class="icon" />
           </div>
         </div>
         <p class="name">{{ cat.name }}</p>
@@ -41,8 +40,8 @@ export default {
 <style scoped>
 .flex {
   display: flex;
-  flex-direction: column;
-  align-items: baseline;
+  /* flex-direction: column; */
+  /* align-items: baseline; */
 }
 .item {
   width: 133.33px;
@@ -53,17 +52,17 @@ export default {
   padding: 4px;
   height: 22px;
   position: relative;
-  top: -105px;
-  right: -15px;
+  top: -40px;
+  right: -5px;
   cursor: pointer;
-  margin-bottom: 3px;
+  margin-right: 5px;
 }
 .name {
   /* text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 2px 2px rgba(206, 199, 184, 0.235); */
   font-size: 1rem;
   text-align: center;
   font-weight: 600;
-  margin-top: -5.5rem;
+  margin-top: -1.5rem;
   color: #d79947;
   text-decoration: dotted;
   width: 160px;

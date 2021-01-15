@@ -5,7 +5,7 @@
       <img src="@/assets/icon/close.svg" alt="" v-else />
     </div>
     <transition name="slide" appear>
-      <div class="sidebar fade" v-show="!sideNav.show">
+      <div class="sidebar fade" v-if="!sideNav.show">
         <div>
           <h3>Follow us on</h3>
           <div class="social">
@@ -68,6 +68,10 @@ export default {
         this.sideNav.sign = "close";
       }
     },
+    close() {
+      this.sideNav.sign = "menu";
+      this.sideNav.show = true;
+    },
   },
   computed: {
     changes() {
@@ -76,7 +80,7 @@ export default {
   },
   watch: {
     changes() {
-      this.menu();
+      this.close();
     },
   },
 };

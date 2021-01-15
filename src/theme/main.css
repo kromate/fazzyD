@@ -64,6 +64,10 @@ body {
   cursor: pointer;
 }
 
+img {
+  object-fit: contain;
+}
+
 @media (max-width: 600px) {
   .hide {
     display: none;

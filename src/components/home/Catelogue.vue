@@ -1,17 +1,17 @@
 <template>
-  <div class="container">
+  <div class="Hcontainer">
     <h1>Home</h1>
-    <div class="catCon">
-      <div v-for="(cat, index) in catelogue" :key="index" class="catItem">
-        <div class="item">
-          <img :src="cat.img" alt="" class="custom" />
+    <div class="HcatCon">
+      <div v-for="(cat, index) in catelogue" :key="index" class="HcatHitem">
+        <div class="Hitem">
+          <img :src="cat.img" alt="" class="Hcustom" />
           <div class="flex">
-            <img src="@/assets/icon/Heart.svg" alt="" class="icon" />
-            <img src="@/assets/icon/addCart.svg" alt="" class="icon" />
-            <img src="@/assets/icon/share.svg" alt="" class="icon" />
+            <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" />
+            <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" />
+            <img src="@/assets/icon/share.svg" alt="" class="Hicon" />
           </div>
         </div>
-        <p class="name">{{ cat.name }}</p>
+        <p class="Hname">{{ cat.name }}</p>
       </div>
     </div>
   </div>
@@ -45,21 +45,21 @@ export default {
   flex-direction: column;
   align-items: baseline;
 }
-.item {
+.Hitem {
   width: 133.33px;
 }
-.icon {
+.Hicon {
   background-color: rgba(0, 0, 0, 0.537);
   border-radius: 100%;
   padding: 4px;
   height: 22px;
   position: relative;
   top: -105px;
-  right: -15px;
+  right: -5px;
   cursor: pointer;
   margin-bottom: 3px;
 }
-.name {
+.Hname {
   /* text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 2px 2px rgba(206, 199, 184, 0.235); */
   font-size: 1.2rem;
   text-align: center;
@@ -68,15 +68,15 @@ export default {
   color: #d79947;
   text-decoration: dotted;
 }
-.catItem {
+.HcatHitem {
   margin: 12px 9px;
 }
-.catCon {
+.HcatCon {
   display: flex;
   flex-wrap: wrap;
   /* justify-content: center; */
 }
-.custom {
+.Hcustom {
   height: 200px;
   border-radius: 8px;
 }
@@ -88,7 +88,7 @@ h1 {
   margin-left: 24px;
   color: #d79947;
 }
-.container {
+.Hcontainer {
   display: flex;
   flex-direction: column;
 }

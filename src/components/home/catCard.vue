@@ -51,7 +51,7 @@ export default {
     flex-direction: row;
   }
 }
-label {
+.card {
   padding: 0px 0.8rem;
   background-color: black;
   color: #d79947;
@@ -64,7 +64,7 @@ label {
   height: 50px;
 }
 
-input {
+.card + input {
   display: none;
 }
 

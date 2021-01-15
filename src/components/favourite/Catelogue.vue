@@ -53,7 +53,7 @@ export default {
   height: 22px;
   position: relative;
   top: -40px;
-  right: -5px;
+  right: -15px;
   cursor: pointer;
   margin-right: 5px;
 }

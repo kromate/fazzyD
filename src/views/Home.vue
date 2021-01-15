@@ -28,14 +28,20 @@ img.caro {
   width: 700px;
   border-radius: 20px;
   max-width: 95vw;
-  height: 250px;
+  height: -webkit-fill-available;
 }
 
 .showcase {
+  background: black;
+  margin: 0 auto;
   margin-top: 2rem;
-  width: 100%;
+  border-radius: 10px;
+  width: 900px;
+  height: 270px;
+  max-width: 95vw;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .content {
   margin-top: 2rem;
@@ -59,6 +65,9 @@ img.caro {
   .gallery {
     margin-top: 0.7rem;
     margin-left: 0rem;
+  }
+  .showcase {
+    height: 180px;
   }
 }
 </style>

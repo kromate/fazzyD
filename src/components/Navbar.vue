@@ -3,22 +3,37 @@
     <img src="@/assets/NavLogo.svg" alt="" class="Navlogo" />
     <Sidebar class="Sidebar smShow" />
     <div class="menu smHide">
-      <div class="navCase">
-        <img src="@/assets/icon/Home.svg" alt="" />
-        <p>Home</p>
-      </div>
-      <div class="navCase">
-        <img src="@/assets/icon/Heart.svg" alt="" />
-        <p>Favourite</p>
-      </div>
-      <div class="navCase">
-        <img src="@/assets/icon/Category.svg" alt="" />
-        <p>Gallery</p>
-      </div>
-      <div class="navCase">
-        <img src="@/assets/icon/Buy.svg" alt="" />
-        <p>Cart</p>
-      </div>
+      <router-link class="box" to="/">
+        <div class="navCase">
+          <img src="@/assets/icon/Home.svg" alt="" />
+          <p>Home</p>
+        </div>
+      </router-link>
+
+      <router-link class="box" to="/cart">
+        <div class="navCase">
+          <img src="@/assets/icon/Buy.svg" alt="" />
+          <p>Cart</p>
+        </div>
+      </router-link>
+      <router-link class="box" to="/custom_order">
+        <div class="navCase">
+          <img src="@/assets/icon/Buy.svg" alt="" />
+          <p>Custom Order</p>
+        </div>
+      </router-link>
+      <router-link class="box" to="/favourite">
+        <div class="navCase">
+          <img src="@/assets/icon/Heart.svg" alt="" />
+          <p>Favourite</p>
+        </div>
+      </router-link>
+      <router-link class="box" to="/gallery">
+        <div class="navCase">
+          <img src="@/assets/icon/Category.svg" alt="" />
+          <p>Gallery</p>
+        </div>
+      </router-link>
     </div>
 
     <div class="social smHide">
@@ -44,6 +59,9 @@ export default {
 
 <style scoped>
 a {
+  text-decoration: none;
+}
+.social > a {
   width: 21px;
   margin: 0px 10px;
 }
@@ -53,20 +71,30 @@ a {
 .social {
   display: flex;
 }
+.router-link-exact-active.router-link-active > .navCase {
+  background: #000000;
+}
 .navCase {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0px 10px;
+  padding: 0.4rem;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.navCase:hover {
+  background-color: rgb(63, 43, 11);
 }
 .navCase img {
-  height: 22px;
-  margin-right: 10px;
+  height: 18px;
+  margin-right: 4px;
 }
 .navCase p {
   color: #d79947;
   letter-spacing: 2px;
-  font-size: 17px;
+  font-size: 12px;
 }
 
 nav {
@@ -84,6 +112,12 @@ nav {
   display: none;
 }
 
+@media (max-width: 900px) {
+  .social > a {
+    width: 18px;
+    margin: 0px 10px;
+  }
+}
 @media (max-width: 800px) {
   .smHide {
     display: none;

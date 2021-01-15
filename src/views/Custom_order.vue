@@ -73,11 +73,11 @@ select {
   width: 300px;
 }
 label {
-  display: block;
-  margin-bottom: 10px;
-  color: #d79947;
-  font-weight: 600;
-  font-size: 1rem;
+  display: block !important;
+  margin-bottom: 10px !important;
+  color: #d79947 !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
 }
 option {
   color: black;

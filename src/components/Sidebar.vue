@@ -136,9 +136,7 @@ h3 {
 a {
   width: 21px;
   margin: 0px 10px;
-}
-a {
-  text-decoration: none;
+    text-decoration: none;
   font-size: initial;
   color: inherit;
   text-align: center;
@@ -147,6 +145,7 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 
 .menu {
   box-shadow: 1px 4px 2px 0 rgba(0, 0, 0, 0.14), -3px 4px 1px -2px rgba(0, 0, 0, 0.12),

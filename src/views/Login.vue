@@ -13,8 +13,12 @@
           <input type="password" id="password" placeholder="Enter Your Password" />
         </div>
         <div class="inputBox end flex">
-          <p class="bright" @click="$router.push('signup')">Create an Account ?</p>
+          <p class="bright point" @click="$router.push('signup')">Create an Account ?</p>
         </div>
+
+        <button class="secondaryBtn btn" type="button">
+          Login
+        </button>
       </form>
       <p class="or">OR</p>
       <div class="social flex justify">
@@ -31,6 +35,9 @@ export default {};
 </script>
 
 <style scoped>
+.btn {
+  max-width: 200px;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -39,9 +46,10 @@ export default {};
   margin-bottom: 2rem;
 }
 .logo {
-  width: 130px;
-  height: 130px;
+  width: 130px !important;
+  height: 130px !important;
   margin: 0 auto;
+  object-fit: inherit !important;
   border-radius: 100%;
 }
 h1 {

@@ -3,7 +3,7 @@
     <img src="@/assets/NavLogo.svg" alt="" class="Navlogo" />
     <Sidebar class="Sidebar smShow" />
     <div class="menu smHide">
-      <router-link class="box" to="/">
+      <router-link class="box" to="/home">
         <div class="navCase">
           <img src="@/assets/icon/Home.svg" alt="" />
           <p>Home</p>

@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import store from '@/store';
+import firebase from "firebase/app";
+import "firebase/auth";
 const Home = () => import('@/views/Home.vue')
 const Details = () => import('@/views/Details.vue')
 const Cart = () => import('@/views/Cart.vue')
@@ -14,6 +16,10 @@ const Custom_order = () => import('@/views/Custom_order.vue')
 const routes = [
   {
     path: '/',
+    redirect: 'Home',
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -25,35 +31,53 @@ const routes = [
   {
     path: '/cart',
     name: 'Cart',
-    component: Cart
+    component: Cart,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/checkout',
     name: 'Checkout',
-    component: Checkout
+    component: Checkout,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/order',
     name: 'Order',
-    component: Order
+    component: Order,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    meta: {
+      requiresGuest: true
+    }
   },
   {
     path: '/signup',
     name: 'Signup',
-    component: Signup
+    component: Signup,
+    meta: {
+      requiresGuest: true
+    }
   },
   {
     path: '/favourite',
     name: 'Favourite',
-    component: Favourite
+    component: Favourite,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
-    path: '/gallery',
+    path: '/gallery', 
     name: 'Gallery',
     component: Gallery
   },
@@ -70,11 +94,24 @@ const router = createRouter({
   routes
 });
 
-router.beforeEach(async (to, from, next) => {
-  next(); 
-  console.log('object');
-    store.commit("changeMenu")
 
-})
+router.beforeEach(async (to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  if (requiresAuth && !(await firebase.getCurrentUser())) {
+    next({ name: "Login" });
+  } 
+  else if (
+    to.matched.some(record => record.meta.requiresGuest) &&
+    (await firebase.getCurrentUser())
+  ) {
+    next({
+      name: "Home"
+    });
+  }
+  else{
+    next(); 
+    store.commit("changeMenu")
+  }
+});
 
 export default router

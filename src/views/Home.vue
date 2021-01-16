@@ -1,7 +1,7 @@
 <template>
   <main>
     <section class="showcase">
-      <img src="@/assets/logo.jpeg" alt="" class="caro" />
+      <img src="@/assets/aboutUs.png" alt="" class="caro" />
     </section>
 
     <section class="content">

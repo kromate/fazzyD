@@ -1,6 +1,6 @@
 <template>
   <div class="Hcontainer">
-    <h1>Home</h1>
+    <h1>{{ title }}</h1>
     <div class="HcatCon">
       <div v-for="(cat, index) in catelogue" :key="index" class="HcatHitem">
         <div class="Hitem">
@@ -35,6 +35,11 @@ export default {
         { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
       ],
     };
+  },
+  computed: {
+    title() {
+      return this.$store.state.homeCategoryView;
+    },
   },
 };
 </script>

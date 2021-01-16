@@ -15,7 +15,7 @@ const firebaseConfig = {
     // authDomain: process.env.VUE_APP_AUTH_DOMAIN,
     // databaseURL: process.env.VUE_APP_DATABASE_URL,
     // projectId: process.env.VUE_APP_PROJECT_ID,
-    // storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+    // storageBucket : process.env.VUE_APP_STORAGE_BUCKET,
     // messagingSenderId: process.env.VUE_APP_MESSAGE_ID,
     // appId: process.env.VUE_APP_APP_ID,
     // measurementId: process.env.VUE_APP_MEASURE_ID

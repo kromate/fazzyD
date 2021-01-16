@@ -1,7 +1,11 @@
 <template>
   <div class="catCardCont">
     <div v-for="(card, index) in cardsIcon" :key="index">
-      <label :for="card.name" class="card">
+      <label
+        :for="card.name"
+        @click="changeCard(card.name)"
+        :class="[selected == card.name ? 'select' : '', 'card']"
+      >
         {{ card.name }}
         <img :src="card.img" alt="" />
       </label>
@@ -9,7 +13,11 @@
     </div>
 
     <div v-for="(card, index) in cardsImage" :key="index">
-      <label :for="card.name" class="card">
+      <label
+        :for="card.name"
+        @click="changeCard(card.name)"
+        :class="[selected == card.name ? 'select' : '', 'card']"
+      >
         {{ card.name }}
         <img :src="card.img" alt="" class="custom" />
       </label>
@@ -34,10 +42,25 @@ export default {
       ],
     };
   },
+  computed: {
+    selected() {
+      return this.$store.state.homeCategoryView;
+    },
+  },
+  methods: {
+    changeCard(data) {
+      this.$store.commit("changeHomeCategoryView", data);
+    },
+  },
 };
 </script>
 
 <style scooped>
+.select {
+  background: #794807d2 !important;
+  color: black !important;
+  font-weight: 600;
+}
 .catCardCont {
   display: flex;
   flex-wrap: wrap;
@@ -62,6 +85,7 @@ export default {
   border-radius: 7px;
   width: 110px;
   height: 50px;
+  cursor: pointer;
 }
 
 .card + input {

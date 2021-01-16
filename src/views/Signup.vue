@@ -15,6 +15,10 @@
         <div class="inputBox end flex">
           <p class="bright point" @click="$router.push('login')">Already have an Account ?</p>
         </div>
+
+        <button class="secondaryBtn btn">
+          Sign Up
+        </button>
       </form>
       <p class="or">OR</p>
       <div class="social flex justify">
@@ -31,6 +35,9 @@ export default {};
 </script>
 
 <style scoped>
+.btn {
+  max-width: 200px;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -39,9 +46,10 @@ export default {};
   margin-bottom: 2rem;
 }
 .logo {
-  width: 130px;
-  height: 130px;
+  width: 130px !important;
+  height: 130px !important;
   margin: 0 auto;
+  object-fit: inherit !important;
   border-radius: 100%;
 }
 h1 {

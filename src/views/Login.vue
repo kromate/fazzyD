@@ -29,9 +29,9 @@
       </form>
       <p class="or">OR</p>
       <div class="social flex justify">
-        <img src="@/assets/social/facebook.svg" alt="" />
-        <img src="@/assets/social/twitter.svg" alt="" />
-        <img src="@/assets/social/insta.svg" alt="" />
+        <img src="@/assets/social/insta.svg" alt="" @click="google()" />
+        <img src="@/assets/social/twitter.svg" alt="" @click="twitter()" />
+        <img src="@/assets/social/facebook.svg" alt="" @click="facebook()" />
       </div>
     </div>
   </div>
@@ -51,6 +51,58 @@ export default {
   },
 
   methods: {
+    google() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(() => {
+          const user = firebase.auth().currentUser;
+          this.$store.commit("loginUser", user);
+          this.$router.push({ path: "/home" });
+        })
+        .catch((error) => {
+          this.loader = false;
+          console.log(error.message);
+          this.Error = error.message;
+        });
+    },
+    twitter() {
+      const provider = new firebase.auth.TwitterAuthProvider();
+
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(() => {
+          const user = firebase.auth().currentUser;
+          this.$store.commit("loginUser", user);
+          this.$router.push({ path: "/home" });
+        })
+        .catch((error) => {
+          this.loader = false;
+          console.log(error.message);
+          this.Error = error.message;
+        });
+    },
+    facebook() {
+      const provider = new firebase.auth.FacebookAuthProvider();
+
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(() => {
+          const user = firebase.auth().currentUser;
+          this.$store.commit("loginUser", user);
+          this.$router.push({ path: "/home" });
+        })
+        .catch((error) => {
+          this.loader = false;
+          console.log(error.message);
+          this.Error = error.message;
+        });
+    },
+
     handleSubmit() {
       this.loader = true;
       console.log(this.email, this.password);

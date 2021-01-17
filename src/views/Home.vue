@@ -1,8 +1,6 @@
 <template>
   <main>
-    <section class="showcase">
-      <img src="@/assets/aboutUs.png" alt="" class="caro" />
-    </section>
+    <Carousel />
 
     <section class="content">
       <div class="categories">
@@ -18,31 +16,13 @@
 <script>
 import CatCard from "@/components/home/catCard.vue";
 import Catelogue from "@/components/home/Catelogue.vue";
+import Carousel from "@/components/home/Carousel.vue";
 export default {
   name: "Home",
-  components: { CatCard, Catelogue },
+  components: { CatCard, Catelogue, Carousel },
 };
 </script>
 <style scoped>
-img.caro {
-  width: 700px;
-  border-radius: 20px;
-  max-width: 95vw;
-  height: -webkit-fill-available;
-}
-
-.showcase {
-  background: black;
-  margin: 0 auto;
-  margin-top: 2rem;
-  border-radius: 10px;
-  width: 900px;
-  height: 270px;
-  max-width: 95vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .content {
   margin-top: 2rem;
   display: flex;

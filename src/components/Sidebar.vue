@@ -51,12 +51,19 @@
             <p>Gallery</p>
           </div>
         </router-link>
+
+        <div class="navCase" @click="signOut">
+          <img src="@/assets/icon/Category.svg" alt="" />
+          <p>Sign Out</p>
+        </div>
       </div>
     </transition>
   </div>
 </template>
 
 <script>
+import firebase from "firebase/app";
+import "firebase/auth";
 export default {
   name: "Menu",
   data() {
@@ -66,6 +73,15 @@ export default {
     };
   },
   methods: {
+    signOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$store.commit("logOut");
+          this.$router.go({ path: "login" });
+        });
+    },
     menu() {
       this.sideNav.show = !this.sideNav.show;
       if (this.sideNav.sign == "close") {

@@ -3,20 +3,27 @@
     <img src="@/assets/logo.jpeg" alt="" class="logo" />
     <h1>Login</h1>
     <div>
-      <form action="">
+      <p class="err">{{ Error }}</p>
+      <form @submit.prevent="handleSubmit">
         <div class="inputBox">
           <label for="email">EMAIL</label>
-          <input type="email" id="email" placeholder="Enter Your Email" />
+          <input type="email" id="email" placeholder="Enter Your Email" v-model="email" required />
         </div>
         <div class="inputBox">
           <label for="password">PASSWORD</label>
-          <input type="password" id="password" placeholder="Enter Your Password" />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Your Password"
+            v-model="password"
+            required
+          />
         </div>
         <div class="inputBox end flex">
           <p class="bright point" @click="$router.push('signup')">Create an Account ?</p>
         </div>
 
-        <button class="secondaryBtn btn" type="button">
+        <button class="secondaryBtn btn">
           Login
         </button>
       </form>
@@ -31,10 +38,45 @@
 </template>
 
 <script>
-export default {};
+import firebase from "firebase/app";
+import "firebase/auth";
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+      Error: "",
+      loader: false,
+    };
+  },
+
+  methods: {
+    handleSubmit() {
+      this.loader = true;
+      console.log(this.email, this.password);
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          const user = firebase.auth().currentUser;
+          this.$store.commit("loginUser", user);
+          this.$router.push({ path: "/home" });
+        })
+        .catch((error) => {
+          this.loader = false;
+          console.log(error.message);
+          this.Error = error.message;
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
+.err {
+  text-align: center;
+  color: red;
+}
 .btn {
   max-width: 200px;
 }

@@ -24,7 +24,7 @@ export default {
   name: "Notification",
   data() {
     return {
-      showModal: true,
+      showModal: false,
       text: "Item Successfully Added to Favourite",
     };
   },

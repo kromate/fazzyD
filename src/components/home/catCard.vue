@@ -19,7 +19,8 @@
         :class="[selected == card.name ? 'select' : '', 'card']"
       >
         {{ card.name }}
-        <img :src="card.img" alt="" class="custom" />
+        <img :src="card.img" alt="" class="custom" v-if="loaded" />
+        <Loader w="32.02" h="50" b="8" v-else class="custom" />
       </label>
       <input type="radio" :id="card.name" :value="card.name" name="item" />
     </div>
@@ -27,10 +28,14 @@
 </template>
 
 <script>
+import Loader from "@/components/Loader.vue";
 export default {
+  components: { Loader },
   name: "catCard",
   data() {
     return {
+      inter: "",
+      loaded: false,
       cardsIcon: [
         { name: "Home", img: require("@/assets/icon/Home.svg") },
         { name: "Popular", img: require("@/assets/icon/Star.svg") },
@@ -51,6 +56,23 @@ export default {
     changeCard(data) {
       this.$store.commit("changeHomeCategoryView", data);
     },
+
+    show() {
+      this.inter = setInterval(() => {
+        this.imgLoad();
+      }, 1000);
+    },
+    imgLoad() {
+      var image = document.querySelector("img");
+      console.log(image.complete);
+      if (image.complete && image.naturalHeight >= 0) {
+        this.loaded = true;
+        clearInterval(this.inter);
+      }
+    },
+  },
+  mounted() {
+    this.show();
   },
 };
 </script>

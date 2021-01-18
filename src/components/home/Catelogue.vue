@@ -4,7 +4,8 @@
     <div class="HcatCon">
       <div v-for="(cat, index) in catelogue" :key="index" class="HcatHitem">
         <div class="Hitem">
-          <img :src="cat.img" alt="" class="Hcustom" />
+          <img :src="cat.img" alt="" class="Hcustom" v-if="loaded" />
+          <Loader w="133.39" h="200" b="8" v-else />
           <div class="flex">
             <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" />
             <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" />
@@ -18,10 +19,14 @@
 </template>
 
 <script>
+import Loader from "@/components/Loader.vue";
 export default {
-  name: "catelogue",
+  components: { Loader },
+  name: "homeCatelogue",
   data() {
     return {
+      loaded: false,
+      inter: "",
       catelogue: [
         { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
         { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
@@ -36,10 +41,28 @@ export default {
       ],
     };
   },
+  methods: {
+    show() {
+      this.inter = setInterval(() => {
+        this.imgLoad();
+      }, 1000);
+    },
+    imgLoad() {
+      var image = document.querySelector("img");
+      console.log(image.complete);
+      if (image.complete && image.naturalHeight >= 0) {
+        this.loaded = true;
+        clearInterval(this.inter);
+      }
+    },
+  },
   computed: {
     title() {
       return this.$store.state.homeCategoryView;
     },
+  },
+  mounted() {
+    this.show();
   },
 };
 </script>
@@ -79,7 +102,11 @@ export default {
 .HcatCon {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
+}
+@media (max-width: 500px) {
+  .HcatCon {
+    justify-content: center;
+  }
 }
 .Hcustom {
   height: 200px;

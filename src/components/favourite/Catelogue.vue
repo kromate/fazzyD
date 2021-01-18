@@ -3,7 +3,8 @@
     <div class="catCon">
       <div v-for="(cat, index) in catelogue" :key="index" class="catItem">
         <div class="item">
-          <img :src="cat.img" alt="" class="custom" />
+          <img :src="cat.img" alt="" class="custom" v-if="loaded" />
+          <Loader w="133.39" h="200" b="8" v-else />
           <div class="flex">
             <img src="@/assets/icon/Cancel_Heart.svg" alt="" class="icon" />
             <img src="@/assets/icon/addCart.svg" alt="" class="icon" />
@@ -16,10 +17,14 @@
 </template>
 
 <script>
+import Loader from "@/components/Loader.vue";
 export default {
-  name: "catelogue",
+  components: { Loader },
+  name: "Favcatelogue",
   data() {
     return {
+      loaded: false,
+      inter: "",
       catelogue: [
         { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
         { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
@@ -33,6 +38,24 @@ export default {
         { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
       ],
     };
+  },
+  methods: {
+    show() {
+      this.inter = setInterval(() => {
+        this.imgLoad();
+      }, 1000);
+    },
+    imgLoad() {
+      var image = document.querySelector("img");
+      console.log(image.complete);
+      if (image.complete && image.naturalHeight >= 0) {
+        this.loaded = true;
+        clearInterval(this.inter);
+      }
+    },
+  },
+  mounted() {
+    this.show();
   },
 };
 </script>
@@ -68,12 +91,14 @@ export default {
   width: 160px;
 }
 .catItem {
-  margin: 12px 0px;
+  margin: 12px;
+  width: 133.09px;
 }
 .catCon {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 90vw;
 }
 .custom {
   height: 200px;

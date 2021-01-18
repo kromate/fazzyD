@@ -15,8 +15,7 @@ export default {
     };
   },
   methods: {
-    autoSlide: function() {
-      console.log("auto");
+    autoSlide() {
       setInterval(() => {
         this.incrementImage();
       }, 4000);

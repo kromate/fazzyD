@@ -3,35 +3,57 @@
     <h1 class="title">Gallery</h1>
 
     <div class="gallery">
-      <div class="gallery-item">
-        <img class="gallery-image" src="@/assets/gallery/black_hoodie.png" />
-      </div>
-
-      <div class="gallery-item">
-        <img class="gallery-image" src="@/assets/gallery/trousers.png" />
-      </div>
-
-      <div class="gallery-item">
-        <img class="gallery-image" src="@/assets/gallery/f_crop.png" />
-      </div>
-
-      <div class="gallery-item">
-        <img class="gallery-image" src="@/assets/gallery/sf_crop.png" />
-      </div>
-
-      <div class="gallery-item">
-        <img class="gallery-image" src="@/assets/gallery/white_hoodie.png" />
-      </div>
-
-      <div class="gallery-item">
-        <img class="gallery-image" src="@/assets/gallery/brown_hoodie.png" />
+      <div class="gallery-item" v-for="(cat, index) in catelogue" :key="index">
+        <img class="gallery-image" :src="cat.img" v-if="loaded" />
+        <Loader w="250" h="375" b="0" v-else />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Loader from "@/components/Loader.vue";
+export default {
+  components: { Loader },
+  name: "gallery",
+  data() {
+    return {
+      loaded: false,
+      inter: "",
+      catelogue: [
+        { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
+        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
+        { name: "Zylo", img: require("@/assets/gallery/f_crop.png") },
+        { name: "Crops", img: require("@/assets/gallery/sf_crop.png") },
+        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
+        { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
+        { name: "Crops", img: require("@/assets/gallery/sf_crop.png") },
+        { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
+        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
+        { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
+      ],
+    };
+  },
+
+  methods: {
+    show() {
+      this.inter = setInterval(() => {
+        this.imgLoad();
+      }, 1000);
+    },
+    imgLoad() {
+      var image = document.querySelector("img");
+      console.log(image.complete);
+      if (image.complete && image.naturalHeight >= 0) {
+        this.loaded = true;
+        clearInterval(this.inter);
+      }
+    },
+  },
+  mounted() {
+    this.show();
+  },
+};
 </script>
 
 <style scoped>

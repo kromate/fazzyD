@@ -1,8 +1,10 @@
 <template>
-  <div class="notify flex">
-    <img src="@/assets/icon/Heart.svg" class="icon" />
-    <p>{{ text }}</p>
-  </div>
+  <transition name="slide" appear>
+    <div class="notify flex" v-if="showNotify">
+      <img src="@/assets/icon/Heart.svg" class="icon" />
+      <p>{{ notifyText }}</p>
+    </div>
+  </transition>
 
   <transition name="slide" appear>
     <div class="bg" v-if="showModal" @click="close()">
@@ -25,8 +27,20 @@ export default {
   data() {
     return {
       showModal: false,
-      text: "Item Successfully Added to Favourite",
     };
+  },
+  computed: {
+    notifyText() {
+      return this.$store.state.showNotifyText;
+    },
+    showNotify() {
+      return this.$store.state.showNotify;
+    },
+  },
+  watch: {
+    showNotify() {
+      this.close();
+    },
   },
   methods: {
     close() {
@@ -47,7 +61,6 @@ export default {
   z-index: 100000;
   border-radius: 7px;
   color: #d79947;
-  display: none;
 }
 .icon {
   height: 20px;

@@ -2,12 +2,18 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    showNotify:false,
+    showNotifyText: "Item Successfully Added to Favourite",
     menu:false,
     user: JSON.parse(localStorage.getItem('user')),
     verified:localStorage.getItem("verified"),
     homeCategoryView:'Home'
   },
   mutations: {
+
+    closeShowNotify(state){
+        state.showNotify = false
+    },
     changeHomeCategoryView(state, payload){
       state.homeCategoryView = payload
     },

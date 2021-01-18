@@ -67,6 +67,8 @@ body {
 
 img {
   object-fit: contain;
+  transform-origin: 0 0;
+  transform: rotate(360deg);
 }
 
 @media (max-width: 600px) {

@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="flex">
-      <button class="secondaryBtn btn">PAY</button>
+      <button class="secondaryBtn btn" @click="pay">PAY</button>
     </div>
   </div>
 </template>
@@ -32,6 +32,7 @@ export default {
   name: "Subcart",
   data() {
     return {
+      PBFKey: "FLWPUBK_TEST-844a741225fb004d23aa57060bb9e28a-X",
       priceDetails: [
         { name: "Subtotal:", detail: "$ 60" },
         { name: "Delivery Fees:", detail: "$ 10" },
@@ -39,6 +40,30 @@ export default {
       ],
     };
   },
+  // methods: {
+  //   pay() {
+  //     getpaidSetup({
+  //       PBFPubKey: this.PBFKey,
+  //       customer_email: "email",
+  //       customer_firstname: "fullName",
+  //       amount: 2500,
+  //       customer_phone: "phone",
+  //       payment_method: "card,account,ussd",
+  //       country: "NG",
+  //       currency: "NGN",
+  //       txref: "txRef", // Pass your UNIQUE TRANSACTION REFERENCE HERE.
+  //       onclose: function() {},
+  //       callback: function(response) {
+  //         console.log("This is the response returned after a charge", response);
+  //         if (response.tx.chargeResponse == "00" || response.tx.chargeResponse == "0") {
+  //           // redirect to a success page
+  //         } else {
+  //           // redirect to a failure page.
+  //         }
+  //       },
+  //     });
+  //   },
+  // },
 };
 </script>
 

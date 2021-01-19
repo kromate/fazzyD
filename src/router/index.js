@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import store from '@/store';
-import firebase from "firebase/app";
+// import store from '@/store';
+// import firebase from "firebase/app";
 import "firebase/auth";
 const Home = () => import('@/views/Home.vue')
 const Details = () => import('@/views/Details.vue')
@@ -95,23 +95,23 @@ const router = createRouter({
 });
 
 
-router.beforeEach(async (to, from, next) => {
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  if (requiresAuth && !(await firebase.getCurrentUser())) {
-    next({ name: "Login" });
-  } 
-  else if (
-    to.matched.some(record => record.meta.requiresGuest) &&
-    (await firebase.getCurrentUser())
-  ) {
-    next({
-      name: "Home"
-    });
-  }
-  else{
-    next(); 
-    store.commit("changeMenu")
-  }
-});
+// router.beforeEach(async (to, from, next) => {
+//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+//   if (requiresAuth && !(await firebase.getCurrentUser())) {
+//     next({ name: "Login" });
+//   } 
+//   else if (
+//     to.matched.some(record => record.meta.requiresGuest) &&
+//     (await firebase.getCurrentUser())
+//   ) {
+//     next({
+//       name: "Home"
+//     });
+//   }
+//   else{
+//     next(); 
+//     store.commit("changeMenu")
+//   }
+// });
 
 export default router

@@ -11,6 +11,13 @@ export default createStore({
   },
   mutations: {
 
+    ShowNotify(state){
+        state.showNotify = true
+
+        setTimeout(() => {
+          this.closeShowNotify();
+        }, 2000);
+    },
     closeShowNotify(state){
         state.showNotify = false
     },

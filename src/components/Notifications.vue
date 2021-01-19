@@ -101,7 +101,7 @@ h2 {
   transition: transform 0.5s;
 }
 
-.slide-enter,
+.slide-enter-from,
 .slide-leave-to {
   transform: scale(0);
 }

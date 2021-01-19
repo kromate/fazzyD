@@ -7,7 +7,7 @@
           <img :src="cat.img" alt="" class="Hcustom" v-if="loaded" />
           <Loader w="133.39" h="200" b="8" v-else />
           <div class="flex">
-            <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" />
+            <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" @click="favourite" />
             <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" />
             <img src="@/assets/icon/share.svg" alt="" class="Hicon" />
           </div>
@@ -42,6 +42,9 @@ export default {
     };
   },
   methods: {
+    favourite() {
+      this.$store.commit("ShowNotify");
+    },
     show() {
       this.inter = setInterval(() => {
         this.imgLoad();

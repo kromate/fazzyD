@@ -3,14 +3,27 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     showNotify:false,
-    showNotifyText: "Item Successfully Added to Favourite",
+    showNotifyImage:'',
+    showNotifyText: "",
     menu:false,
     user: JSON.parse(localStorage.getItem('user')),
     homeCategoryView:'Home'
   },
   mutations: {
 
-    ShowNotify(state){
+    ShowNotifyFav(state){
+        state.showNotifyImage = require("@/assets/icon/Heart.svg")
+        state.showNotifyText = "Item Successfully Added to Favourite"
+        state.showNotify = true
+
+        setTimeout(() => {
+          state.showNotify = false
+        }, 1000);
+    },
+
+    ShowNotifyCart(state){
+        state.showNotifyImage = require("@/assets/icon/Buy.svg")
+        state.showNotifyText = "Item Successfully Added to Cart"
         state.showNotify = true
 
         setTimeout(() => {

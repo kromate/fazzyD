@@ -1,7 +1,7 @@
 <template>
   <transition name="slide" appear>
     <div class="notify flex" v-if="showNotify">
-      <img src="@/assets/icon/Heart.svg" class="icon" />
+      <img :src="notifyImage" class="icon" />
       <p>{{ notifyText }}</p>
     </div>
   </transition>
@@ -30,6 +30,9 @@ export default {
     };
   },
   computed: {
+    notifyImage() {
+      return this.$store.state.showNotifyImage;
+    },
     notifyText() {
       return this.$store.state.showNotifyText;
     },
@@ -59,8 +62,9 @@ export default {
   top: 12px;
   right: 5px;
   z-index: 100000;
-  border-radius: 7px;
+  border-radius: 4px;
   color: #d79947;
+  border: 1px solid goldenrod;
 }
 .icon {
   height: 20px;

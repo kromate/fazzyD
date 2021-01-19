@@ -8,7 +8,7 @@
           <Loader w="133.39" h="200" b="8" v-else />
           <div class="flex">
             <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" @click="favourite" />
-            <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" />
+            <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" @click="cart" />
             <img src="@/assets/icon/share.svg" alt="" class="Hicon" />
           </div>
         </div>
@@ -42,8 +42,11 @@ export default {
     };
   },
   methods: {
+    cart() {
+      this.$store.commit("ShowNotifyCart");
+    },
     favourite() {
-      this.$store.commit("ShowNotify");
+      this.$store.commit("ShowNotifyFav");
     },
     show() {
       this.inter = setInterval(() => {

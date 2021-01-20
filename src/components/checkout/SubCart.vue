@@ -22,48 +22,58 @@
       </div>
     </div>
     <div class="flex">
-      <button class="secondaryBtn btn" @click="pay">PAY</button>
+      <flutterwave
+        :isProduction="isProduction"
+        :name="customer.name"
+        :email="customer.email"
+        :amount="price"
+        :reference="reference"
+        :flw-key="flwKey"
+        :callback="callback"
+        :close="close"
+        :currency="currency"
+        :country="country"
+        :custom_title="customizations.title"
+        :custom_logo="customizations.logo"
+        :payment_method="paymentMethod"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import Flutterwave from "@/components/FlutterwaveModal.vue";
 export default {
   name: "Subcart",
+  components: {
+    Flutterwave,
+  },
   data() {
     return {
-      PBFKey: "FLWPUBK_TEST-844a741225fb004d23aa57060bb9e28a-X",
+      price: "9000",
+      PBkey: process.env.VUE_APP_FLUTTERWAVE_TEST_KEY,
       priceDetails: [
         { name: "Subtotal:", detail: "$ 60" },
         { name: "Delivery Fees:", detail: "$ 10" },
         { name: "Total:", detail: "$ 70" },
       ],
+
+      isProduction: false,
+      flwKey: this.PBkey,
+      amount: "",
+      currency: "NGN",
+      country: "NG",
+      customer: {
+        name: "Ugwu Raphael",
+        email: "ugwuraph@gmail.com",
+      },
+      customizations: {
+        title: "Car Shop",
+        description: "Payment for car service",
+      },
+      paymentMethod: "",
     };
   },
-  // methods: {
-  //   pay() {
-  //     getpaidSetup({
-  //       PBFPubKey: this.PBFKey,
-  //       customer_email: "email",
-  //       customer_firstname: "fullName",
-  //       amount: 2500,
-  //       customer_phone: "phone",
-  //       payment_method: "card,account,ussd",
-  //       country: "NG",
-  //       currency: "NGN",
-  //       txref: "txRef", // Pass your UNIQUE TRANSACTION REFERENCE HERE.
-  //       onclose: function() {},
-  //       callback: function(response) {
-  //         console.log("This is the response returned after a charge", response);
-  //         if (response.tx.chargeResponse == "00" || response.tx.chargeResponse == "0") {
-  //           // redirect to a success page
-  //         } else {
-  //           // redirect to a failure page.
-  //         }
-  //       },
-  //     });
-  //   },
-  // },
 };
 </script>
 
@@ -126,10 +136,7 @@ h1 {
   font-size: 0.8rem !important;
   background: #5e45138c;
 }
-.btn {
-  font-size: 1.3rem;
-  font-weight: 700;
-}
+
 @media (max-width: 700px) {
   .subCart {
     width: 95%;

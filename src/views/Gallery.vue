@@ -31,6 +31,9 @@ export default {
         { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
         { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
         { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
+        { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
+        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
+        { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
       ],
     };
   },

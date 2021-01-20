@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Loader from "../../components/Loader.vue";
+import Loader from "@/components/imgLoader.vue";
 export default {
   components: { Loader },
   name: "catCard",

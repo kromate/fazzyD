@@ -25,6 +25,7 @@ export default {
   max-height: 500px;
   align-items: flex-start;
   margin-bottom: 1rem;
+  display: none;
 }
 .casing img {
   margin: 2px 4px;

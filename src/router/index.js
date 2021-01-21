@@ -12,8 +12,9 @@ const Signup = () => import('@/views/Signup.vue')
 const Favourite = () => import('@/views/Favourite.vue')
 const Gallery = () => import('@/views/Gallery.vue')
 const Custom_order = () => import('@/views/Custom_order.vue')
-
+import admin from './admin.js'
 const routes = [
+  ...admin,
   {
     path: '/',
     redirect: 'Home',

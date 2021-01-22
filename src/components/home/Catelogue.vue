@@ -2,7 +2,7 @@
   <div class="Hcontainer">
     <h1>{{ title }}</h1>
     <div class="HcatCon">
-      <div v-if="catelogue.length">
+      <div class="HcatCon" v-if="catelogue.length">
         <div v-for="(cat, index) in catelogue" :key="index" class="HcatHitem">
           <div class="Hitem">
             <img :src="cat.img" alt="" class="Hcustom" v-if="loaded" />

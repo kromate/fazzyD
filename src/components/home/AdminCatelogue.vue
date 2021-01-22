@@ -8,9 +8,7 @@
             <img :src="cat.img" alt="" class="Hcustom" v-if="loaded" />
             <Loader w="133.39" h="200" b="8" v-else />
             <div class="flex">
-              <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" @click="favourite" />
-              <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" @click="cart" />
-              <img src="@/assets/icon/share.svg" alt="" class="Hicon" />
+              <img src="@/assets/icon/Delete.svg" alt="" class="Hicon" @click="Delete(cat.id)" />
             </div>
           </div>
           <p class="Hname">{{ cat.name }}</p>
@@ -29,6 +27,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
 import Loader from "@/components/imgLoader.vue";
+const storageReference = firebase.storage().ref();
 export default {
   components: { Loader },
   name: "homeCatelogue",
@@ -40,8 +39,33 @@ export default {
     };
   },
   methods: {
+    Delete(id) {
+      this.catelogue = [];
+      firebase
+        .firestore()
+        .collection("collection")
+        .doc(id)
+        .delete()
+        .then(() => {
+          console.log("Document successfully deleted!");
+
+          storageReference
+            .child("collection/" + id)
+            .delete()
+            .then(() => {
+              this.init();
+            })
+            .catch((error) => {
+              console.log(error);
+              alert("Error removing document: ", error);
+            });
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Error removing document: ", error);
+        });
+    },
     loadData(querySnapshot) {
-      const storageReference = firebase.storage().ref();
       querySnapshot.forEach((doc) => {
         const document = doc.data();
         storageReference
@@ -66,6 +90,7 @@ export default {
       console.log(this.catelogue);
     },
     init() {
+      this.catelogue = [];
       firebase
         .firestore()
         .collection("collection")
@@ -74,6 +99,7 @@ export default {
         .endAt(this.title + "\uf8ff")
         .onSnapshot((querySnapshot) => {
           if (!querySnapshot.empty) {
+            this.catelogue = [];
             this.loadData(querySnapshot);
           } else {
             console.log("empty array ooo");
@@ -84,12 +110,7 @@ export default {
       //   this.loadData(querySnapshot);
       // });
     },
-    cart() {
-      this.$store.commit("ShowNotifyCart");
-    },
-    favourite() {
-      this.$store.commit("ShowNotifyFav");
-    },
+
     show() {
       this.inter = setInterval(() => {
         this.imgLoad();
@@ -137,7 +158,7 @@ export default {
   padding: 4px;
   height: 22px;
   position: relative;
-  top: -105px;
+  top: -39px;
   right: -5px;
   cursor: pointer;
   margin-bottom: 3px;
@@ -153,7 +174,7 @@ export default {
   font-size: 1.2rem;
   text-align: center;
   font-weight: 600;
-  margin-top: -5.5rem;
+  margin-top: -1.5rem;
   color: #d79947;
   text-decoration: dotted;
 }

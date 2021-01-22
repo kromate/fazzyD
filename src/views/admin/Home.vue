@@ -1,7 +1,5 @@
 <template>
   <main>
-    <Carousel />
-
     <section class="content">
       <div class="categories">
         <CatCard />
@@ -15,11 +13,10 @@
 
 <script>
 import CatCard from "@/components/home/catCard.vue";
-import Catelogue from "@/components/home/Catelogue.vue";
-import Carousel from "@/components/home/Carousel.vue";
+import Catelogue from "@/components/home/AdminCatelogue.vue";
 export default {
   name: "Home",
-  components: { CatCard, Catelogue, Carousel },
+  components: { CatCard, Catelogue },
 };
 </script>
 <style scoped>

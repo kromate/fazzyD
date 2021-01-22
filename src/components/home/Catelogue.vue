@@ -2,17 +2,23 @@
   <div class="Hcontainer">
     <h1>{{ title }}</h1>
     <div class="HcatCon">
-      <div v-for="(cat, index) in catelogue" :key="index" class="HcatHitem">
-        <div class="Hitem">
-          <img :src="cat.img" alt="" class="Hcustom" v-if="loaded" />
-          <Loader w="133.39" h="200" b="8" v-else />
-          <div class="flex">
-            <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" @click="favourite" />
-            <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" @click="cart" />
-            <img src="@/assets/icon/share.svg" alt="" class="Hicon" />
+      <div v-if="catelogue.length">
+        <div v-for="(cat, index) in catelogue" :key="index" class="HcatHitem">
+          <div class="Hitem">
+            <img :src="cat.img" alt="" class="Hcustom" v-if="loaded" />
+            <Loader w="133.39" h="200" b="8" v-else />
+            <div class="flex">
+              <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" @click="favourite" />
+              <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" @click="cart" />
+              <img src="@/assets/icon/share.svg" alt="" class="Hicon" />
+            </div>
           </div>
+          <p class="Hname">{{ cat.name }}</p>
         </div>
-        <p class="Hname">{{ cat.name }}</p>
+      </div>
+      <div v-else>
+        <Loader w="133.39" h="200" b="8" />
+        <p class="lood">loading....</p>
       </div>
     </div>
   </div>
@@ -27,18 +33,7 @@ export default {
     return {
       loaded: false,
       inter: "",
-      catelogue: [
-        { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
-        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
-        { name: "Crops", img: require("@/assets/gallery/sf_crop.png") },
-        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
-        { name: "Crops", img: require("@/assets/gallery/sf_crop.png") },
-        { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
-        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
-      ],
+      catelogue: [],
     };
   },
   methods: {
@@ -92,6 +87,12 @@ export default {
   right: -5px;
   cursor: pointer;
   margin-bottom: 3px;
+}
+.lood {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  color: #d79947;
 }
 .Hname {
   /* text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 2px 2px rgba(206, 199, 184, 0.235); */

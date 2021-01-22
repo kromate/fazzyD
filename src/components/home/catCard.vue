@@ -38,7 +38,7 @@ export default {
       loaded: false,
       cardsIcon: [
         { name: "Home", img: require("@/assets/icon/Home.svg") },
-        { name: "Popular", img: require("@/assets/icon/Star.svg") },
+        { name: "New", img: require("@/assets/icon/Star.svg") },
       ],
       cardsImage: [
         { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },

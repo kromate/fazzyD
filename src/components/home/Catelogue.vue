@@ -25,6 +25,9 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/storage";
 import Loader from "@/components/imgLoader.vue";
 export default {
   components: { Loader },
@@ -37,6 +40,50 @@ export default {
     };
   },
   methods: {
+    loadData(querySnapshot) {
+      const storageReference = firebase.storage().ref();
+      querySnapshot.forEach((doc) => {
+        const document = doc.data();
+        storageReference
+          .child("collection/" + `${document.id}`)
+          .getDownloadURL()
+          .then((url) => {
+            console.log(document);
+            const content = {
+              img: url,
+              name: document.name,
+              cat: document.categories,
+              details: document.details,
+              id: document.id,
+              price: document.price,
+            };
+            console.log(content);
+            this.catelogue.push(content);
+          });
+        // this.catelogue.push(document);
+      });
+      this.loading = false;
+      console.log(this.catelogue);
+    },
+    init() {
+      firebase
+        .firestore()
+        .collection("collection")
+        .orderBy("categories")
+        .startAt(this.title)
+        .endAt(this.title + "\uf8ff")
+        .onSnapshot((querySnapshot) => {
+          if (!querySnapshot.empty) {
+            this.loadData(querySnapshot);
+          } else {
+            console.log("empty array ooo");
+          }
+        });
+      // .get()
+      // .then((querySnapshot) => {
+      //   this.loadData(querySnapshot);
+      // });
+    },
     cart() {
       this.$store.commit("ShowNotifyCart");
     },
@@ -62,8 +109,15 @@ export default {
       return this.$store.state.homeCategoryView;
     },
   },
+  watch: {
+    title() {
+      this.catelogue = [];
+      this.init();
+    },
+  },
   mounted() {
     this.show();
+    this.init();
   },
 };
 </script>
@@ -118,6 +172,7 @@ export default {
 .Hcustom {
   height: 200px;
   border-radius: 8px;
+  max-width: 133.39px;
 }
 h1 {
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 4px 2px rgba(0, 0, 0, 0.541);

@@ -69,6 +69,7 @@ img {
   object-fit: contain;
   transform-origin: 0 0;
   transform: rotate(360deg);
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {

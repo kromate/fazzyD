@@ -12,7 +12,7 @@
       <input type="radio" :id="card.name" :value="card.name" name="item" />
     </div>
 
-    <div v-for="(card, index) in cardsImage" :key="index">
+    <!-- <div v-for="(card, index) in cardsImage" :key="index">
       <label
         :for="card.name"
         @click="changeCard(card.name)"
@@ -23,14 +23,14 @@
         <Loader w="32.02" h="50" b="8" v-else class="custom" />
       </label>
       <input type="radio" :id="card.name" :value="card.name" name="item" />
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import Loader from "@/components/imgLoader.vue";
+// import Loader from "@/components/imgLoader.vue";
 export default {
-  components: { Loader },
+  // components: { Loader },
   name: "catCard",
   data() {
     return {
@@ -39,12 +39,15 @@ export default {
       cardsIcon: [
         { name: "Home", img: require("@/assets/icon/Home.svg") },
         { name: "New", img: require("@/assets/icon/Star.svg") },
+        { name: "Hoodie", img: require("@/assets/hoodie.svg") },
+        { name: "Trousers", img: require("@/assets/trousers.svg") },
+        { name: "Crops", img: require("@/assets/crops.svg") },
       ],
-      cardsImage: [
-        { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
-        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
-      ],
+      // cardsImage: [
+      //   { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
+      //   { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
+      //   { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
+      // ],
     };
   },
   computed: {

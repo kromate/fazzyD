@@ -29,7 +29,7 @@
       </form>
       <p class="or">OR</p>
       <div class="social flex justify">
-        <img src="@/assets/social/insta.svg" alt="" @click="google()" />
+        <img src="@/assets/social/google.svg" alt="" @click="google()" />
         <img src="@/assets/social/twitter.svg" alt="" @click="twitter()" />
         <img src="@/assets/social/facebook.svg" alt="" @click="facebook()" />
       </div>

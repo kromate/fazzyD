@@ -7,10 +7,13 @@ export default createStore({
     showNotifyText: "",
     menu:false,
     user: JSON.parse(localStorage.getItem('user')),
-    homeCategoryView:'Home'
+    homeCategoryView:'Home',
+    detailedItem:{}
   },
   mutations: {
-
+    updatedetailedItem(state, payload){
+      state.detailedItem = payload
+    },
     ShowNotifyFav(state){
         state.showNotifyImage = require("@/assets/icon/Heart.svg")
         state.showNotifyText = "Item Successfully Added to Favourite"

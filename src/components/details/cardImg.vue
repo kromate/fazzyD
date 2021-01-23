@@ -1,5 +1,5 @@
 <template>
-  <img src="@/assets/gallery/black_hoodie.png" class="main" />
+  <img :src="image" class="main" />
   <div class="casing">
     <img src="@/assets/gallery/black_hoodie.png" class="mini selected" />
     <img src="@/assets/gallery/brown_hoodie.png" class="mini " />
@@ -12,6 +12,11 @@
 <script>
 export default {
   name: "CardImg",
+  computed: {
+    image() {
+      return this.$store.state.detailedItem.img;
+    },
+  },
 };
 </script>
 

@@ -82,9 +82,10 @@ export default {
       categories: [
         { name: "Home" },
         { name: "New" },
-        { name: "Custom" },
+        { name: "Crops" },
+        { name: "Trousers" },
         { name: "Hoodie" },
-        { name: "shirt" },
+        { name: "Jackets" },
       ],
     };
   },

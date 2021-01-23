@@ -40,6 +40,7 @@ export default {
         { name: "Home", img: require("@/assets/icon/Home.svg") },
         { name: "New", img: require("@/assets/icon/Star.svg") },
         { name: "Hoodie", img: require("@/assets/hoodie.svg") },
+        { name: "Jackets", img: require("@/assets/jacket.svg") },
         { name: "Trousers", img: require("@/assets/trousers.svg") },
         { name: "Crops", img: require("@/assets/crops.svg") },
       ],

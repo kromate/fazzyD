@@ -5,7 +5,13 @@
       <div class="HcatCon" v-if="catelogue.length">
         <div v-for="(cat, index) in catelogue" :key="index" class="HcatHitem">
           <div class="Hitem">
-            <img :src="cat.img" alt="" class="Hcustom" v-if="loaded" />
+            <img
+              :src="cat.img"
+              alt=""
+              class="Hcustom"
+              v-if="loaded"
+              @click="switchToDetailPage(cat)"
+            />
             <Loader w="133.39" h="200" b="8" v-else />
             <div class="flex">
               <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" @click="favourite" />
@@ -40,6 +46,12 @@ export default {
     };
   },
   methods: {
+    switchToDetailPage(data) {
+      console.log(data.price);
+
+      this.$store.commit("updatedetailedItem", data);
+      this.$router.push("/details");
+    },
     loadData(querySnapshot) {
       const storageReference = firebase.storage().ref();
       querySnapshot.forEach((doc) => {
@@ -55,7 +67,7 @@ export default {
               cat: document.categories,
               details: document.details,
               id: document.id,
-              price: document.price,
+              price: document.Price,
             };
             console.log(content);
             this.catelogue.push(content);

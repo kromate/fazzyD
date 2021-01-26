@@ -16,7 +16,7 @@
             <div class="flex">
               <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" @click="favourite" />
               <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" @click="cart" />
-              <img src="@/assets/icon/share.svg" alt="" class="Hicon" />
+              <img src="@/assets/icon/share.svg" alt="" class="Hicon" @click="share(cat.id)" />
             </div>
           </div>
           <p class="Hname">{{ cat.name }}</p>
@@ -46,6 +46,26 @@ export default {
     };
   },
   methods: {
+    share(data) {
+      if (navigator.share) {
+        navigator
+          .share({
+            title: "Fazzy D ",
+            text: `Check out this nice wear on ${window.location.origin}`,
+            url: `${window.location.origin}/details/?id=${data} `,
+          })
+          .then(() => console.log("Successful share"))
+          .catch((error) => console.log("Error sharing", error));
+      } else {
+        console.log("opening share modal");
+      }
+    },
+    cart() {
+      this.$store.commit("ShowNotifyCart");
+    },
+    favourite() {
+      this.$store.commit("ShowNotifyFav");
+    },
     switchToDetailPage(data) {
       console.log(data.price);
 
@@ -96,12 +116,7 @@ export default {
       //   this.loadData(querySnapshot);
       // });
     },
-    cart() {
-      this.$store.commit("ShowNotifyCart");
-    },
-    favourite() {
-      this.$store.commit("ShowNotifyFav");
-    },
+
     show() {
       this.inter = setInterval(() => {
         this.imgLoad();

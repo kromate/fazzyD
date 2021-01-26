@@ -28,6 +28,7 @@
       </div>
     </div>
   </div>
+  <ShareProduct :showModal="showModal" />
 </template>
 
 <script>
@@ -35,12 +36,14 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
 import Loader from "@/components/imgLoader.vue";
+import ShareProduct from "@/components/home/ShareProduct.vue";
 export default {
-  components: { Loader },
+  components: { Loader, ShareProduct },
   name: "homeCatelogue",
   data() {
     return {
       loaded: false,
+      showModal: true,
       inter: "",
       catelogue: [],
     };

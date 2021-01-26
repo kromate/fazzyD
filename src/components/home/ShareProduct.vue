@@ -38,7 +38,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(41, 37, 37, 0.336);
+  background-color: rgba(41, 37, 37, 0.636);
   min-width: 100vw;
   min-height: 100vh;
   z-index: 10;
@@ -66,7 +66,7 @@ export default {
 .slide-leave-active {
   transition: transform 0.5s;
 }
-.slide-enter,
+.slide-enter-from,
 .slide-leave-to {
   transform: scale(0);
 }

@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-  <ShareProduct :showModal="showModal" />
+  <ShareProduct :showModal="showModal" :url="url" @close="showModal = !showModal" />
 </template>
 
 <script>
@@ -43,7 +43,8 @@ export default {
   data() {
     return {
       loaded: false,
-      showModal: true,
+      showModal: false,
+      url: "",
       inter: "",
       catelogue: [],
     };
@@ -60,7 +61,8 @@ export default {
           .then(() => console.log("Successful share"))
           .catch((error) => console.log("Error sharing", error));
       } else {
-        console.log("opening share modal");
+        this.url = `${window.location.origin}/details/?id=${data} `;
+        this.showModal = true;
       }
     },
     cart() {

@@ -1,13 +1,14 @@
 <template>
   <div class="container">
     <div class="catCon">
-      <div v-for="(cat, index) in catelogue" :key="index" class="catItem">
+      <div v-for="(cat, index) in favourite" :key="index" class="catItem">
         <div class="item">
           <img :src="cat.img" alt="" class="custom" v-if="loaded" />
           <Loader w="133.39" h="200" b="8" v-else />
           <div class="flex">
             <img src="@/assets/icon/Cancel_Heart.svg" alt="" class="icon" />
             <img src="@/assets/icon/addCart.svg" alt="" class="icon" />
+            <img src="@/assets/icon/share.svg" alt="" class="Hicon" @click="share(cat.id)" />
           </div>
         </div>
         <p class="name">{{ cat.name }}</p>
@@ -17,6 +18,8 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+import "firebase/firestore";
 import Loader from "@/components/imgLoader.vue";
 export default {
   components: { Loader },
@@ -25,21 +28,41 @@ export default {
     return {
       loaded: false,
       inter: "",
-      catelogue: [
-        { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
-        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        { name: "Zylo", img: require("@/assets/gallery/f_crop.png") },
-        { name: "Crops", img: require("@/assets/gallery/sf_crop.png") },
-        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
-        { name: "Crops", img: require("@/assets/gallery/sf_crop.png") },
-        { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
-        { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
-      ],
+      favourite: [],
     };
   },
   methods: {
+    init() {
+      const collection = firebase.firestore().collection("users");
+      collection
+        .doc(this.$store.state.user.uid)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            this.favourite = doc.data().favourite;
+          } else {
+            console.log("Not Found");
+          }
+        });
+    },
+    share(data) {
+      if (navigator.share) {
+        navigator
+          .share({
+            title: "Fazzy D ",
+            text: `Check out this nice wear on ${window.location.origin}`,
+            url: `${window.location.origin}/details/?id=${data} `,
+          })
+          .then(() => console.log("Successful share"))
+          .catch((error) => console.log("Error sharing", error));
+      } else {
+        this.url = `${window.location.origin}/details/?id=${data} `;
+        this.showModal = true;
+      }
+    },
+    cart() {
+      this.$store.commit("ShowNotifyCart");
+    },
     show() {
       this.inter = setInterval(() => {
         this.imgLoad();
@@ -56,6 +79,7 @@ export default {
   },
   mounted() {
     this.show();
+    this.init();
   },
 };
 </script>

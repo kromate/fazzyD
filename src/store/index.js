@@ -57,7 +57,7 @@ export default createStore({
   actions: {
     async addToFaV(context){
       const collection = firebase.firestore().collection("users")
-      const user = await collection.doc(firebase.auth().currentUser.uid).get()
+      const user = await collection.doc(context.state.user.uid).get()
       if(user.exists){
         collection
         .doc(firebase.auth().currentUser.uid)

@@ -117,10 +117,7 @@ export default {
             console.log("empty array ooo");
           }
         });
-      // .get()
-      // .then((querySnapshot) => {
-      //   this.loadData(querySnapshot);
-      // });
+  
     },
 
     show() {

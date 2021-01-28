@@ -10,7 +10,7 @@
 <script>
 import Catelogue from "@/components/favourite/Catelogue.vue";
 export default {
-  components: { Catelogue },
+  components: { Catelogue }, 
 };
 </script>
 

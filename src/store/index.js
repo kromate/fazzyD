@@ -61,8 +61,8 @@ export default createStore({
       if(user.exists){
         collection
         .doc(firebase.auth().currentUser.uid)
-        .update(
-          favourite:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem).then(()=>{
+        .update({
+          favourite:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
           context.commit("ShowNotifyFav");
         }).catch((err)=>{
           console.log(err);

@@ -3,7 +3,13 @@
     <div class="catCon" v-if="favourite.length">
       <div v-for="(cat, index) in favourite" :key="index" class="catItem">
         <div class="item">
-          <img :src="cat.img" alt="" class="custom" v-if="loaded" />
+          <img
+            :src="cat.img"
+            alt=""
+            class="custom"
+            v-if="loaded"
+            @click="switchToDetailPage(cat)"
+          />
           <Loader w="133.39" h="200" b="8" v-else />
           <div class="flex">
             <img
@@ -45,6 +51,11 @@ export default {
     };
   },
   methods: {
+    switchToDetailPage(data) {
+      this.$store.commit("updatedetailedItem", data);
+      this.$router.push("/details");
+    },
+
     removeFavourite(data) {
       console.log(data);
       const collection = firebase.firestore().collection("users");

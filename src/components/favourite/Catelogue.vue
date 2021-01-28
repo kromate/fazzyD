@@ -1,37 +1,53 @@
 <template>
   <div class="container">
-    <div class="catCon">
+    <div class="catCon" v-if="favourite.length">
       <div v-for="(cat, index) in favourite" :key="index" class="catItem">
         <div class="item">
           <img :src="cat.img" alt="" class="custom" v-if="loaded" />
           <Loader w="133.39" h="200" b="8" v-else />
           <div class="flex">
-            <img src="@/assets/icon/Cancel_Heart.svg" alt="" class="icon" />
-            <img src="@/assets/icon/addCart.svg" alt="" class="icon" />
-            <img src="@/assets/icon/share.svg" alt="" class="Hicon" @click="share(cat.id)" />
+            <img
+              src="@/assets/icon/Cancel_Heart.svg"
+              alt=""
+              class="icon"
+              @click="removeFavourite(cat)"
+            />
+            <img src="@/assets/icon/addCart.svg" alt="" class="icon" @click="cart" />
+            <img src="@/assets/icon/share.svg" alt="" class="icon" @click="share(cat.id)" />
           </div>
         </div>
         <p class="name">{{ cat.name }}</p>
       </div>
     </div>
+
+    <div v-else>
+      <Loader w="133.39" h="200" b="8" />
+      <p class="lood">loading....</p>
+    </div>
   </div>
+  <ShareProduct :showModal="showModal" :url="url" @close="showModal = !showModal" />
 </template>
 
 <script>
 import firebase from "firebase/app";
 import "firebase/firestore";
 import Loader from "@/components/imgLoader.vue";
+import ShareProduct from "@/components/home/ShareProduct.vue";
 export default {
-  components: { Loader },
+  components: { Loader, ShareProduct },
   name: "Favcatelogue",
   data() {
     return {
       loaded: false,
+      showModal: false,
       inter: "",
       favourite: [],
     };
   },
   methods: {
+    removeFavourite(data) {
+      console.log(data);
+    },
     init() {
       const collection = firebase.firestore().collection("users");
       collection
@@ -113,6 +129,12 @@ export default {
   color: #d79947;
   text-decoration: dotted;
   width: 160px;
+}
+.lood {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  color: #d79947;
 }
 .catItem {
   margin: 12px;

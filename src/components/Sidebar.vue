@@ -18,7 +18,7 @@
             <a href="https://www.instagram.com/fazzy_d_" target="_blank">
               <img src="@/assets/social/insta.svg" alt="" />
             </a>
-          </div> 
+          </div>
         </div>
 
         <router-link class="box" to="/home" style="margin: 1rem;">
@@ -52,7 +52,7 @@
           </div>
         </router-link>
 
-        <div class="navCase" @click="signOut">
+        <div class="navCase" @click="signOut" v-if="auth">
           <img src="@/assets/icon/Category.svg" alt="" />
           <p>Sign Out</p>
         </div>
@@ -69,9 +69,9 @@ export default {
   data() {
     return {
       sideNav: { show: "false", sign: "menu" },
-      auth: "",
     };
   },
+
   methods: {
     signOut() {
       firebase
@@ -98,6 +98,9 @@ export default {
   computed: {
     changes() {
       return this.$store.state.menu;
+    },
+    auth() {
+      return this.$store.state.user;
     },
   },
   watch: {

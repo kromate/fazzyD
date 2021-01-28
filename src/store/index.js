@@ -55,15 +55,33 @@ export default createStore({
       }
   },
   actions: {
-    addToFaV(context){
+    async addToFaV(context){
       const collection = firebase.firestore().collection("users")
-      collection
-      .doc(firebase.auth().currentUser.uid)
-      .set(context.state.detailedItem).then(()=>{
-        context.commit("ShowNotifyFav");
-      }).catch((err)=>{
-        console.log(err);
-      })
+      const user = await collection.doc(firebase.auth().currentUser.uid).get()
+      if(user.exists){
+        collection
+        .doc(firebase.auth().currentUser.uid)
+        .update(
+          favourite:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem).then(()=>{
+          context.commit("ShowNotifyFav");
+        }).catch((err)=>{
+          console.log(err);
+        })
+      }else{
+        const data =   {
+          id: context.state.user.uid,
+          email: context.state.user.email,
+          favourite: [context.state.detailedItem],
+          cart: [],
+        }
+        collection
+        .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
+          context.commit("ShowNotifyFav");
+        }).catch((err)=>{
+          console.log(err);
+        })
+      }
+    
     }
   },
   modules: { 

@@ -16,24 +16,42 @@
           <p>Cart</p>
         </div>
       </router-link>
-      <router-link class="box" to="/custom_order">
-        <div class="navCase">
-          <img src="@/assets/icon/Buy.svg" alt="" />
-          <p>Custom Order</p>
-        </div>
-      </router-link>
-      <router-link class="box" to="/favourite">
-        <div class="navCase">
-          <img src="@/assets/icon/Heart.svg" alt="" />
-          <p>Favourite</p>
-        </div>
-      </router-link>
-      <router-link class="box" to="/gallery">
-        <div class="navCase">
-          <img src="@/assets/icon/Category.svg" alt="" />
-          <p>Gallery</p>
-        </div>
-      </router-link>
+
+      <div class="navCase dropdown">
+        <p>Extra</p>
+        <img src="@/assets/icon/drop.svg" alt="" style="margin-left:4px" />
+
+        <ul class="dropdown-nav">
+          <li>
+            <router-link class="box" to="/favourite">
+              <div class="navCase">
+                <img src="@/assets/icon/Heart.svg" alt="" />
+                <p>Favourite</p>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link class="box" to="/gallery">
+              <div class="navCase">
+                <img src="@/assets/icon/Category.svg" alt="" />
+                <p>Favourite</p>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link class="box" to="/custom_order">
+              <div class="navCase">
+                <img src="@/assets/icon/Buy.svg" alt="" />
+                <p>Custom Order</p>
+              </div>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+      <div class="navCase" @click="signOut">
+        <img src="@/assets/icon/Logout.svg" alt="" />
+        <p>Signout</p>
+      </div>
     </div>
 
     <div class="social smHide">
@@ -58,6 +76,36 @@ export default {
 </script>
 
 <style scoped>
+.dropdown > a {
+  display: flex;
+  align-items: center;
+}
+.dropdown > a .icon {
+  margin-left: 0.25em;
+}
+
+.dropdown:hover .dropdown-nav {
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.dropdown-nav {
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.88, -0.72, 0, 1), opacity 0.3s ease-in-out;
+  transform: translateY(-4rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  background: rgba(225, 255, 225, 0.9);
+}
+.dropdown-nav a {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
 a {
   text-decoration: none;
 }

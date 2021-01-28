@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       Pname: "",
-      Pdetails: "",
+      Pdetails: "", 
       Pprice: "",
       cat: "",
       perc: "",

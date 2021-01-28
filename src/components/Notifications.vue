@@ -53,7 +53,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped> 
 .notify {
   background: black;
   width: fit-content;

@@ -1,4 +1,7 @@
 import { createStore } from 'vuex'
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/auth";
 
 export default createStore({
   state: {
@@ -33,10 +36,7 @@ export default createStore({
           state.showNotify = false
         }, 1000);
     },
-    // closeShowNotify(state){
-    //     state.showNotify = false
-    // },
-    changeHomeCategoryView(state, payload){
+     changeHomeCategoryView(state, payload){
       state.homeCategoryView = payload
     },
     changeMenu(state){
@@ -55,6 +55,16 @@ export default createStore({
       }
   },
   actions: {
+    addToFaV(context){
+      const collection = firebase.firestore().collection("users")
+      collection
+      .doc(firebase.auth().currentUser.uid)
+      .set(context.state.detailedItem).then(()=>{
+        context.commit("ShowNotifyFav");
+      }).catch((err)=>{
+        console.log(err);
+      })
+    }
   },
   modules: { 
   }

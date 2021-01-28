@@ -18,7 +18,7 @@
             <a href="https://www.instagram.com/fazzy_d_" target="_blank">
               <img src="@/assets/social/insta.svg" alt="" />
             </a>
-          </div>
+          </div> 
         </div>
 
         <router-link class="box" to="/home" style="margin: 1rem;">

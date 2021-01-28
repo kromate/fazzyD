@@ -14,7 +14,7 @@
             />
             <Loader w="133.39" h="200" b="8" v-else />
             <div class="flex">
-              <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" @click="favourite" />
+              <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" @click="favourite(cat)" />
               <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" @click="cart" />
               <img src="@/assets/icon/share.svg" alt="" class="Hicon" @click="share(cat.id)" />
             </div>
@@ -68,8 +68,9 @@ export default {
     cart() {
       this.$store.commit("ShowNotifyCart");
     },
-    favourite() {
-      this.$store.commit("ShowNotifyFav");
+    favourite(data) {
+      this.$store.commit("updatedetailedItem", data);
+      this.$store.dispatch("addToFaV");
     },
     switchToDetailPage(data) {
       console.log(data.price);

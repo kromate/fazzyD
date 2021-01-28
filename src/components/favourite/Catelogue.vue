@@ -47,8 +47,23 @@ export default {
   methods: {
     removeFavourite(data) {
       console.log(data);
+      const collection = firebase.firestore().collection("users");
+      collection
+        .doc(this.$store.state.user.uid)
+        .update({
+          favourite: firebase.firestore.FieldValue.arrayRemove(data),
+        })
+        .then(() => {
+          this.$store.commit("RemoveNotifyFav");
+          this.init();
+        })
+        .catch((err) => {
+          this.$store.commit("wrong");
+          console.log(err);
+        });
     },
     init() {
+      this.favourite = [];
       const collection = firebase.firestore().collection("users");
       collection
         .doc(this.$store.state.user.uid)

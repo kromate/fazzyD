@@ -26,6 +26,24 @@ export default createStore({
           state.showNotify = false
         }, 1000);
     },
+    wrong(state){
+      state.showNotifyImage = ''
+      state.showNotifyText = "Something went wrong"
+      state.showNotify = true
+
+      setTimeout(() => {
+        state.showNotify = false
+      }, 1000);
+    },
+    RemoveNotifyFav(state){
+      state.showNotifyImage = ''
+      state.showNotifyText = "Item Successfully Removed from Favourite"
+      state.showNotify = true
+
+      setTimeout(() => {
+        state.showNotify = false
+      }, 1000);
+    },
 
     ShowNotifyCart(state){
         state.showNotifyImage = require("@/assets/icon/Buy.svg")

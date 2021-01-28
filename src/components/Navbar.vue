@@ -34,13 +34,13 @@
             <router-link class="box" to="/gallery">
               <div class="navCase">
                 <img src="@/assets/icon/Category.svg" alt="" />
-                <p>Favourite</p>
+                <p>Gallery</p>
               </div>
             </router-link>
           </li>
           <li>
             <router-link class="box" to="/custom_order">
-              <div class="navCase">
+              <div class="navCase" style="width:130px">
                 <img src="@/assets/icon/Buy.svg" alt="" />
                 <p>Custom Order</p>
               </div>
@@ -48,7 +48,7 @@
           </li>
         </ul>
       </div>
-      <div class="navCase" @click="signOut">
+      <div class="navCase" @click="signOut" v-if="auth">
         <img src="@/assets/icon/Logout.svg" alt="" />
         <p>Signout</p>
       </div>
@@ -69,13 +69,39 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+import "firebase/auth";
 import Sidebar from "@/components/Sidebar.vue";
 export default {
   components: { Sidebar },
+  computed: {
+    auth() {
+      console.log(this.$store.state.user);
+      return this.$store.state.user;
+    },
+  },
+  methods: {
+    signOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$store.commit("logOut");
+          this.$router.go({ path: "login" });
+        });
+    },
+  },
 };
 </script>
 
 <style scoped>
+li {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .dropdown > a {
   display: flex;
   align-items: center;
@@ -96,10 +122,11 @@ export default {
   transform: translateY(-4rem);
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 10px;
   position: absolute;
+  top: 48px;
   z-index: 1;
-  background: rgba(225, 255, 225, 0.9);
+  background: rgb(64 60 60);
 }
 .dropdown-nav a {
   font-weight: 300;
@@ -129,7 +156,7 @@ a {
   margin: 0px 10px;
   padding: 0.4rem;
   border-radius: 3px;
-  width: 100%;
+  width: 100px;
 }
 
 .navCase:hover {

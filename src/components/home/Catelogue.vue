@@ -15,7 +15,7 @@
             <Loader w="133.39" h="200" b="8" v-else />
             <div class="flex">
               <img src="@/assets/icon/Heart.svg" alt="" class="Hicon" @click="favourite(cat)" />
-              <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" @click="cart" />
+              <img src="@/assets/icon/addCart.svg" alt="" class="Hicon" @click="cart(cat)" />
               <img src="@/assets/icon/share.svg" alt="" class="Hicon" @click="share(cat.id)" />
             </div>
           </div>
@@ -65,8 +65,9 @@ export default {
         this.showModal = true;
       }
     },
-    cart() {
-      this.$store.commit("ShowNotifyCart");
+    cart(data) {
+      this.$store.commit("updatedetailedItem", data);
+      this.$store.dispatch("addToCart");
     },
     favourite(data) {
       this.$store.commit("updatedetailedItem", data);

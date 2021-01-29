@@ -18,7 +18,7 @@
               class="icon"
               @click="removeFavourite(cat)"
             />
-            <img src="@/assets/icon/addCart.svg" alt="" class="icon" @click="cart" />
+            <img src="@/assets/icon/addCart.svg" alt="" class="icon" @click="cart(cat)" />
             <img src="@/assets/icon/share.svg" alt="" class="icon" @click="share(cat.id)" />
           </div>
         </div>
@@ -55,7 +55,10 @@ export default {
       this.$store.commit("updatedetailedItem", data);
       this.$router.push("/details");
     },
-
+    cart(data) {
+      this.$store.commit("updatedetailedItem", data);
+      this.$store.dispatch("addToCart");
+    },
     removeFavourite(data) {
       console.log(data);
       const collection = firebase.firestore().collection("users");
@@ -102,9 +105,7 @@ export default {
         this.showModal = true;
       }
     },
-    cart() {
-      this.$store.commit("ShowNotifyCart");
-    },
+
     show() {
       this.inter = setInterval(() => {
         this.imgLoad();

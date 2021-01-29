@@ -73,6 +73,33 @@ export default createStore({
       }
   },
   actions: {
+    async addToCart(context){
+      const collection = firebase.firestore().collection("users")
+      const user = await collection.doc(context.state.user.uid).get()
+      if(user.exists){
+        collection
+        .doc(firebase.auth().currentUser.uid)
+        .update({
+          cart:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
+          context.commit("ShowNotifyCart");
+        }).catch((err)=>{
+          console.log(err);
+        })
+      }else{
+        const data =   {
+          id: context.state.user.uid,
+          email: context.state.user.email,
+          favourite: [],
+          cart: [context.state.detailedItem],
+        }
+        collection
+        .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
+          context.commit("ShowNotifyCart");
+        }).catch((err)=>{
+          console.log(err);
+        })
+      }
+    },
     async addToFaV(context){
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get()

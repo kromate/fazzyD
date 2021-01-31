@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       Pname: "",
-      Pdetails: "", 
+      Pdetails: "",
       Pprice: "",
       cat: "",
       perc: "",
@@ -86,6 +86,7 @@ export default {
         { name: "Trousers" },
         { name: "Hoodie" },
         { name: "Jackets" },
+        { name: "Gallery" },
       ],
     };
   },

@@ -6,6 +6,9 @@
       <div class="gallery-item" v-for="(cat, index) in catelogue" :key="index">
         <img class="gallery-image" :src="cat.img" v-if="loaded" />
         <Loader w="250" h="375" b="0" v-else />
+        <div class="flex">
+          <img src="@/assets/icon/Delete.svg" alt="" class="Hicon" @click="Delete(cat.id)" />
+        </div>
       </div>
     </div>
 
@@ -21,6 +24,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
 import Loader from "@/components/imgLoader.vue";
+const storageReference = firebase.storage().ref();
 export default {
   components: { Loader },
   name: "gallery",
@@ -28,25 +32,37 @@ export default {
     return {
       loaded: false,
       inter: "",
-      catelogue: [
-        // { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
-        // { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        // { name: "Zylo", img: require("@/assets/gallery/f_crop.png") },
-        // { name: "Crops", img: require("@/assets/gallery/sf_crop.png") },
-        // { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        // { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
-        // { name: "Crops", img: require("@/assets/gallery/sf_crop.png") },
-        // { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
-        // { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        // { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
-        // { name: "Hoodie", img: require("@/assets/gallery/black_hoodie.png") },
-        // { name: "Trousers", img: require("@/assets/gallery/trousers.png") },
-        // { name: "Crops", img: require("@/assets/gallery/f_crop.png") },
-      ],
+      catelogue: [],
     };
   },
 
   methods: {
+    Delete(id) {
+      this.catelogue = [];
+      firebase
+        .firestore()
+        .collection("collection")
+        .doc(id)
+        .delete()
+        .then(() => {
+          console.log("Document successfully deleted!");
+
+          storageReference
+            .child("collection/" + id)
+            .delete()
+            .then(() => {
+              this.init();
+            })
+            .catch((error) => {
+              console.log(error);
+              alert("Error removing document: ", error);
+            });
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Error removing document: ", error);
+        });
+    },
     loadData(querySnapshot) {
       const storageReference = firebase.storage().ref();
       querySnapshot.forEach((doc) => {
@@ -110,6 +126,17 @@ export default {
 </script>
 
 <style scoped>
+.Hicon {
+  background-color: rgba(0, 0, 0, 0.537);
+  border-radius: 100%;
+  padding: 4px;
+  height: 22px;
+  position: relative;
+  top: -39px;
+  right: -5px;
+  cursor: pointer;
+  margin-bottom: 3px;
+}
 .lood {
   font-size: 1.2rem;
   text-align: center;

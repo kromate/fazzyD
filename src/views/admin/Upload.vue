@@ -116,14 +116,10 @@ export default {
 
           let uploadTask = storageReference.child("collection/" + uid).put(file);
 
-          uploadTask
-            .on("state_changed", (snapshot) => {
-              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              this.title = Math.floor(progress) + "% uploaded";
-            })
-            .then(() => {
-              location.reload();
-            });
+          uploadTask.on("state_changed", (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            this.title = Math.floor(progress) + "% uploaded";
+          });
         })
         .catch((error) => {
           console.log(error);

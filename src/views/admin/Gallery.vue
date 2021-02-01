@@ -2,11 +2,16 @@
   <div class="container">
     <h1 class="title">Gallery</h1>
 
-    <div class="gallery">
+    <div class="gallery" v-if="catelogue.length">
       <div class="gallery-item" v-for="(cat, index) in catelogue" :key="index">
         <img class="gallery-image" :src="cat.img" v-if="loaded" />
         <Loader w="250" h="375" b="0" v-else />
       </div>
+    </div>
+
+    <div v-else>
+      <Loader w="250" h="375" b="0" />
+      <p class="lood">loading....</p>
     </div>
   </div>
 </template>
@@ -68,6 +73,7 @@ export default {
       console.log(this.catelogue);
     },
     init() {
+      this.catelogue = [];
       firebase
         .firestore()
         .collection("collection")
@@ -104,6 +110,12 @@ export default {
 </script>
 
 <style scoped>
+.lood {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  color: #d79947;
+}
 .container {
   max-width: 100rem;
   margin: 0 auto;

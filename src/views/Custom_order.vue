@@ -88,21 +88,61 @@
           <input type="text" id="Length" placeholder="Enter Size in CM" />
         </div>
       </div>
+
+      <div class="lower">
+        <label class="heading">Upload an image of the custom ware you want</label>
+        <div class="inputBox">
+          <label class="dropdown cust secondaryBtn" for="pix" data-element="custom-upload-button"
+            >{{ title }}
+          </label>
+          <div class="status">{{ perc }}</div>
+          <input
+            class="custom"
+            id="pix"
+            name="book"
+            type="file"
+            data-behaviour="custom-upload-input"
+            @change="update"
+            required
+          />
+        </div>
+      </div>
+      <div class="inputBox">
+        <button class="primaryBtn">Submit</button>
+      </div>
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      title: "Upload",
+    };
+  },
+};
 </script>
 
 <style scoped>
+.custom {
+  display: none;
+}
+.status {
+  font-size: 1rem;
+}
+.cust {
+  text-align: center !important;
+  border: 1px solid goldenrod;
+  width: 275px !important;
+}
 .heading {
   text-align: center;
   text-transform: uppercase;
   margin-top: 28px;
   border: 1px solid rgb(133, 95, 24);
   padding: 4px;
+  width: 292px;
 }
 .container {
   text-align: center;

@@ -22,6 +22,10 @@
         <label for="phone">PHONE NUM</label>
         <input type="number" id="phone" placeholder="Enter Your Phone Number" />
       </div>
+      <div class="inputBox">
+        <label for="phone">PHONE NUM</label>
+        <input type="number" id="phone" placeholder="Enter Your Phone Number" />
+      </div>
     </form>
   </div>
 </template>

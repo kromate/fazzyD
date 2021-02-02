@@ -22,9 +22,19 @@
         <label for="phone">PHONE NUM</label>
         <input type="number" id="phone" placeholder="Enter Your Phone Number" />
       </div>
-      <div class="inputBox">
-        <label for="phone">PHONE NUM</label>
-        <input type="number" id="phone" placeholder="Enter Your Phone Number" />
+      <div class="upper">
+        <label class="heading">Upper Body Measurement</label>
+        <div class="inputBox">
+          <label for="phone">PHONE NUM</label>
+          <input type="number" id="phone" placeholder="Enter Your Phone Number" />
+        </div>
+      </div>
+      <div class="lower">
+        <label class="heading">Lower Body Measurement</label>
+        <div class="inputBox">
+          <label for="phone">PHONE NUM</label>
+          <input type="number" id="phone" placeholder="Enter Your Phone Number" />
+        </div>
       </div>
     </form>
   </div>
@@ -35,6 +45,13 @@ export default {};
 </script>
 
 <style scoped>
+.heading {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 28px;
+  border: 1px solid rgb(133, 95, 24);
+  padding: 4px;
+}
 .container {
   text-align: center;
   display: flex;

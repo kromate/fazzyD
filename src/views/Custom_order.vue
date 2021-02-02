@@ -25,15 +25,47 @@
       <div class="upper">
         <label class="heading">Upper Body Measurement</label>
         <div class="inputBox">
-          <label for="phone">PHONE NUM</label>
-          <input type="number" id="phone" placeholder="Enter Your Phone Number" />
+          <label for="Neck">Neck</label>
+          <input type="text" id="Neck" placeholder="Enter Size in CM" />
+        </div>
+        <div class="inputBox">
+          <label for="Chest">Chest</label>
+          <input type="text" id="Chest" placeholder="Enter Size in CM" />
+        </div>
+        <div class="inputBox">
+          <label for="Body Length">Body Length</label>
+          <input type="text" id="Body Length" placeholder="Enter Size in CM" />
+        </div>
+        <div class="inputBox">
+          <label for="Arm length(sleeve)">Arm length(sleeve)</label>
+          <input type="text" id="Arm length(sleeve)" placeholder="Enter Size in CM" />
+        </div>
+        <div class="inputBox">
+          <label for="Back">Back</label>
+          <input type="text" id="Back" placeholder="Enter Size in CM" />
+        </div>
+        <div class="inputBox">
+          <label for="Shoulder">Shoulder</label>
+          <input type="text" id="Shoulder" placeholder="Enter Size in CM" />
+        </div>
+        <div class="inputBox">
+          <label for="Arm hole">Arm hole</label>
+          <input type="text" id="Arm hole" placeholder="Enter Size in CM" />
+        </div>
+        <div class="inputBox">
+          <label for="Bicep size (muscle)">Bicep size (muscle)</label>
+          <input type="text" id="Bicep size (muscle)" placeholder="Enter Size in CM" />
+        </div>
+        <div class="inputBox">
+          <label for="Wrist">Wrist</label>
+          <input type="text" id="Wrist" placeholder="Enter Size in CM" />
         </div>
       </div>
       <div class="lower">
         <label class="heading">Lower Body Measurement</label>
         <div class="inputBox">
           <label for="phone">PHONE NUM</label>
-          <input type="number" id="phone" placeholder="Enter Your Phone Number" />
+          <input type="number" id="phone" placeholder="Enter Size in CM" />
         </div>
       </div>
     </form>

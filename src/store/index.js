@@ -27,8 +27,8 @@ export default createStore({
         }, 1000);
     },
     Error(state){
-      state.showNotifyImage = ''
-      state.showNotifyText = "Something went wrong"
+      state.showNotifyImage = require("@/assets/icon/none.svg")
+      state.showNotifyText = "Oops, Something went wrong"
       state.showNotify = true
 
       setTimeout(() => {

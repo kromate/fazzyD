@@ -36,6 +36,11 @@
 <script>
 export default {
   name: "TableRow",
+  data() {
+    return {
+      cart: [],
+    };
+  },
 };
 </script>
 

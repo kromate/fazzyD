@@ -1,17 +1,17 @@
 <template>
-  <div class="row" v-for="n in 3" :key="n">
+  <div class="row" v-for="(cat, index) in cart" :key="index">
     <div class="firstCol bod flex align">
       <img src="@/assets/gallery/black_hoodie.png" class="cartImg" />
       <div class="cartDet">
-        <h1>Zylo Hoodie</h1>
-        <p>Color: black</p>
-        <p>Size: XL</p>
+        <h1>{{ cat.name }}</h1>
+        <p>{{ cat.details }}</p>
+        <!-- <p>Size: XL</p> -->
         <div class=" flex opt">
-          <div class="flex align point">
+          <div class="flex align point" @click="favourite(cat)">
             <img src="@/assets/icon/Heart.svg" class="icon" />
             <p class="iconText">Add to Fav</p>
           </div>
-          <div class="flex align ml point">
+          <div class="flex align ml point" @click="removeCart(cat)">
             <img src="@/assets/icon/Delete.svg" class="icon" />
             <p class="iconText">Remove</p>
           </div>
@@ -34,12 +34,61 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+import "firebase/firestore";
 export default {
   name: "TableRow",
   data() {
     return {
-      cart: [],
+      cart: [
+        {
+          details: "Long sleeve & short sleeve",
+          id: "ef75acb4-399f-42a6-a473-320f9b6b7fef",
+          img:
+            "https://firebasestorage.googleapis.com/v0/b/fazzyd-1.appspot.com/o/collection%2Fef75acb4-399f-42a6-a473-320f9b6b7fef?alt=media&token=793747b5-3059-4984-a3f1-66297fd086c9",
+          name: "Henley Shirts",
+          price: "4500",
+        },
+      ],
     };
+  },
+
+  methods: {
+    favourite(data) {
+      this.$store.commit("updatedetailedItem", data);
+      this.$store.dispatch("addToFaV");
+    },
+    removeCart(data) {
+      console.log(data);
+      const collection = firebase.firestore().collection("users");
+      collection
+        .doc(this.$store.state.user.uid)
+        .update({
+          cart: firebase.firestore.FieldValue.arrayRemove(data),
+        })
+        .then(() => {
+          this.$store.commit("RemoveNotifyFav");
+          this.init();
+        })
+        .catch((err) => {
+          this.$store.commit("wrong");
+          console.log(err);
+        });
+    },
+    init() {
+      this.favourite = [];
+      const collection = firebase.firestore().collection("users");
+      collection
+        .doc(this.$store.state.user.uid)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            this.favourite = doc.data().favourite;
+          } else {
+            console.log("Not Found");
+          }
+        });
+    },
   },
 };
 </script>

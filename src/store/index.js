@@ -26,7 +26,7 @@ export default createStore({
           state.showNotify = false
         }, 1000);
     },
-    wrong(state){
+    Error(state){
       state.showNotifyImage = ''
       state.showNotifyText = "Something went wrong"
       state.showNotify = true
@@ -97,6 +97,8 @@ export default createStore({
           context.commit("ShowNotifyCart");
         }).catch((err)=>{
           console.log(err);
+          console.log(err);
+          context.commit("Error");
         })
       }
     },
@@ -124,6 +126,7 @@ export default createStore({
           context.commit("ShowNotifyFav");
         }).catch((err)=>{
           console.log(err);
+          context.commit("Error");
         })
       }
     

@@ -20,7 +20,7 @@
     </div>
 
     <p class="otherCol ItSel justify align flex bod">
-      <select>
+      <select v-model="units">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -28,8 +28,8 @@
         <option value="5">5</option>
       </select>
     </p>
-    <p class="otherCol ItSel justify align flex bod hide">$ 20</p>
-    <p class="otherCol ItSel justify align flex ">$ 20</p>
+    <p class="otherCol ItSel justify align flex bod hide">&#8358; {{ cat.price }}</p>
+    <p class="otherCol ItSel justify align flex ">&#8358;{{ cat.price * units }}</p>
   </div>
 </template>
 
@@ -40,6 +40,7 @@ export default {
   name: "TableRow",
   data() {
     return {
+      units: "1",
       cart: [
         {
           details: "Long sleeve & short sleeve",

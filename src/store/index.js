@@ -75,7 +75,10 @@ export default createStore({
   actions: {
     async addToCart(context){
       const collection = firebase.firestore().collection("users")
-      const user = await collection.doc(context.state.user.uid).get()
+      const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
+        console.log(err);
+        context.commit("Error");
+      })
       if(user.exists){
         collection
         .doc(firebase.auth().currentUser.uid)
@@ -84,6 +87,7 @@ export default createStore({
           context.commit("ShowNotifyCart");
         }).catch((err)=>{
           console.log(err);
+          context.commit("Error");
         })
       }else{
         const data =   {
@@ -97,14 +101,16 @@ export default createStore({
           context.commit("ShowNotifyCart");
         }).catch((err)=>{
           console.log(err);
-          console.log(err);
           context.commit("Error");
         })
       }
     },
     async addToFaV(context){
       const collection = firebase.firestore().collection("users")
-      const user = await collection.doc(context.state.user.uid).get()
+      const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
+        console.log(err);
+        context.commit("Error");
+      })
       if(user.exists){
         collection
         .doc(firebase.auth().currentUser.uid)
@@ -113,6 +119,7 @@ export default createStore({
           context.commit("ShowNotifyFav");
         }).catch((err)=>{
           console.log(err);
+          context.commit("Error");
         })
       }else{
         const data =   {

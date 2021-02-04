@@ -31,7 +31,7 @@ export default createStore({
       state.showNotifyText = "Oops, Something went wrong"
       state.showNotify = true
 
-      setTimeout(() => {
+      setTimeout(() => { 
         state.showNotify = false
       }, 1000);
     },

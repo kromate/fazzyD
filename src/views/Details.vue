@@ -6,7 +6,7 @@
       <p class="text">
         {{ details }}
       </p>
-      <h2>&#8358;{{ Price }}</h2>
+      <h2>&#8358;{{ Price * count }}</h2>
 
       <!-- <div class="size">
         <p class="sItem">XS</p>
@@ -16,9 +16,9 @@
         <p class="sItem">XL</p>
       </div> -->
       <div class="flex unitBtn">
-        <button class="secondaryBtn secBtn" d>-</button>
-        <button class="primaryBtn cartbtn priBtn">ADD TO CART</button>
-        <button class="secondaryBtn secBtn">+</button>
+        <button class="secondaryBtn secBtn" :disabled="disableDecre" @click="decre">-</button>
+        <div class="cartbtn priBtn">{{ count }}</div>
+        <button class="secondaryBtn secBtn" @click="incre">+</button>
       </div>
       <button class="primaryBtn cartbtn" @click="cart(complete)">ADD TO CART</button>
     </div>
@@ -54,6 +54,8 @@ export default {
   data() {
     return {
       empty: false,
+      count: 1,
+      disableDecre: false,
     };
   },
   computed: {
@@ -72,9 +74,22 @@ export default {
   },
 
   methods: {
+    decre() {
+      if (this.count > 0) {
+        this.count--;
+      } else {
+        this.disableDecre = true;
+      }
+    },
+    incre() {
+      if (this.disableDecre) {
+        this.disableDecre = false;
+      }
+      this.count++;
+    },
     cart(data) {
       console.log("hello");
-      let item = { count: 1, ...data };
+      let item = { count: this.count, ...data };
       this.$store.commit("updatedetailedItem", item);
       this.$store.dispatch("addToCart");
     },
@@ -133,11 +148,19 @@ export default {
 .priBtn {
   margin: 0px 6px;
   height: 40px;
+  border: 1px solid #f4ae53;
+  flex-basis: 180px;
+  font-size: 2.4rem;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 1px 2px rgb(0, 0, 0), 2px 4px 2px rgba(0, 0, 0, 0.459);
 }
 .secBtn {
   flex-basis: 60px;
   margin: 0px 6px;
-  height: 40px;
+  height: 38px;
   font-size: 2rem;
   display: flex;
   justify-content: center;

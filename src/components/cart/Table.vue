@@ -10,8 +10,8 @@
 
   <div class="header end">
     <p class="otherCol bright">Total</p>
-    <p class="otherCol bright" v-if="total">&#8358; {{ total }}</p>
-    <p class="otherCol bright" v-else>Loading</p>
+    <p class="otherCol bright ItSel" v-if="total">&#8358; {{ total }}</p>
+    <p class="otherCol bright ItSel" v-else>Loading</p>
   </div>
   <div class="header end">
     <p class="dev">Delivery Fees not included Yet</p>
@@ -87,6 +87,9 @@ export default {
   }
   .dev {
     margin-right: 0px;
+  }
+  .ItSel {
+    font-size: 0.7rem !important;
   }
 }
 </style>

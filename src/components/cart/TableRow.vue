@@ -14,7 +14,7 @@
             </div>
             <div class="flex align ml point" @click="removeCart(cat)">
               <img src="@/assets/icon/Delete.svg" class="icon" />
-              <p class="iconText">Remove</p>
+              <p class="iconText">Rem</p>
             </div>
           </div>
         </div>
@@ -53,6 +53,9 @@ export default {
   computed: {
     cart() {
       return this.$store.state.cart;
+    },
+    units() {
+      return this.$store.state.units;
     },
   },
   methods: {
@@ -102,7 +105,7 @@ h1 {
 .ItSel {
   color: #d79947;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 .firstCol {
   flex-basis: 40%;
@@ -158,6 +161,9 @@ select {
 }
 
 @media (max-width: 600px) {
+  .ItSel {
+    font-size: 0.8rem;
+  }
   .firstCol {
     flex-basis: 60%;
   }

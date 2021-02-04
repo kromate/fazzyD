@@ -1,6 +1,6 @@
 <template>
   <div v-if="cart.length">
-    <div class="row" v-for="(cat, index) in cart" :key="index">
+    <div class="row" v-for="cat in cart" :key="cat.id">
       <div class="firstCol bod flex align">
         <img :src="cat.img" class="cartImg" />
         <div class="cartDet">
@@ -21,7 +21,7 @@
       </div>
 
       <p class="otherCol ItSel justify align flex bod">
-        <select v-model="units">
+        <select v-model="units[cat.id]">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -30,7 +30,9 @@
         </select>
       </p>
       <p class="otherCol ItSel justify align flex bod hide">&#8358; {{ cat.price }}</p>
-      <p class="otherCol ItSel justify align flex ">&#8358;{{ cat.price * units }}</p>
+      <p class="otherCol ItSel justify align flex " @click="con(cat.id)">
+        &#8358;{{ cat.price * units[cat.id] }}
+      </p>
     </div>
   </div>
 
@@ -49,12 +51,15 @@ export default {
   components: { Loader },
   data() {
     return {
-      units: "1",
+      units: {},
       cart: [],
     };
   },
 
   methods: {
+    con(data) {
+      console.log(data);
+    },
     favourite(data) {
       this.$store.commit("updatedetailedItem", data);
       this.$store.dispatch("addToFaV");
@@ -85,6 +90,9 @@ export default {
         .then((doc) => {
           if (doc.exists) {
             this.cart = doc.data().cart;
+            this.cart.forEach((item) => {
+              this.units[item.id] = 1;
+            });
           } else {
             console.log("Not Found");
           }

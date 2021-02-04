@@ -1,5 +1,6 @@
 <template>
-  <div class="container" v-if="name">
+  <!-- <div class="container" v-if="name"> -->
+  <div class="container">
     <div class="details">
       <h1>{{ name }}</h1>
       <p class="text">
@@ -15,7 +16,7 @@
         <p class="sItem">XL</p>
       </div> -->
 
-      <button class="primaryBtn cartbtn">ADD TO CART</button>
+      <button class="primaryBtn cartbtn" @click="cart(complete)">ADD TO CART</button>
     </div>
 
     <div class="detImg">
@@ -23,7 +24,7 @@
     </div>
   </div>
 
-  <div v-else class="container2">
+  <div class="container2">
     <div v-if="!empty">
       <Loader w="233.39" h="340" b="8" />
       <p class="lood">loading....</p>
@@ -67,6 +68,12 @@ export default {
   },
 
   methods: {
+    cart(data) {
+      console.log("hello");
+      let item = { count: 1, ...data };
+      this.$store.commit("updatedetailedItem", item);
+      this.$store.dispatch("addToCart");
+    },
     getfromId() {
       firebase
         .firestore()
@@ -101,6 +108,7 @@ export default {
           }
         })
         .catch(function(error) {
+          this.$store.commit("Error");
           console.log("Error getting document:", error);
         });
     },

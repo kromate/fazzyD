@@ -66,7 +66,8 @@ export default {
       }
     },
     cart(data) {
-      this.$store.commit("updatedetailedItem", data);
+      let item = { count: 1, ...data };
+      this.$store.commit("updatedetailedItem", item);
       this.$store.dispatch("addToCart");
     },
     favourite(data) {

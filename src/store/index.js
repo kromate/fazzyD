@@ -84,13 +84,12 @@ export default createStore({
         .get()
         .then((doc) => {
           if (doc.exists) {
-            let total = 0;
             context.state.cart = doc.data().cart;
             context.state.cart.forEach((item) => {
               total += parseInt(item.price);
               context.state.units[item.id] = 1;
             });
-            context.state.total = total;
+            context.commit("getTotal");
           } else {
             console.log("Not Found");
           }

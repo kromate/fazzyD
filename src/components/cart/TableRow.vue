@@ -77,7 +77,7 @@ export default {
         })
         .then(() => {
           this.$store.commit("RemoveNotifyFav");
-          this.init();
+          this.$store.dispatch("getCart");
         })
         .catch((err) => {
           this.$store.commit("wrong");
@@ -85,9 +85,6 @@ export default {
         });
     },
     init() {},
-  },
-  created() {
-    this.init();
   },
 };
 </script>

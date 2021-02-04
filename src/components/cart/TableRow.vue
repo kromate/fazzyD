@@ -1,43 +1,52 @@
 <template>
-  <div class="row" v-for="(cat, index) in cart" :key="index">
-    <div class="firstCol bod flex align">
-      <img :src="cat.img" class="cartImg" />
-      <div class="cartDet">
-        <h1>{{ cat.name }}</h1>
-        <p>{{ cat.details }}</p>
-        <!-- <p>Size: XL</p> -->
-        <div class=" flex opt">
-          <div class="flex align point" @click="favourite(cat)">
-            <img src="@/assets/icon/Heart.svg" class="icon" />
-            <p class="iconText">Add to Fav</p>
-          </div>
-          <div class="flex align ml point" @click="removeCart(cat)">
-            <img src="@/assets/icon/Delete.svg" class="icon" />
-            <p class="iconText">Remove</p>
+  <div v-if="cart.length">
+    <div class="row" v-for="(cat, index) in cart" :key="index">
+      <div class="firstCol bod flex align">
+        <img :src="cat.img" class="cartImg" />
+        <div class="cartDet">
+          <h1>{{ cat.name }}</h1>
+          <p>{{ cat.details }}</p>
+          <!-- <p>Size: XL</p> -->
+          <div class=" flex opt">
+            <div class="flex align point" @click="favourite(cat)">
+              <img src="@/assets/icon/Heart.svg" class="icon" />
+              <p class="iconText">Add to Fav</p>
+            </div>
+            <div class="flex align ml point" @click="removeCart(cat)">
+              <img src="@/assets/icon/Delete.svg" class="icon" />
+              <p class="iconText">Remove</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <p class="otherCol ItSel justify align flex bod">
-      <select v-model="units">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </p>
-    <p class="otherCol ItSel justify align flex bod hide">&#8358; {{ cat.price }}</p>
-    <p class="otherCol ItSel justify align flex ">&#8358;{{ cat.price * units }}</p>
+      <p class="otherCol ItSel justify align flex bod">
+        <select v-model="units">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </p>
+      <p class="otherCol ItSel justify align flex bod hide">&#8358; {{ cat.price }}</p>
+      <p class="otherCol ItSel justify align flex ">&#8358;{{ cat.price * units }}</p>
+    </div>
+  </div>
+
+  <div v-else>
+    <Loader w="689" h="106" b="4" />
+    <p class="lood">loading....</p>
   </div>
 </template>
 
 <script>
 import firebase from "firebase/app";
 import "firebase/firestore";
+import Loader from "@/components/imgLoader.vue";
 export default {
   name: "TableRow",
+  components: { Loader },
   data() {
     return {
       units: "1",
@@ -89,6 +98,12 @@ export default {
 </script>
 
 <style scoped>
+.lood {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  color: #d79947;
+}
 .ml {
   margin-left: 15px;
 }

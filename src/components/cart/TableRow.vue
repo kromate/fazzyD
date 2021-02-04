@@ -21,7 +21,7 @@
       </div>
 
       <p class="otherCol ItSel justify align flex bod">
-        <select v-model="units[cat.id]">
+        <select v-model="units[cat.id]" @change="con($event, units[cat.id])">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -59,6 +59,10 @@ export default {
     },
   },
   methods: {
+    con(data, con) {
+      console.log(data.target.value);
+      console.log(con);
+    },
     favourite(data) {
       this.$store.commit("updatedetailedItem", data);
       this.$store.dispatch("addToFaV");

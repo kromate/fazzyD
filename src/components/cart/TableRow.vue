@@ -92,7 +92,7 @@ export default {
           if (doc.exists) {
             this.cart = doc.data().cart;
             this.cart.forEach((item) => {
-              this.total += item.price;
+              this.total += parseInt(item.price);
               this.units[item.id] = 1;
             });
             console.log(this.total);

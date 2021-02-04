@@ -23,10 +23,11 @@ import TableRow from "@/components/cart/TableRow.vue";
 export default {
   name: "Table",
   components: { TableRow },
-  data() {
-    return {
-      total: 0,
-    };
+
+  computed: {
+    total() {
+      return this.$store.state.total;
+    },
   },
   methods: {
     updateTotal(total) {

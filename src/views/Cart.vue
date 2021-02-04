@@ -15,8 +15,11 @@ import Table from "@/components/cart/Table.vue";
 
 export default {
   components: { Table },
-
   name: "Cart",
+
+  created() {
+    this.$store.dispatch("getCart");
+  },
 };
 </script>
 

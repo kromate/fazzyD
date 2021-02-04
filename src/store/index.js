@@ -11,7 +11,10 @@ export default createStore({
     menu:false,
     user: JSON.parse(localStorage.getItem('user')),
     homeCategoryView:'Home',
-    detailedItem:{}
+    detailedItem:{},
+    cart:[],
+    total: 0,
+    units: {},
   },
   mutations: {
     updatedetailedItem(state, payload){
@@ -73,6 +76,26 @@ export default createStore({
       }
   },
   actions: {
+    async getCart(context){
+      context.state.cart = [];
+      const collection = firebase.firestore().collection("users");
+      collection
+        .doc(context.state.user.uid)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            let total = 0;
+            context.state.cart = doc.data().cart;
+            context.state.cart.forEach((item) => {
+              total += parseInt(item.price);
+              context.state.units[item.id] = 1;
+            });
+            context.state.total = total;
+          } else {
+            console.log("Not Found");
+          }
+        });
+    },
     async addToCart(context){
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{

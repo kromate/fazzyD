@@ -49,18 +49,13 @@ import Loader from "@/components/imgLoader.vue";
 export default {
   name: "TableRow",
   components: { Loader },
-  data() {
-    return {
-      total: 0,
-      units: {},
-      cart: [],
-    };
-  },
 
-  methods: {
-    con(data) {
-      console.log(data);
+  computed: {
+    cart() {
+      return this.$store.state.cart;
     },
+  },
+  methods: {
     favourite(data) {
       this.$store.commit("updatedetailedItem", data);
       this.$store.dispatch("addToFaV");
@@ -82,26 +77,7 @@ export default {
           console.log(err);
         });
     },
-    init() {
-      this.cart = [];
-      const collection = firebase.firestore().collection("users");
-      collection
-        .doc(this.$store.state.user.uid)
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-            this.cart = doc.data().cart;
-            this.cart.forEach((item) => {
-              this.total += parseInt(item.price);
-              this.units[item.id] = 1;
-            });
-            this.$emit("total", this.total);
-            // console.log(this.total);
-          } else {
-            console.log("Not Found");
-          }
-        });
-    },
+    init() {},
   },
   created() {
     this.init();

@@ -30,7 +30,7 @@
         </select>
       </p>
       <p class="otherCol ItSel justify align flex bod hide">&#8358; {{ cat.price }}</p>
-      <p class="otherCol ItSel justify align flex " @click="con(cat.id)">
+      <p class="otherCol ItSel justify align flex " @change="con('hello')">
         &#8358;{{ cat.price * units[cat.id] }}
       </p>
     </div>
@@ -51,6 +51,7 @@ export default {
   components: { Loader },
   data() {
     return {
+      total: 0,
       units: {},
       cart: [],
     };
@@ -91,8 +92,10 @@ export default {
           if (doc.exists) {
             this.cart = doc.data().cart;
             this.cart.forEach((item) => {
+              this.total += item.price;
               this.units[item.id] = 1;
             });
+            console.log(this.total);
           } else {
             console.log("Not Found");
           }

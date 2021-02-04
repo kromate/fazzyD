@@ -15,7 +15,11 @@
         <p class="sItem">L</p>
         <p class="sItem">XL</p>
       </div> -->
-
+      <div class="flex unitBtn">
+        <button class="secondaryBtn secBtn" d>-</button>
+        <button class="primaryBtn cartbtn priBtn">ADD TO CART</button>
+        <button class="secondaryBtn secBtn">+</button>
+      </div>
       <button class="primaryBtn cartbtn" @click="cart(complete)">ADD TO CART</button>
     </div>
 
@@ -126,6 +130,26 @@ export default {
 </script>
 
 <style scoped>
+.priBtn {
+  margin: 0px 6px;
+  height: 40px;
+}
+.secBtn {
+  flex-basis: 60px;
+  margin: 0px 6px;
+  height: 40px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.unitBtn {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 a {
   text-decoration: none;
   color: #f4ae53;

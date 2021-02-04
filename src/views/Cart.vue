@@ -3,7 +3,9 @@
     <Table />
     <div class="flex end length ">
       <button class="primaryBtn shopBtn" @click="$router.push('home')">CONTINUE SHOPPING</button>
-      <button class="secondaryBtn shopBtn">PROCEED TO PAYMENT</button>
+      <button class="secondaryBtn shopBtn" @click="$router.push('checkout')">
+        PROCEED TO PAYMENT
+      </button>
     </div>
   </div>
 </template>

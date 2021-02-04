@@ -1,7 +1,7 @@
 <template>
   <div class="row" v-for="(cat, index) in cart" :key="index">
     <div class="firstCol bod flex align">
-      <img src="@/assets/gallery/black_hoodie.png" class="cartImg" />
+      <img :src="cat.img" class="cartImg" />
       <div class="cartDet">
         <h1>{{ cat.name }}</h1>
         <p>{{ cat.details }}</p>
@@ -41,16 +41,7 @@ export default {
   data() {
     return {
       units: "1",
-      cart: [
-        {
-          details: "Long sleeve & short sleeve",
-          id: "ef75acb4-399f-42a6-a473-320f9b6b7fef",
-          img:
-            "https://firebasestorage.googleapis.com/v0/b/fazzyd-1.appspot.com/o/collection%2Fef75acb4-399f-42a6-a473-320f9b6b7fef?alt=media&token=793747b5-3059-4984-a3f1-66297fd086c9",
-          name: "Henley Shirts",
-          price: "4500",
-        },
-      ],
+      cart: [],
     };
   },
 
@@ -77,19 +68,22 @@ export default {
         });
     },
     init() {
-      this.favourite = [];
+      this.cart = [];
       const collection = firebase.firestore().collection("users");
       collection
         .doc(this.$store.state.user.uid)
         .get()
         .then((doc) => {
           if (doc.exists) {
-            this.favourite = doc.data().favourite;
+            this.cart = doc.data().cart;
           } else {
             console.log("Not Found");
           }
         });
     },
+  },
+  created() {
+    this.init();
   },
 };
 </script>

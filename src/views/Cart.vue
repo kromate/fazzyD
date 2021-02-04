@@ -2,7 +2,7 @@
   <div class="container">
     <Table />
     <div class="flex end length ">
-      <button class="primaryBtn shopBtn">CONTINUE SHOPPING</button>
+      <button class="primaryBtn shopBtn" @click="$router.push('home')">CONTINUE SHOPPING</button>
       <button class="secondaryBtn shopBtn">PROCEED TO PAYMENT</button>
     </div>
   </div>

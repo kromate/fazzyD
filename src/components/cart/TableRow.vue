@@ -2,7 +2,7 @@
   <div v-if="cart.length">
     <div class="row" v-for="cat in cart" :key="cat.id">
       <div class="firstCol bod flex align">
-        <img :src="cat.img" class="cartImg" />
+        <img :src="cat.img" class="cartImg" @click="switchToDetailPage(cat)" />
         <div class="cartDet">
           <h1>{{ cat.name }}</h1>
           <p>{{ cat.details }}</p>
@@ -20,19 +20,18 @@
         </div>
       </div>
 
-      <p class="otherCol ItSel justify align flex bod">
-        <select v-model="units[cat.id]" @change="con($event, units[cat.id])">
+      <p class="otherCol ItSel justify align flex bod point" @click="switchToDetailPage(cat)">
+        {{ cat.count }}
+        <!-- <select v-model="units[cat.id]" >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
-        </select>
+        </select> -->
       </p>
       <p class="otherCol ItSel justify align flex bod hide">&#8358; {{ cat.price }}</p>
-      <p class="otherCol ItSel justify align flex " @change="con('hello')">
-        &#8358;{{ cat.price * units[cat.id] }}
-      </p>
+      <p class="otherCol ItSel justify align flex ">&#8358;{{ cat.price * units[cat.id] }}</p>
     </div>
   </div>
 
@@ -62,6 +61,12 @@ export default {
     con(data, con) {
       console.log(data.target.value);
       console.log(con);
+    },
+    switchToDetailPage(data) {
+      console.log(data.price);
+
+      this.$store.commit("updatedetailedItem", data);
+      this.$router.push("/details");
     },
     favourite(data) {
       this.$store.commit("updatedetailedItem", data);

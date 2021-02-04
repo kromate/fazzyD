@@ -6,11 +6,12 @@
     <p class="otherCol ml">SUBTOTAL</p>
   </div>
 
-  <TableRow />
+  <TableRow @total="updateTotal($event)" />
 
   <div class="header end">
     <p class="otherCol bright">Total</p>
-    <p class="otherCol bright">$ 100</p>
+    <p class="otherCol bright" v-if="total">&#8358; {{ total }}</p>
+    <p class="otherCol bright" v-else>Loading</p>
   </div>
   <div class="header end">
     <p class="dev">Delivery Fees not included Yet</p>
@@ -22,6 +23,16 @@ import TableRow from "@/components/cart/TableRow.vue";
 export default {
   name: "Table",
   components: { TableRow },
+  data() {
+    return {
+      total: 0,
+    };
+  },
+  methods: {
+    updateTotal(total) {
+      this.total = total;
+    },
+  },
 };
 </script>
 

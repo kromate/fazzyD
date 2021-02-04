@@ -95,7 +95,8 @@ export default {
               this.total += parseInt(item.price);
               this.units[item.id] = 1;
             });
-            console.log(this.total);
+            this.$emit("total", this.total);
+            // console.log(this.total);
           } else {
             console.log("Not Found");
           }

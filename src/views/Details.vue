@@ -1,6 +1,5 @@
 <template>
-  <!-- <div class="container" v-if="name"> -->
-  <div class="container">
+  <div class="container" v-if="name">
     <div class="details">
       <h1>{{ name }}</h1>
       <p class="text">
@@ -28,7 +27,7 @@
     </div>
   </div>
 
-  <div class="container2">
+  <div class="container2" v-else>
     <div v-if="!empty">
       <Loader w="233.39" h="340" b="8" />
       <p class="lood">loading....</p>
@@ -75,7 +74,7 @@ export default {
 
   methods: {
     decre() {
-      if (this.count > 0) {
+      if (this.count > 1) {
         this.count--;
       } else {
         this.disableDecre = true;

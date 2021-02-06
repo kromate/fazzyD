@@ -88,7 +88,6 @@ export default {
       this.count++;
     },
     cart(data) {
-      console.log("hello");
       let item = { count: this.count, ...data };
       this.$store.commit("updatedetailedItem", item);
       this.$store.dispatch("addToCart");
@@ -167,6 +166,8 @@ export default {
   align-items: center;
 }
 .unitBtn {
+  margin-top: 10px;
+  margin-left: -6px;
   width: 100%;
   max-width: 300px;
   display: flex;

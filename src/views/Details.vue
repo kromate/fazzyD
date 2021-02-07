@@ -53,6 +53,7 @@ export default {
   data() {
     return {
       empty: false,
+      count: 1,
       disableDecre: false,
     };
   },
@@ -69,12 +70,15 @@ export default {
     Price() {
       return this.$store.state.detailedItem.price;
     },
-    count() {
+    unit() {
       return this.$store.state.detailedItem.count;
     },
   },
 
   methods: {
+    setCount() {
+      this.count = this.unit;
+    },
     decre() {
       if (this.count > 1) {
         this.count--;
@@ -119,6 +123,7 @@ export default {
                 };
                 console.log(content);
                 this.$store.commit("updatedetailedItem", content);
+                this.setCount();
               });
           } else {
             // doc.data() will be undefined in this case

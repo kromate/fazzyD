@@ -93,7 +93,11 @@ export default {
       this.count++;
     },
     cart(data) {
-      let item = { count: this.count, ...data };
+      console.log(this.count);
+      let upd = data;
+      upd.count = this.count;
+      let item = upd;
+      console.log(item);
       this.$store.commit("updatedetailedItem", item);
       this.$store.dispatch("addToCart");
     },
@@ -143,7 +147,7 @@ export default {
       console.log(this.$route.query.id);
       this.getfromId();
     } else {
-      console.log("1234tfgbn");
+      this.setCount();
     }
   },
 };

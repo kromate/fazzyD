@@ -5,7 +5,7 @@
       <p class="text">
         {{ details }}
       </p>
-      <h2>&#8358;{{ Price * count }}</h2>
+      <h2>&#8358;{{ Price }}</h2>
 
       <!-- <div class="size">
         <p class="sItem">XS</p>
@@ -53,7 +53,6 @@ export default {
   data() {
     return {
       empty: false,
-      count: 1,
       disableDecre: false,
     };
   },
@@ -69,6 +68,9 @@ export default {
     },
     Price() {
       return this.$store.state.detailedItem.price;
+    },
+    count() {
+      return this.$store.state.detailedItem.count;
     },
   },
 

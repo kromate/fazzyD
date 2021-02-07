@@ -47,7 +47,12 @@ export default createStore({
         state.showNotify = false
       }, 1000);
     },
-
+    getTotal(state){
+      state.cart.forEach((item) => {
+        state.total += parseInt(item.price);
+     });
+     console.log(state.total);
+    },
     ShowNotifyCart(state){
         state.showNotifyImage = require("@/assets/icon/Buy.svg")
         state.showNotifyText = "Item Successfully Added to Cart"
@@ -88,8 +93,8 @@ export default createStore({
             console.log(context.state.cart);
             context.state.cart.forEach((item) => {
                context.state.units[item.id] = 1;
+               context.commit("getTotal");
             });
-            context.commit("getTotal");
           } else {
             console.log("Not Found");
           }

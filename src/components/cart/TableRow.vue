@@ -31,7 +31,7 @@
         </select> -->
       </p>
       <p class="otherCol ItSel justify align flex bod hide">&#8358; {{ cat.price }}</p>
-      <p class="otherCol ItSel justify align flex ">&#8358;{{ cat.price * units[cat.id] }}</p>
+      <p class="otherCol ItSel justify align flex ">&#8358;{{ cat.price * cat.count }}</p>
     </div>
   </div>
 

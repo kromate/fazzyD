@@ -48,8 +48,9 @@ export default createStore({
       }, 1000);
     },
     getTotal(state){
+      state.total = 0
       state.cart.forEach((item) => {
-        state.total += parseInt(item.price);
+        state.total += parseInt(item.price * item.count);
      });
      console.log(state.total);
     },

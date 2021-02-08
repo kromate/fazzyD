@@ -2,9 +2,10 @@ import { createStore } from 'vuex'
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import favourite from './Favourite.js'
+import favourite from './mutation.js'
 
 export default createStore({
+  favourite,
   state: {
     showNotify:false,
     showNotifyImage:'',
@@ -129,7 +130,5 @@ export default createStore({
     },
 
   },
-  modules: { 
-    f:favourite
-  }
+  
 })

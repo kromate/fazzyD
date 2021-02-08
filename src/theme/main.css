@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  transition: 0.3s;
+  /* overflow-x: hidden; */
+  outline: none !important;
+  user-select: none;
+}
+button {
+  outline: none;
+  border: none;
+}
+body {
+  background-color: #291800;
+}
+.flex {
+  display: flex;
+}
+.align {
+  align-items: center;
+}
+.justify {
+  justify-content: center;
+}
+.column {
+  flex-direction: column;
+}
+.point {
+  cursor: pointer;
+}
+.bright {
+  color: #ff9409 !important;
+}
+.primaryBtn {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #d79947;
+  width: 100%;
+  background: transparent;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #d79947;
+}
+.primaryBtn:hover {
+  background: black;
+  cursor: pointer;
+  border: 1px solid #d79947;
+}
+.secondaryBtn {
+  margin-top: 1rem;
+  padding: 0.8rem;
+
+  width: 100%;
+
+  font-weight: 600;
+  font-size: 1rem;
+  color: #d79947;
+  background: black;
+}
+.secondaryBtn:hover {
+  border: 1px solid #000;
+  background: transparent;
+  cursor: pointer;
+}
+
+img {
+  object-fit: contain;
+  transform-origin: 0 0;
+  transform: rotate(360deg);
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .hide {
+    display: none;
+  }
+  .firstCol {
+    flex-basis: 50%;
+  }
+  .otherCol {
+    flex-basis: 25%;
+  }
+}
+
+.title {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ff9305;
+  stroke: black;
+  stroke-width: 4px;
+  width: fit-content;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(255, 164, 7, 0.808);
+  -webkit-box-shadow: inset 0 0 6px rgba(255, 164, 7, 0.808);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  box-shadow: inset 0 0 6px rgb(255, 255, 255);
+  -webkit-box-shadow: inset 0 0 6px rgb(255, 255, 255);
+}

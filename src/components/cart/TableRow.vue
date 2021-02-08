@@ -81,7 +81,11 @@ export default {
           cart: firebase.firestore.FieldValue.arrayRemove(data),
         })
         .then(() => {
+<<<<<<< HEAD
           this.$store.commit("RemoveNotifyCart");
+=======
+          this.$store.commit("RemoveNotifyFav");
+>>>>>>> c0dd3cb4abbe04e356ff4bf7da5d2818a6f9b661
           this.$store.dispatch("getCart");
         })
         .catch((err) => {

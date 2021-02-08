@@ -54,7 +54,10 @@ export default {
     return {
       empty: false,
       count: 1,
+<<<<<<< HEAD
       item: "",
+=======
+>>>>>>> c0dd3cb4abbe04e356ff4bf7da5d2818a6f9b661
       disableDecre: false,
     };
   },
@@ -78,11 +81,15 @@ export default {
 
   methods: {
     setCount() {
+<<<<<<< HEAD
       if (this.unit) {
         this.count = this.unit;
       } else {
         this.count = 1;
       }
+=======
+      this.count = this.unit;
+>>>>>>> c0dd3cb4abbe04e356ff4bf7da5d2818a6f9b661
     },
     decre() {
       if (this.count > 1) {
@@ -98,11 +105,16 @@ export default {
       this.count++;
     },
     cart(data) {
+<<<<<<< HEAD
       this.removeCart(this.complete);
+=======
+      console.log(this.count);
+>>>>>>> c0dd3cb4abbe04e356ff4bf7da5d2818a6f9b661
       let upd = data;
       upd.count = this.count;
       let item = upd;
       console.log(item);
+<<<<<<< HEAD
       this.item = item;
       console.log(this.complete);
     },
@@ -122,6 +134,10 @@ export default {
           this.$store.commit("wrong");
           console.log(err);
         });
+=======
+      this.$store.commit("updatedetailedItem", item);
+      this.$store.dispatch("addToCart");
+>>>>>>> c0dd3cb4abbe04e356ff4bf7da5d2818a6f9b661
     },
     getfromId() {
       firebase

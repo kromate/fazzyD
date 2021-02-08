@@ -38,7 +38,6 @@ export default createStore({
         state.showNotify = false
       }, 1000);
     },
-<<<<<<< HEAD
     RemoveNotifyCart(state){
       state.showNotifyImage = ''
       state.showNotifyText = "Item Successfully Removed from Cart"
@@ -48,8 +47,6 @@ export default createStore({
         state.showNotify = false
       }, 1000); 
     },
-=======
->>>>>>> c0dd3cb4abbe04e356ff4bf7da5d2818a6f9b661
     RemoveNotifyFav(state){
       state.showNotifyImage = ''
       state.showNotifyText = "Item Successfully Removed from Favourite"
@@ -57,11 +54,7 @@ export default createStore({
 
       setTimeout(() => {
         state.showNotify = false
-<<<<<<< HEAD
       }, 1000); 
-=======
-      }, 1000);
->>>>>>> c0dd3cb4abbe04e356ff4bf7da5d2818a6f9b661
     },
     getTotal(state){
       state.total = 0

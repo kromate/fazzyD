@@ -14,6 +14,7 @@ export default {
 
 <style scoped>
 .pulsate {
+  max-width: 306px !important;
   background: linear-gradient(30deg, #6a3f05, #a2691e, #804b0a, #a56417);
   background-size: 400% 400%;
   -webkit-animation: Gradient-04a0d67a 2.25s ease infinite;

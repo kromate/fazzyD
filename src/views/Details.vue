@@ -266,6 +266,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   margin-top: 1.5rem;
+  color: #d79947;
 }
 .container2 {
   display: flex;

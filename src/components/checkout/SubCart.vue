@@ -1,26 +1,35 @@
 <template>
   <div class="subCart">
-    <div class="row" v-for="n in 3" :key="n">
+    <div class="row" v-for="cat in cart" :key="cat.id">
       <div class="firstCol">
-        <img src="@/assets/gallery/black_hoodie.png" class="subCartImg" />
+        <img :src="cat.img" class="subCartImg" />
         <div class="subCartDet">
-          <h3>Zylo Hoodie</h3>
-          <p>Qty: 1</p>
+          <h3>{{ cat.name }}</h3>
+          <p>Qty: {{ cat.count }}</p>
         </div>
       </div>
 
       <div class="otherCol">
-        <h2>$ 20</h2>
+        <h3 class="col_org fonc">&#8358; {{ cat.price * cat.count }}</h3>
       </div>
     </div>
-    <div class="pricing" v-for="(n, index) in priceDetails" :key="index">
+    <!-- <div class="pricing" v-for="(n, index) in priceDetails" :key="index">
       <div class="firstCol">
         <h1>{{ n.name }}</h1>
       </div>
       <div class="otherCol">
         <h2>{{ n.detail }}</h2>
       </div>
+    </div> -->
+    <div class="pricing">
+      <div class="firstCol">
+        <h1>SubTotal</h1>
+      </div>
+      <div class="otherCol">
+        <h3 class="col_org fonc">&#8358; {{ total }}</h3>
+      </div>
     </div>
+
     <div class="flex">
       <flutterwave
         :isProduction="isProduction"
@@ -74,10 +83,24 @@ export default {
       paymentMethod: "",
     };
   },
+  computed: {
+    total() {
+      return this.$store.state.total;
+    },
+    cart() {
+      return this.$store.state.cart;
+    },
+    units() {
+      return this.$store.state.units;
+    },
+  },
 };
 </script>
 
 <style scoped>
+.fonc {
+  font-size: 1.2rem;
+}
 .row {
   background: rgba(0, 0, 0, 0.459);
   display: flex;
@@ -107,6 +130,9 @@ export default {
   color: #fc940c;
   font-weight: 600;
   letter-spacing: 1.5px;
+}
+.col_org {
+  color: #fc940c;
 }
 h3 {
   color: #d79947;
@@ -140,6 +166,10 @@ h1 {
 @media (max-width: 700px) {
   .subCart {
     width: 95%;
+  }
+
+  .fonc {
+    font-size: 0.9rem;
   }
 }
 </style>

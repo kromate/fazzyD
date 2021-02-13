@@ -22,16 +22,9 @@
 
       <p class="otherCol ItSel justify align flex bod point" @click="switchToDetailPage(cat)">
         {{ cat.count }}
-        <!-- <select v-model="units[cat.id]" >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select> -->
       </p>
       <p class="otherCol ItSel justify align flex bod hide">&#8358; {{ cat.price }}</p>
-      <p class="otherCol ItSel justify align flex ">&#8358;{{ cat.price * cat.count }}</p>
+      <p class="otherCol ItSel justify align flex ">&#8358; {{ cat.price * cat.count }}</p>
     </div>
   </div>
 
@@ -58,10 +51,6 @@ export default {
     },
   },
   methods: {
-    con(data, con) {
-      console.log(data.target.value);
-      console.log(con);
-    },
     switchToDetailPage(data) {
       console.log(data.price);
 

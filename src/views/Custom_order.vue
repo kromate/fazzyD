@@ -23,43 +23,59 @@
         <label for="phone">PHONE NUM</label>
         <input type="number" id="phone" placeholder="Enter Your Phone Number" />
       </div>
+
       <div class="upper" v-if="body">
         <label class="heading">Upper Body Measurement</label>
         <div class="inputBox">
           <label for="Neck">Neck</label>
-          <input type="text" id="Neck" placeholder="Enter Size in CM" />
+          <input type="text" id="Neck" placeholder="Enter Size in CM" v-model="body.neck" />
         </div>
         <div class="inputBox">
           <label for="Chest">Chest</label>
-          <input type="text" id="Chest" placeholder="Enter Size in CM" />
+          <input type="text" id="Chest" placeholder="Enter Size in CM" v-model="body.chest" />
         </div>
         <div class="inputBox">
           <label for="Body Length">Body Length</label>
-          <input type="text" id="Body Length" placeholder="Enter Size in CM" />
+          <input
+            type="text"
+            id="Body Length"
+            placeholder="Enter Size in CM"
+            v-model="body.BLength"
+          />
         </div>
         <div class="inputBox">
           <label for="Arm length(sleeve)">Arm length(sleeve)</label>
-          <input type="text" id="Arm length(sleeve)" placeholder="Enter Size in CM" />
+          <input
+            type="text"
+            id="Arm length(sleeve)"
+            placeholder="Enter Size in CM"
+            v-model="body.ArmLength"
+          />
         </div>
         <div class="inputBox">
           <label for="Back">Back</label>
-          <input type="text" id="Back" placeholder="Enter Size in CM" />
+          <input type="text" id="Back" placeholder="Enter Size in CM" v-model="body.back" />
         </div>
         <div class="inputBox">
           <label for="Shoulder">Shoulder</label>
-          <input type="text" id="Shoulder" placeholder="Enter Size in CM" />
+          <input type="text" id="Shoulder" placeholder="Enter Size in CM" v-model="body.shoulder" />
         </div>
         <div class="inputBox">
           <label for="Arm hole">Arm hole</label>
-          <input type="text" id="Arm hole" placeholder="Enter Size in CM" />
+          <input type="text" id="Arm hole" placeholder="Enter Size in CM" v-model="body.ArmHole" />
         </div>
         <div class="inputBox">
           <label for="Bicep size (muscle)">Bicep size (muscle)</label>
-          <input type="text" id="Bicep size (muscle)" placeholder="Enter Size in CM" />
+          <input
+            type="text"
+            id="Bicep size (muscle)"
+            placeholder="Enter Size in CM"
+            v-model="body.bicep"
+          />
         </div>
         <div class="inputBox">
           <label for="Wrist">Wrist</label>
-          <input type="text" id="Wrist" placeholder="Enter Size in CM" />
+          <input type="text" id="Wrist" placeholder="Enter Size in CM" v-model="body.wrist" />
         </div>
       </div>
       <div class="lower">
@@ -90,7 +106,7 @@
         </div>
       </div>
 
-      <div class="lower">
+      <div class="lower" v-if="body">
         <label class="heading">Upload an image of the custom ware you want</label>
         <div class="inputBox">
           <label class="dropdown cust secondaryBtn" for="pix" data-element="custom-upload-button"
@@ -122,6 +138,7 @@ export default {
       title: "Upload",
       mode: "Pick Up",
       location: "",
+      body: {},
     };
   },
 };

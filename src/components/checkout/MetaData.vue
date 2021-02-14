@@ -29,10 +29,10 @@ export default {
   name: "MetaData",
   data() {
     return {
-      mode: "",
-      location: '',
+      mode: "Pick Up",
+      location: "",
       searchResults: [],
-      service: null // will reveal this later 🕵️
+      service: null, // will reveal this later 🕵️
     };
   },
 

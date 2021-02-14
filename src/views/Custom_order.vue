@@ -9,20 +9,21 @@
     <form action="">
       <div class="inputBox">
         <label for="method">DELIVERY METHODS</label>
-        <select name="method" id="method">
+        <select name="method" id="method" v-model="mode">
           <option value="Door Delivery">Door Delivery</option>
           <option value="Pick Up"> Pick Up</option>
         </select>
       </div>
-      <div class="inputBox">
+      <div class="inputBox" v-if="mode == 'Door Delivery'">
         <label for="address">ADDRESS</label>
-        <input type="text" id="address" placeholder="Enter Your Address" />
+        <input type="text" id="address" placeholder="Enter Your Address" v-model="location" />
       </div>
+
       <div class="inputBox">
         <label for="phone">PHONE NUM</label>
         <input type="number" id="phone" placeholder="Enter Your Phone Number" />
       </div>
-      <div class="upper">
+      <div class="upper" v-if="body">
         <label class="heading">Upper Body Measurement</label>
         <div class="inputBox">
           <label for="Neck">Neck</label>
@@ -119,7 +120,7 @@ export default {
   data() {
     return {
       title: "Upload",
-      mode: "",
+      mode: "Pick Up",
       location: "",
     };
   },

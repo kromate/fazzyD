@@ -43,6 +43,7 @@ export default  {
           id: context.state.user.uid,
           email: context.state.user.email,
           favourite: [],
+          orders: [],
           cart: [context.state.detailedItem],
         }
         collection
@@ -75,6 +76,7 @@ export default  {
           id: context.state.user.uid,
           email: context.state.user.email,
           favourite: [context.state.detailedItem],
+          orders: [],
           cart: [],
         }
         collection

@@ -3,18 +3,22 @@
     <form action="">
       <div class="inputBox">
         <label for="method">DELIVERY METHODS</label>
-        <select name="method" id="method">
+        <select name="method" id="method" v-model="mode" aria-placeholder="select">
           <option value="Door Delivery">Door Delivery</option>
           <option value="Pick Up"> Pick Up</option>
         </select>
       </div>
-      <div class="inputBox">
+      <div class="inputBox" v-if="mode == 'Door Delivery'">
         <label for="address">ADDRESS</label>
         <input type="text" id="address" placeholder="Enter Your Address" />
+        <ul>
+          <li v-for="(result, i) in searchResults" :key="i">{{ result }} // list of all places</li>
+        </ul>
       </div>
+
       <div class="inputBox">
         <label for="phone">PHONE NUM</label>
-        <input type="number" id="phone" placeholder="Enter Your Phone Number" />
+        <input type="number" id="phone" placeholder="Enter Your Phone Number" required />
       </div>
     </form>
   </div>
@@ -23,6 +27,11 @@
 <script>
 export default {
   name: "MetaData",
+  data() {
+    return {
+      mode: "",
+    };
+  },
 };
 </script>
 

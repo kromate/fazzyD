@@ -6,7 +6,7 @@
       already available selection. <br />Fill the form below and we would get back to you
     </p>
 
-    <form action="">
+    <form action="" @submit.prevent="sumbit">
       <div class="inputBox">
         <label for="method">DELIVERY METHODS</label>
         <select name="method" id="method" v-model="mode">
@@ -28,16 +28,16 @@
         <label class="heading">Upper Body Measurement</label>
         <div class="inputBox">
           <label for="Neck">Neck</label>
-          <input type="text" id="Neck" placeholder="Enter Size in CM" v-model="body.neck" />
+          <input type="number" id="Neck" placeholder="Enter Size in CM" v-model="body.neck" />
         </div>
         <div class="inputBox">
           <label for="Chest">Chest</label>
-          <input type="text" id="Chest" placeholder="Enter Size in CM" v-model="body.chest" />
+          <input type="number" id="Chest" placeholder="Enter Size in CM" v-model="body.chest" />
         </div>
         <div class="inputBox">
           <label for="Body Length">Body Length</label>
           <input
-            type="text"
+            type="number"
             id="Body Length"
             placeholder="Enter Size in CM"
             v-model="body.BLength"
@@ -46,7 +46,7 @@
         <div class="inputBox">
           <label for="Arm length(sleeve)">Arm length(sleeve)</label>
           <input
-            type="text"
+            type="number"
             id="Arm length(sleeve)"
             placeholder="Enter Size in CM"
             v-model="body.ArmLength"
@@ -54,20 +54,30 @@
         </div>
         <div class="inputBox">
           <label for="Back">Back</label>
-          <input type="text" id="Back" placeholder="Enter Size in CM" v-model="body.back" />
+          <input type="number" id="Back" placeholder="Enter Size in CM" v-model="body.back" />
         </div>
         <div class="inputBox">
           <label for="Shoulder">Shoulder</label>
-          <input type="text" id="Shoulder" placeholder="Enter Size in CM" v-model="body.shoulder" />
+          <input
+            type="number"
+            id="Shoulder"
+            placeholder="Enter Size in CM"
+            v-model="body.shoulder"
+          />
         </div>
         <div class="inputBox">
           <label for="Arm hole">Arm hole</label>
-          <input type="text" id="Arm hole" placeholder="Enter Size in CM" v-model="body.ArmHole" />
+          <input
+            type="number"
+            id="Arm hole"
+            placeholder="Enter Size in CM"
+            v-model="body.ArmHole"
+          />
         </div>
         <div class="inputBox">
           <label for="Bicep size (muscle)">Bicep size (muscle)</label>
           <input
-            type="text"
+            type="number"
             id="Bicep size (muscle)"
             placeholder="Enter Size in CM"
             v-model="body.bicep"
@@ -75,34 +85,34 @@
         </div>
         <div class="inputBox">
           <label for="Wrist">Wrist</label>
-          <input type="text" id="Wrist" placeholder="Enter Size in CM" v-model="body.wrist" />
+          <input type="number" id="Wrist" placeholder="Enter Size in CM" v-model="body.wrist" />
         </div>
       </div>
       <div class="lower" v-if="body">
         <label class="heading">Lower Body Measurement</label>
         <div class="inputBox">
           <label for="Waist">Waist</label>
-          <input type="text" id="Waist" placeholder="Enter Size in CM" v-model="body.waist" />
+          <input type="number" id="Waist" placeholder="Enter Size in CM" v-model="body.waist" />
         </div>
         <div class="inputBox">
           <label for="Hip">Hip</label>
-          <input type="text" id="Hip" placeholder="Enter Size in CM" v-model="body.hip" />
+          <input type="number" id="Hip" placeholder="Enter Size in CM" v-model="body.hip" />
         </div>
         <div class="inputBox">
           <label for="Thigh">Thigh</label>
-          <input type="text" id="Thigh" placeholder="Enter Size in CM" v-model="body.thigh" />
+          <input type="number" id="Thigh" placeholder="Enter Size in CM" v-model="body.thigh" />
         </div>
         <div class="inputBox">
           <label for="Knee">Knee</label>
-          <input type="text" id="Knee" placeholder="Enter Size in CM" v-model="body.knee" />
+          <input type="number" id="Knee" placeholder="Enter Size in CM" v-model="body.knee" />
         </div>
         <div class="inputBox">
           <label for="Ankle">Ankle</label>
-          <input type="text" id="Ankle" placeholder="Enter Size in CM" v-model="body.ankle" />
+          <input type="number" id="Ankle" placeholder="Enter Size in CM" v-model="body.ankle" />
         </div>
         <div class="inputBox">
           <label for="Length">Length</label>
-          <input type="text" id="Length" placeholder="Enter Size in CM" v-model="body.LLength" />
+          <input type="number" id="Length" placeholder="Enter Size in CM" v-model="body.LLength" />
         </div>
       </div>
 
@@ -112,7 +122,7 @@
           <label class="dropdown cust secondaryBtn" for="pix" data-element="custom-upload-button"
             >{{ title }}
           </label>
-          <div class="status">{{ perc }}</div>
+          <!-- <div class="status">{{ perc }}</div> -->
           <input
             class="custom"
             id="pix"
@@ -120,12 +130,11 @@
             type="file"
             data-behaviour="custom-upload-input"
             @change="update"
-            required
           />
         </div>
       </div>
       <div class="inputBox">
-        <button class="primaryBtn">Submit</button>
+        <button class="primaryBtn" type="submit">Submit</button>
       </div>
     </form>
   </div>
@@ -140,6 +149,11 @@ export default {
       location: "",
       body: {},
     };
+  },
+  methods: {
+    sumbit() {
+      console.log("body", this.body);
+    },
   },
 };
 </script>

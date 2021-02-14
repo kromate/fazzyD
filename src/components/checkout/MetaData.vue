@@ -32,6 +32,19 @@ export default {
       mode: "",
     };
   },
+
+  metaInfo() {
+    return {
+      script: [
+        {
+          src: `https://maps.googleapis.com/maps/api/js?key=<YOUR_API_KEY>&libraries=places`,
+          async: true,
+          defer: true,
+          callback: () => this.MapsInit(), // will declare it in methods
+        },
+      ],
+    };
+  },
 };
 </script>
 

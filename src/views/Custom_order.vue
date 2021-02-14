@@ -141,6 +141,12 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+import { v4 as uuidv4 } from "uuid";
+import "firebase/firestore";
+import "firebase/storage";
+
+const collection = firebase.firestore().collection("users");
 export default {
   data() {
     return {
@@ -154,6 +160,36 @@ export default {
   methods: {
     sumbit() {
       console.log("body", this.body);
+    },
+
+        submit() {
+      let uid = uuidv4();
+      let data = {
+        id: uid,
+        categories: this.cat,
+        name: this.Pname,
+        details: this.Pdetails,
+        Price: this.Pprice,
+      };
+      console.log(data);
+      collection
+        .doc(uid)
+        .set(data)
+        .then(() => {
+          console.log("UPLOAD-FILE called!");
+          var storageReference = firebase.storage().ref();
+          var file = document.getElementById("pix").files[0];
+
+          let uploadTask = storageReference.child("collection/" + uid).put(file);
+
+          uploadTask.on("state_changed", (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            this.title = Math.floor(progress) + "% uploaded";
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };

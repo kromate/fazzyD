@@ -90,5 +90,43 @@ export default  {
         })
       }
     
-    }
+    },
+
+    async addToC_Order(context){
+      const collection = firebase.firestore().collection("users")
+      const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
+        console.log(err);
+        context.commit("Error");
+      })
+      if(user.exists){
+        collection
+        .doc(firebase.auth().currentUser.uid)
+        .update({
+          favourite:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
+          context.commit("ShowNotifyFav");
+        }).catch((err)=>{
+          console.log(err);
+          context.commit("Error");
+        })
+      }else{
+        const data =   {
+          id: context.state.user.uid,
+          email: context.state.user.email,
+          favourite: [context.state.detailedItem],
+          orders: [],
+          C_orders: [],
+          cart: [],
+        }
+        collection
+        .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
+          context.commit("ShowNotifyFav");
+        }).catch((err)=>{
+          console.log(err);
+          context.commit("Error");
+        })
+      }
+    
+    },
+
+    
   };

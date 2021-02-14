@@ -119,6 +119,8 @@ export default {
   data() {
     return {
       title: "Upload",
+      mode: "",
+      location: "",
     };
   },
 };

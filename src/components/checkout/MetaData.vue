@@ -10,7 +10,7 @@
       </div>
       <div class="inputBox" v-if="mode == 'Door Delivery'">
         <label for="address">ADDRESS</label>
-        <input type="text" id="address" placeholder="Enter Your Address" />
+        <input type="text" id="address" placeholder="Enter Your Address" v-model="location" />
         <ul>
           <li v-for="(result, i) in searchResults" :key="i">{{ result }} // list of all places</li>
         </ul>
@@ -30,6 +30,9 @@ export default {
   data() {
     return {
       mode: "",
+      location: '',
+      searchResults: [],
+      service: null // will reveal this later 🕵️
     };
   },
 

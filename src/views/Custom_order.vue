@@ -78,35 +78,35 @@
           <input type="text" id="Wrist" placeholder="Enter Size in CM" v-model="body.wrist" />
         </div>
       </div>
-      <div class="lower">
+      <div class="lower" v-if="body">
         <label class="heading">Lower Body Measurement</label>
         <div class="inputBox">
           <label for="Waist">Waist</label>
-          <input type="text" id="Waist" placeholder="Enter Size in CM" />
+          <input type="text" id="Waist" placeholder="Enter Size in CM" v-model="body" />
         </div>
         <div class="inputBox">
           <label for="Hip">Hip</label>
-          <input type="text" id="Hip" placeholder="Enter Size in CM" />
+          <input type="text" id="Hip" placeholder="Enter Size in CM" v-model="body" />
         </div>
         <div class="inputBox">
           <label for="Thigh">Thigh</label>
-          <input type="text" id="Thigh" placeholder="Enter Size in CM" />
+          <input type="text" id="Thigh" placeholder="Enter Size in CM" v-model="body" />
         </div>
         <div class="inputBox">
           <label for="Knee">Knee</label>
-          <input type="text" id="Knee" placeholder="Enter Size in CM" />
+          <input type="text" id="Knee" placeholder="Enter Size in CM" v-model="body" />
         </div>
         <div class="inputBox">
           <label for="Ankle">Ankle</label>
-          <input type="text" id="Ankle" placeholder="Enter Size in CM" />
+          <input type="text" id="Ankle" placeholder="Enter Size in CM" v-model="body" />
         </div>
         <div class="inputBox">
           <label for="Length">Length</label>
-          <input type="text" id="Length" placeholder="Enter Size in CM" />
+          <input type="text" id="Length" placeholder="Enter Size in CM" v-model="body" />
         </div>
       </div>
 
-      <div class="lower" v-if="body">
+      <div class="lower">
         <label class="heading">Upload an image of the custom ware you want</label>
         <div class="inputBox">
           <label class="dropdown cust secondaryBtn" for="pix" data-element="custom-upload-button"

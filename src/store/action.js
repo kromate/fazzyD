@@ -44,6 +44,7 @@ export default  {
           email: context.state.user.email,
           favourite: [],
           orders: [],
+          C_orders: [],
           cart: [context.state.detailedItem],
         }
         collection
@@ -77,6 +78,7 @@ export default  {
           email: context.state.user.email,
           favourite: [context.state.detailedItem],
           orders: [],
+          C_orders: [],
           cart: [],
         }
         collection

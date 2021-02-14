@@ -21,7 +21,7 @@
 
       <div class="inputBox">
         <label for="phone">PHONE NUM</label>
-        <input type="number" id="phone" placeholder="Enter Your Phone Number" />
+        <input type="number" id="phone" placeholder="Enter Your Phone Number" v-model="phone" />
       </div>
 
       <div class="upper" v-if="body">
@@ -147,6 +147,7 @@ export default {
       title: "Upload",
       mode: "Pick Up",
       location: "",
+      phone: "",
       body: {},
     };
   },

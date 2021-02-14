@@ -82,27 +82,27 @@
         <label class="heading">Lower Body Measurement</label>
         <div class="inputBox">
           <label for="Waist">Waist</label>
-          <input type="text" id="Waist" placeholder="Enter Size in CM" v-model="body" />
+          <input type="text" id="Waist" placeholder="Enter Size in CM" v-model="body.waist" />
         </div>
         <div class="inputBox">
           <label for="Hip">Hip</label>
-          <input type="text" id="Hip" placeholder="Enter Size in CM" v-model="body" />
+          <input type="text" id="Hip" placeholder="Enter Size in CM" v-model="body.hip" />
         </div>
         <div class="inputBox">
           <label for="Thigh">Thigh</label>
-          <input type="text" id="Thigh" placeholder="Enter Size in CM" v-model="body" />
+          <input type="text" id="Thigh" placeholder="Enter Size in CM" v-model="body.thigh" />
         </div>
         <div class="inputBox">
           <label for="Knee">Knee</label>
-          <input type="text" id="Knee" placeholder="Enter Size in CM" v-model="body" />
+          <input type="text" id="Knee" placeholder="Enter Size in CM" v-model="body.knee" />
         </div>
         <div class="inputBox">
           <label for="Ankle">Ankle</label>
-          <input type="text" id="Ankle" placeholder="Enter Size in CM" v-model="body" />
+          <input type="text" id="Ankle" placeholder="Enter Size in CM" v-model="body.ankle" />
         </div>
         <div class="inputBox">
           <label for="Length">Length</label>
-          <input type="text" id="Length" placeholder="Enter Size in CM" v-model="body" />
+          <input type="text" id="Length" placeholder="Enter Size in CM" v-model="body.LLength" />
         </div>
       </div>
 

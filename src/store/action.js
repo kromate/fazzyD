@@ -102,7 +102,7 @@ export default  {
         collection
         .doc(firebase.auth().currentUser.uid)
         .update({
-          favourite:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
+          C_orders:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
           context.commit("ShowNotifyFav");
         }).catch((err)=>{
           console.log(err);
@@ -112,9 +112,9 @@ export default  {
         const data =   {
           id: context.state.user.uid,
           email: context.state.user.email,
-          favourite: [context.state.detailedItem],
+          favourite: [],
           orders: [],
-          C_orders: [],
+          C_orders: [context.state.detailedItem],
           cart: [],
         }
         collection

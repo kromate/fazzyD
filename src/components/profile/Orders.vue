@@ -1,6 +1,22 @@
 <template>
   <details>
     <summary><h2>Orders</h2> </summary>
+
+    <div class="card">
+      <p>date:20-17-2021</p>
+    </div>
+    <div class="card">
+      <p>date:20-17-2021</p>
+    </div>
+    <div class="card">
+      <p>date:20-17-2021</p>
+    </div>
+    <div class="card">
+      <p>date:20-17-2021</p>
+    </div>
+    <div class="card">
+      <p>date:20-17-2021</p>
+    </div>
   </details>
 </template>
 
@@ -61,14 +77,13 @@ export default {
 </script>
 
 <style scoped>
-.heading {
-  /* text-align: center; */
-  text-transform: uppercase;
-  margin-top: 28px;
-  /* border: 1px solid rgb(133, 95, 24);
-  padding: 4px;
-  width: 292px; */
+.card {
+  background: rgb(255, 255, 255);
+  width: fit-content;
+  display: inline-block;
+  margin: 1rem;
 }
+
 .cartbtn {
   width: auto !important;
   font-size: 0.7rem;

@@ -12,7 +12,7 @@
           <label for="Neck">Neck</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Neck"
             placeholder="Enter Size in CM"
             v-model="body.neck"
@@ -22,7 +22,7 @@
           <label for="Chest">Chest</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Chest"
             placeholder="Enter Size in CM"
             v-model="body.chest"
@@ -32,7 +32,7 @@
           <label for="Body Length">Body Length</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Body Length"
             placeholder="Enter Size in CM"
             v-model="body.BLength"
@@ -42,7 +42,7 @@
           <label for="Arm length(sleeve)">Arm length(sleeve)</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Arm length(sleeve)"
             placeholder="Enter Size in CM"
             v-model="body.ArmLength"
@@ -52,7 +52,7 @@
           <label for="Back">Back</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Back"
             placeholder="Enter Size in CM"
             v-model="body.back"
@@ -62,7 +62,7 @@
           <label for="Shoulder">Shoulder</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Shoulder"
             placeholder="Enter Size in CM"
             v-model="body.shoulder"
@@ -72,7 +72,7 @@
           <label for="Arm hole">Arm hole</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Arm hole"
             placeholder="Enter Size in CM"
             v-model="body.ArmHole"
@@ -82,7 +82,7 @@
           <label for="Bicep size (muscle)">Bicep size (muscle)</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Bicep size (muscle)"
             placeholder="Enter Size in CM"
             v-model="body.bicep"
@@ -92,7 +92,7 @@
           <label for="Wrist">Wrist</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Wrist"
             placeholder="Enter Size in CM"
             v-model="body.wrist"
@@ -105,7 +105,7 @@
           <label for="Waist">Waist</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Waist"
             placeholder="Enter Size in CM"
             v-model="body.waist"
@@ -115,7 +115,7 @@
           <label for="Hip">Hip</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Hip"
             placeholder="Enter Size in CM"
             v-model="body.hip"
@@ -125,7 +125,7 @@
           <label for="Thigh">Thigh</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Thigh"
             placeholder="Enter Size in CM"
             v-model="body.thigh"
@@ -135,7 +135,7 @@
           <label for="Knee">Knee</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Knee"
             placeholder="Enter Size in CM"
             v-model="body.knee"
@@ -145,7 +145,7 @@
           <label for="Ankle">Ankle</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Ankle"
             placeholder="Enter Size in CM"
             v-model="body.ankle"
@@ -155,7 +155,7 @@
           <label for="Length">Length</label>
           <input
             type="number"
-            disabled="check"
+            :disabled="check"
             id="Length"
             placeholder="Enter Size in CM"
             v-model="body.LLength"
@@ -181,6 +181,7 @@ export default {
       location: "",
       phone: "",
       body: {},
+      check: false,
     };
   },
   methods: {
@@ -222,6 +223,14 @@ export default {
 </script>
 
 <style scoped>
+.heading {
+  /* text-align: center; */
+  text-transform: uppercase;
+  margin-top: 28px;
+  /* border: 1px solid rgb(133, 95, 24);
+  padding: 4px;
+  width: 292px; */
+}
 .cartbtn {
   width: auto !important;
   font-size: 0.7rem;
@@ -284,25 +293,19 @@ input {
   color: #d79947;
   font-weight: 600;
   font-size: 1rem;
-  width: 279px;
+  /* width: 279px; */
+  text-align: center;
+  background: #09248633;
+  border: 1.8px solid #ff9305;
 }
 
-select {
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.445);
-  outline: none;
-  border: 1px solid black;
-  color: #d79947;
-  font-weight: 600;
-  font-size: 1rem;
-  width: 300px;
-}
 label {
   display: block !important;
   margin-bottom: 10px !important;
   color: #d79947 !important;
   font-weight: 600 !important;
   font-size: 1rem !important;
+  text-align: center;
 }
 option {
   color: black;

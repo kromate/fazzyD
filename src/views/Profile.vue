@@ -2,13 +2,16 @@
   <div class="container">
     <h1>Profile</h1>
     <Measurement />
+
+    <Orders />
   </div>
 </template>
 
 <script>
 import Measurement from "@/components/profile/Measurement.vue";
+import Orders from "@/components/profile/Orders.vue";
 export default {
-  components: { Measurement },
+  components: { Measurement, Orders },
 };
 </script>
 

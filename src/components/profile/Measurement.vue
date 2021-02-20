@@ -2,7 +2,8 @@
   <details>
     <summary
       ><h2>Measurement</h2>
-      <button class="primaryBtn cartbtn">Edit</button>
+      <button class="primaryBtn cartbtn" v-if="false">Edit</button>
+      <button class="primaryBtn cartbtn" v-else>Save</button>
     </summary>
 
     <form action="" @submit.prevent="sumbit">

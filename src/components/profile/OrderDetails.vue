@@ -1,6 +1,6 @@
 <template>
   <transition name="slide" appear>
-    <div class="bg" v-if="showModal" @click="$emit('close')">
+    <div class="bg" v-if="showModal" @click="close($event)">
       <div class="card">
         <twitter-button :url="url" :description="description" />
         <FacebookButton appID="326715318704987" :url="url" :description="description" />
@@ -30,6 +30,14 @@ export default {
     TelegramButton,
   },
   props: ["showModal", "url"],
+
+  methods: {
+    close(e) {
+      if (e.target.className == "bg") {
+        this.$emit("close");
+      }
+    },
+  },
 };
 </script>
 

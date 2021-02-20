@@ -1,4 +1,5 @@
 <template>
+  <OrderDetails :showModal="showModal" @close="showModal = false" />
   <details>
     <summary><h2>Orders</h2> </summary>
 
@@ -25,11 +26,14 @@ import firebase from "firebase/app";
 import { v4 as uuidv4 } from "uuid";
 import "firebase/firestore";
 import "firebase/storage";
+import OrderDetails from "./OrderDetails.vue";
 
 const collection = firebase.firestore().collection("users");
 export default {
+  components: { OrderDetails },
   data() {
     return {
+      showModal: true,
       title: "Upload",
       mode: "Pick Up",
       location: "",

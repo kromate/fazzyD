@@ -1,17 +1,9 @@
 <template>
   <details>
     <summary
-      ><h1>Measurement</h1>
-      bu
+      ><h2>Measurement</h2>
+      <button class="primaryBtn cartbtn">Edit</button>
     </summary>
-    <p>
-      representation of vectors:resultant of several vectors in Euclidean space:lines, planes and
-      spheres , the dot and cross products, direction cosines, differentiation of vector functions,
-      lami's theorem, polygon of forces, conditions of equilibrium of coplanar forces, newton's laws
-      of motion, analytical treatment of static equilibrium of particles and rigid bodies,
-      distributed forces, centroids and centres of gravity, moments of inertia, analysis of
-      structures and trusses, forces in beams and tables, friction.
-    </p>
   </details>
 </template>
 
@@ -20,6 +12,12 @@ export default {};
 </script>
 
 <style scoped>
+.cartbtn {
+  width: auto !important;
+  font-size: 0.7rem;
+  margin-top: 0;
+  padding: 0.3rem;
+}
 details {
   text-align: center;
   border-radius: 0.2rem;
@@ -31,11 +29,11 @@ details {
   margin: 0.3rem;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12),
     0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  color: #6c63ff;
+  color: #ff9305;
   transition: 0.5s;
 }
 details[open] summary {
-  background-color: rgba(230, 230, 230, 0.802);
+  background-color: rgba(48, 45, 45, 0.802);
   transition: 0.5s;
 }
 h5 {

@@ -27,6 +27,12 @@
             <p>Home</p>
           </div>
         </router-link>
+        <router-link class="box" to="/profile" style="margin: 1rem;">
+          <div class="navCase">
+            <!-- <img src="@/assets/icon/Buy.svg" alt="" /> -->
+            <p>Profile</p>
+          </div>
+        </router-link>
         <router-link class="box" to="/cart" style="margin: 1rem;">
           <div class="navCase">
             <img src="@/assets/icon/Buy.svg" alt="" />

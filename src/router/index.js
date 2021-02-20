@@ -12,6 +12,7 @@ const Signup = () => import('@/views/Signup.vue')
 const Favourite = () => import('@/views/Favourite.vue')
 const Gallery = () => import('@/views/Gallery.vue')
 const Custom_order = () => import('@/views/Custom_order.vue')
+const Profile = () => import('@/views/Profile.vue')
 import admin from './admin.js'
 const routes = [
   ...admin,
@@ -73,6 +74,14 @@ const routes = [
     path: '/favourite',
     name: 'Favourite',
     component: Favourite,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile,
     meta: {
       requiresAuth: true
     }

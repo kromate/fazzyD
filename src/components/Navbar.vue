@@ -23,6 +23,14 @@
 
         <ul class="dropdown-nav">
           <li>
+            <router-link class="box" to="/profile">
+              <div class="navCase">
+                <!-- <img src="@/assets/icon/Heart.svg" alt="" /> -->
+                <p>Profile</p>
+              </div>
+            </router-link>
+          </li>
+          <li>
             <router-link class="box" to="/favourite">
               <div class="navCase">
                 <img src="@/assets/icon/Heart.svg" alt="" />

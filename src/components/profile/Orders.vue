@@ -3,20 +3,8 @@
   <details>
     <summary><h2>Orders</h2> </summary>
 
-    <div class="card">
-      <p>date:20-17-2021</p>
-    </div>
-    <div class="card">
-      <p>date:20-17-2021</p>
-    </div>
-    <div class="card">
-      <p>date:20-17-2021</p>
-    </div>
-    <div class="card">
-      <p>date:20-17-2021</p>
-    </div>
-    <div class="card">
-      <p>date:20-17-2021</p>
+    <div class="card" v-for="n in orders" :key="n.id">
+      <p>date:{{ n.date }}</p>
     </div>
   </details>
 </template>
@@ -33,6 +21,17 @@ export default {
   components: { OrderDetails },
   data() {
     return {
+      orders: [
+        {
+          id: "345678908765",
+          name: "Hoodie and long sleeves",
+          price: "12000",
+          total: "pending",
+          date: "20-2-2021",
+          completed: "No",
+          delivered: "No",
+        },
+      ],
       showModal: false,
       title: "Upload",
       mode: "Pick Up",

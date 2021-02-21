@@ -2,20 +2,33 @@
   <transition name="slide" appear>
     <div class="bg" v-if="showModal">
       <div class="cardx">
-        <button class="primaryBtn floatR">X</button>
+        <button class="primaryBtn floatR" @click="$emit('close')">X</button>
         <div class="flexb" v-for="n in 2" :key="n">
           <img src="@/assets/gallery/black_hoodie.png" alt="" class="cartImg" />
           <div class="flexd">
-            <p class="block"><span class="tt">Name:</span> <span>Hoodie</span></p>
-            <p class="block"><span class="tt">Price:</span> <span>&#8358; 12000</span></p>
-            <p class="block"><span class="tt">Total Price:</span> <span>&#8358; Pending</span></p>
-            <p class="block"><span class="tt">Ordered date:</span> <span>20-2-2021</span></p>
-            <p class="block"><span class="tt">Completed:</span> <span>No</span></p>
-            <p class="block"><span class="tt">Delivered:</span> <span>No</span></p>
+            <p class="block">
+              <span class="tt">Name:</span> <span>{{ data.name }}</span>
+            </p>
+            <p class="block">
+              <span class="tt">Price:</span> <span>&#8358; {{ data.price }}</span>
+            </p>
+            <p class="block">
+              <span class="tt">Total Price:</span>
+              <span>&#8358; {{ data.total ? data.total : "-" }}</span>
+            </p>
+            <p class="block">
+              <span class="tt">Ordered date:</span> <span>{{ data.date }}</span>
+            </p>
+            <p class="block">
+              <span class="tt">Completed:</span> <span>{{ data.completed }}</span>
+            </p>
+            <p class="block">
+              <span class="tt">Delivered:</span> <span>{{ data.delivered }}</span>
+            </p>
           </div>
         </div>
 
-        <button class="primaryBtn">Close</button>
+        <button class="primaryBtn" @click="$emit('close')">Close</button>
       </div>
     </div>
   </transition>
@@ -30,7 +43,7 @@ export default {
     };
   },
 
-  props: ["showModal", "url"],
+  props: ["showModal", "data"],
 
   methods: {
     close(e) {
@@ -44,6 +57,7 @@ export default {
 
 <style scoped>
 .floatR {
+  width: fit-content;
   display: block;
   padding: 0;
   border: none;
@@ -62,7 +76,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 15px 0px;
-  background-color: darkcyan;
+  background-color: #292017;
   padding: 10px;
 }
 .cartImg {

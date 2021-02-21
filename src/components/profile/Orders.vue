@@ -33,7 +33,7 @@ export default {
   components: { OrderDetails },
   data() {
     return {
-      showModal: true,
+      showModal: false,
       title: "Upload",
       mode: "Pick Up",
       location: "",

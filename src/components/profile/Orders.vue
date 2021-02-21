@@ -4,7 +4,7 @@
     <summary><h2>Orders</h2> </summary>
 
     <div class="card" v-for="n in orders" :key="n.id" @click="showO(n)">
-      <p>date:{{ n.date }}</p>
+      <p>Date:{{ n.date }}</p>
     </div>
   </details>
 </template>
@@ -31,6 +31,24 @@ export default {
           date: "20-2-2021",
           completed: "No",
           delivered: "No",
+        },
+        {
+          id: "3456789765",
+          name: "Skirt =",
+          price: "12000",
+          total: "15000",
+          date: "23-1-2021",
+          completed: "Yes",
+          delivered: "No",
+        },
+        {
+          id: "3456789763455",
+          name: "Suits",
+          price: "32000",
+          total: "35000",
+          date: "23-12-2020",
+          completed: "Yes",
+          delivered: "Yes",
         },
       ],
       showModal: false,

@@ -2,20 +2,16 @@
   <transition name="slide" appear>
     <div class="bg" v-if="showModal" @click="close($event)">
       <div class="card">
-        <twitter-button :url="url" :description="description" />
-        <FacebookButton appID="326715318704987" :url="url" :description="description" />
-        <WhatsappButton :url="url" :description="description" />
-        <TelegramButton :url="url" :description="description" />
+        <div class="flex">
+          <img src="@/assets/gallery/black_hoodie.png" alt="" class="cartImg" />
+          <div class="flexd"><span class="tt">Name:</span> <span>Hoodie</span></div>
+        </div>
       </div>
     </div>
   </transition>
 </template>
 
 <script>
-import TwitterButton from "vue-share-buttons/src/components/TwitterButton";
-import FacebookButton from "vue-share-buttons/src/components/FacebookButton";
-import WhatsappButton from "vue-share-buttons/src/components/WhatsAppButton";
-import TelegramButton from "vue-share-buttons/src/components/TelegramButton";
 export default {
   name: "success",
   data() {
@@ -23,12 +19,7 @@ export default {
       description: `Check out this nice wear on ${window.location.origin}`,
     };
   },
-  components: {
-    TwitterButton,
-    FacebookButton,
-    WhatsappButton,
-    TelegramButton,
-  },
+
   props: ["showModal", "url"],
 
   methods: {
@@ -42,6 +33,17 @@ export default {
 </script>
 
 <style scoped>
+.flexd {
+  display: flex;
+}
+.flex {
+  display: flex;
+}
+.cartImg {
+  height: 100px;
+  border-radius: 6%;
+  flex-basis: fill;
+}
 .bg {
   position: fixed;
   top: 0;

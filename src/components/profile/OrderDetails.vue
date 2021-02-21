@@ -1,8 +1,9 @@
 <template>
   <transition name="slide" appear>
-    <div class="bg" v-if="showModal" @click="close($event)">
+    <div class="bg" v-if="showModal">
       <div class="cardx">
-        <div class="flexb" v-for="n in 20" :key="n">
+        <button class="primaryBtn floatR">X</button>
+        <div class="flexb" v-for="n in 2" :key="n">
           <img src="@/assets/gallery/black_hoodie.png" alt="" class="cartImg" />
           <div class="flexd">
             <p class="block"><span class="tt">Name:</span> <span>Hoodie</span></p>
@@ -13,6 +14,8 @@
             <p class="block"><span class="tt">Delivered:</span> <span>No</span></p>
           </div>
         </div>
+
+        <button class="primaryBtn">Close</button>
       </div>
     </div>
   </transition>
@@ -40,6 +43,14 @@ export default {
 </script>
 
 <style scoped>
+.floatR {
+  display: block;
+  padding: 0;
+  border: none;
+  font-size: 1.3rem;
+  margin: 0;
+  margin-left: auto;
+}
 .flexd {
   flex-basis: 70%;
   display: flex;

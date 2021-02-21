@@ -1,9 +1,9 @@
 <template>
-  <OrderDetails :showModal="showModal" @close="showModal = false" />
+  <OrderDetails :showModal="showModal" :data="OD" @close="showModal = false" />
   <details>
     <summary><h2>Orders</h2> </summary>
 
-    <div class="card" v-for="n in orders" :key="n.id">
+    <div class="card" v-for="n in orders" :key="n.id" @click="showO(n)">
       <p>date:{{ n.date }}</p>
     </div>
   </details>
@@ -21,6 +21,7 @@ export default {
   components: { OrderDetails },
   data() {
     return {
+      OD: {},
       orders: [
         {
           id: "345678908765",
@@ -42,6 +43,9 @@ export default {
     };
   },
   methods: {
+    showO(data) {
+      console.log(data);
+    },
     sumbit() {
       console.log("body", this.body);
     },

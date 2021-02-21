@@ -25,7 +25,7 @@ export default {
       orders: [
         {
           id: "345678908765",
-          name: "Hoodie and long sleeves",
+          name: "Hoodie and long sleeves With a touch of rass rass",
           price: "12000",
           total: "pending",
           date: "20-2-2021",
@@ -34,7 +34,7 @@ export default {
         },
         {
           id: "3456789765",
-          name: "Skirt =",
+          name: "Skirt",
           price: "12000",
           total: "15000",
           date: "23-1-2021",
@@ -62,7 +62,9 @@ export default {
   },
   methods: {
     showO(data) {
-      console.log(data);
+      this.OD = data;
+      this.showModal = true;
+      // console.log(data);
     },
     sumbit() {
       console.log("body", this.body);

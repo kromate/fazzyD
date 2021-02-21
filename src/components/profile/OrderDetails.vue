@@ -3,7 +3,7 @@
     <div class="bg" v-if="showModal">
       <div class="cardx">
         <button class="primaryBtn floatR" @click="$emit('close')">X</button>
-        <div class="flexb" v-for="n in 2" :key="n">
+        <div class="flexb">
           <img src="@/assets/gallery/black_hoodie.png" alt="" class="cartImg" />
           <div class="flexd">
             <p class="block">

@@ -4,7 +4,12 @@
       <div class="card">
         <div class="flex">
           <img src="@/assets/gallery/black_hoodie.png" alt="" class="cartImg" />
-          <div class="flexd"><span class="tt">Name:</span> <span>Hoodie</span></div>
+          <div class="flexd">
+            <p class="block"><span class="tt">Name:</span> <span>Hoodie</span></p>
+            <p class="block"><span class="tt">Name:</span> <span>Hoodie</span></p>
+            <p class="block"><span class="tt">Name:</span> <span>Hoodie</span></p>
+            <p class="block"><span class="tt">Name:</span> <span>Hoodie</span></p>
+          </div>
         </div>
       </div>
     </div>
@@ -34,15 +39,22 @@ export default {
 
 <style scoped>
 .flexd {
+  flex-basis: 70%;
   display: flex;
+  flex-direction: column;
 }
 .flex {
   display: flex;
+  width: -webkit-fill-available;
 }
 .cartImg {
   height: 100px;
   border-radius: 6%;
-  flex-basis: fill;
+  flex-basis: 30%;
+}
+.block {
+  display: block;
+  text-align: start;
 }
 .bg {
   position: fixed;

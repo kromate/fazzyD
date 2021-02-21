@@ -7,23 +7,23 @@
           <img src="@/assets/gallery/black_hoodie.png" alt="" class="cartImg" />
           <div class="flexd">
             <p class="block">
-              <span class="tt">Name:</span> <span>{{ data.name }}</span>
+              <span class="tt">Name: </span> <span>{{ data.name }}</span>
             </p>
             <p class="block">
-              <span class="tt">Price:</span> <span>&#8358; {{ data.price }}</span>
+              <span class="tt">Price: </span> <span>&#8358; {{ data.price }}</span>
             </p>
             <p class="block">
               <span class="tt">Total Price:</span>
               <span>&#8358; {{ data.total ? data.total : "-" }}</span>
             </p>
             <p class="block">
-              <span class="tt">Ordered date:</span> <span>{{ data.date }}</span>
+              <span class="tt">Ordered date: </span> <span>{{ data.date }}</span>
             </p>
             <p class="block">
-              <span class="tt">Completed:</span> <span>{{ data.completed }}</span>
+              <span class="tt">Completed: </span> <span>{{ data.completed }}</span>
             </p>
             <p class="block">
-              <span class="tt">Delivered:</span> <span>{{ data.delivered }}</span>
+              <span class="tt">Delivered: </span> <span>{{ data.delivered }}</span>
             </p>
           </div>
         </div>
@@ -56,6 +56,10 @@ export default {
 </script>
 
 <style scoped>
+.tt {
+  font-weight: 700;
+  border-bottom: 1px solid white;
+}
 .floatR {
   width: fit-content;
   display: block;
@@ -87,6 +91,7 @@ export default {
 .block {
   display: block;
   text-align: start;
+  margin-bottom: 3px;
 }
 .bg {
   position: absolute;

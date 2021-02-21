@@ -27,7 +27,7 @@ export default {
           id: "345678908765",
           name: "Hoodie and long sleeves With a touch of rass rass",
           price: "12000",
-          total: "pending",
+          total: "",
           date: "20-2-2021",
           completed: "No",
           delivered: "No",

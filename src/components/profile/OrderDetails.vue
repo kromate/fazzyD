@@ -66,6 +66,7 @@ export default {
   height: fit-content;
   flex-wrap: wrap;
   padding: 1rem;
+  background: #fff;
 }
 .card > * {
   margin: 5px 10px;

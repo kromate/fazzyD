@@ -1,14 +1,16 @@
 <template>
   <transition name="slide" appear>
     <div class="bg" v-if="showModal" @click="close($event)">
-      <div class="card">
-        <div class="flex">
+      <div class="cardx">
+        <div class="flexb" v-for="n in 20" :key="n">
           <img src="@/assets/gallery/black_hoodie.png" alt="" class="cartImg" />
           <div class="flexd">
             <p class="block"><span class="tt">Name:</span> <span>Hoodie</span></p>
-            <p class="block"><span class="tt">Name:</span> <span>Hoodie</span></p>
-            <p class="block"><span class="tt">Name:</span> <span>Hoodie</span></p>
-            <p class="block"><span class="tt">Name:</span> <span>Hoodie</span></p>
+            <p class="block"><span class="tt">Price:</span> <span>&#8358; 12000</span></p>
+            <p class="block"><span class="tt">Total Price:</span> <span>&#8358; Pending</span></p>
+            <p class="block"><span class="tt">Ordered date:</span> <span>20-2-2021</span></p>
+            <p class="block"><span class="tt">Completed:</span> <span>No</span></p>
+            <p class="block"><span class="tt">Delivered:</span> <span>No</span></p>
           </div>
         </div>
       </div>
@@ -43,9 +45,14 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.flex {
+.flexb {
   display: flex;
   width: -webkit-fill-available;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0px;
+  background-color: darkcyan;
+  padding: 10px;
 }
 .cartImg {
   height: 100px;
@@ -57,12 +64,13 @@ export default {
   text-align: start;
 }
 .bg {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   background-color: rgba(41, 37, 37, 0.636);
-  min-width: 100vw;
+  width: 99vw;
   min-height: 100vh;
+  margin: 0px auto;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -71,16 +79,20 @@ export default {
 .img {
   width: 100px;
 }
-.card {
-  min-width: 310px;
-  display: flex;
+.cardx {
+  width: 420px;
+  max-width: 90vw;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   text-align: center;
   height: fit-content;
-  flex-wrap: wrap;
+  margin: 0px auto;
+  /* flex-wrap: wrap; */
   padding: 1rem;
   background: #fff;
+  color: goldenrod;
+  overflow-y: auto;
 }
 .card > * {
   margin: 5px 10px;

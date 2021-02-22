@@ -22,6 +22,41 @@ export default  {
           }
         });
     },
+    async getOrders(context){
+      context.state.cart = [];
+      const collection = firebase.firestore().collection("users");
+      collection
+        .doc(context.state.user.uid)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            context.state.orders = doc.data().orders;
+            console.log(context.state.cart);
+          
+          } else {
+            console.log("Not Found");
+          }
+        });
+    },
+    async getMeasurement(context){
+      context.state.cart = [];
+      const collection = firebase.firestore().collection("users");
+      collection
+        .doc(context.state.user.uid)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            context.state.cart = doc.data().cart;
+            console.log(context.state.cart);
+            context.state.cart.forEach((item) => {
+               context.state.units[item.id] = 1;
+               context.commit("getTotal");
+            });
+          } else {
+            console.log("Not Found");
+          }
+        });
+    },
     async setMeasurement(context, data){
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{

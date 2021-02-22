@@ -7,6 +7,7 @@ export default {
     homeCategoryView:'Home',
     detailedItem:{},
     cart:[],
+    orders:[],
     total: 0,
     units: {},
   };

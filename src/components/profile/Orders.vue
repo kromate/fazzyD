@@ -2,9 +2,10 @@
   <OrderDetails :showModal="showModal" :data="OD" @close="showModal = false" />
   <details>
     <summary><h2>Orders</h2> </summary>
-
-    <div class="card" v-for="n in orders" :key="n.id" @click="showO(n)">
-      <p>Date:{{ n.date }}</p>
+    <div>
+      <div class="card" v-for="n in orders" :key="n.id" @click="showO(n)">
+        <p>Date:{{ n.date }}</p>
+      </div>
     </div>
   </details>
 </template>
@@ -109,6 +110,7 @@ export default {
   width: fit-content;
   display: inline-block;
   margin: 1rem;
+  cursor: pointer;
 }
 
 .cartbtn {

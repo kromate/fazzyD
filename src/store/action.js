@@ -22,6 +22,40 @@ export default  {
           }
         });
     },
+    async setMeasurement(context){
+      const collection = firebase.firestore().collection("users")
+      const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
+        console.log(err);
+        context.commit("Error");
+      })
+      if(user.exists){
+        collection
+        .doc(firebase.auth().currentUser.uid)
+        .update({
+          cart:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
+          context.commit("ShowNotifyCart");
+        }).catch((err)=>{
+          console.log(err);
+          context.commit("Error");
+        })
+      }else{
+        const data =   {
+          id: context.state.user.uid,
+          email: context.state.user.email,
+          favourite: [],
+          orders: [],
+          C_orders: [],
+          cart: [context.state.detailedItem],
+        }
+        collection
+        .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
+          context.commit("ShowNotifyCart");
+        }).catch((err)=>{
+          console.log(err);
+          context.commit("Error");
+        })
+      }
+    },
     async addToCart(context){
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{

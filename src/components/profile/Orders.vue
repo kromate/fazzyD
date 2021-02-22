@@ -53,6 +53,9 @@ export default {
       // console.log(data);
     },
   },
+  mounted() {
+    this.$store.dispatch("getOrders");
+  },
 };
 </script>
 

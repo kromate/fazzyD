@@ -8,6 +8,7 @@ export default {
     detailedItem:{},
     cart:[],
     orders:[],
+    C_orders:[],
     total: 0,
     units: {},
   };

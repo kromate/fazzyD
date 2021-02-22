@@ -38,6 +38,22 @@ export default  {
           }
         });
     },
+    async getC_Orders(context){
+      context.state.cart = [];
+      const collection = firebase.firestore().collection("users");
+      collection
+        .doc(context.state.user.uid)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            context.state.C_orders = doc.data().C_orders;
+            console.log(context.state.C_orders);
+          
+          } else {
+            console.log("Not Found");
+          }
+        });
+    },
     async getMeasurement(context){
       context.state.cart = [];
       const collection = firebase.firestore().collection("users");

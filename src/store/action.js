@@ -22,7 +22,8 @@ export default  {
           }
         });
     },
-    async setMeasurement(context){
+    async setMeasurement(context, data){
+      console.log(data);
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
         console.log(err);

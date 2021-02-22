@@ -2,7 +2,7 @@
   <details>
     <summary
       ><h2>Measurement</h2>
-      <button class="primaryBtn cartbtn" v-if="check">Edit</button>
+      <button class="primaryBtn cartbtn" v-if="check" @click="edit">Edit</button>
       <button class="primaryBtn cartbtn" v-else>Save</button>
     </summary>
 
@@ -179,10 +179,15 @@ export default {
       check: true,
     };
   },
+
   methods: {
+    edit() {
+      this.check = false;
+    },
     submit() {
       console.log("body", this.body);
       this.$store.commit("setMeasurement", this.body);
+      this.check = true;
     },
   },
 };

@@ -2,6 +2,15 @@ export default {
   updatedetailedItem(state, payload){
     state.detailedItem = payload
   },
+  ShowNotifyMeasurement(state){
+      state.showNotifyImage = ''
+      state.showNotifyText = "Body Measurement successfully updated"
+      state.showNotify = true
+
+      setTimeout(() => {
+        state.showNotify = false
+      }, 1000);
+  },
   ShowNotifyFav(state){
       state.showNotifyImage = require("@/assets/icon/Heart.svg")
       state.showNotifyText = "Item Successfully Added to Favourite"

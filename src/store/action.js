@@ -23,7 +23,6 @@ export default  {
         });
     },
     async setMeasurement(context, data){
-      console.log(data);
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
         console.log(err);
@@ -33,8 +32,8 @@ export default  {
         collection
         .doc(firebase.auth().currentUser.uid)
         .update({
-          cart:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
-          context.commit("ShowNotifyCart");
+          body:data}).then(()=>{
+          context.commit("ShowNotifyMeasurement");
         }).catch((err)=>{
           console.log(err);
           context.commit("Error");

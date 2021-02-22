@@ -2,7 +2,7 @@
   <OrderDetails :showModal="showModal" :data="OD" @close="showModal = false" />
   <details>
     <summary><h2>Custom Orders</h2> </summary>
-    <div v-if="C_orders">
+    <div v-if="C_orders.length">
       <div class="card" v-for="n in orders" :key="n.id" @click="showO(n)">
         <p>Date:{{ n.date }}</p>
       </div>

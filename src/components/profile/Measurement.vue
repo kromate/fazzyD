@@ -175,9 +175,13 @@ export default {
       mode: "Pick Up",
       location: "",
       phone: "",
-      body: {},
       check: true,
     };
+  },
+  computed: {
+    body() {
+      return this.$store.state.body;
+    },
   },
 
   methods: {

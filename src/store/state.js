@@ -9,7 +9,7 @@ export default {
     cart:[],
     orders:[],
     C_orders:[],
-    total: 0,
+    total: 0, 
     units: {},
     body:{},
   };

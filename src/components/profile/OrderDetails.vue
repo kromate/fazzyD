@@ -4,7 +4,7 @@
       <div class="cardx">
         <button class="primaryBtn floatR" @click="$emit('close')">X</button>
         <div class="flexb">
-          <img src="@/assets/gallery/black_hoodie.png" alt="" class="cartImg" />
+          <img :src="data.img" alt="" class="cartImg" />
           <div class="flexd">
             <p class="block">
               <span class="tt">Name: </span> <span>{{ data.name }}</span>

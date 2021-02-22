@@ -2,56 +2,36 @@
   <OrderDetails :showModal="showModal" :data="OD" @close="showModal = false" />
   <details>
     <summary><h2>Orders</h2> </summary>
-    <div>
+    <div v-if="orders">
       <div class="card" v-for="n in orders" :key="n.id" @click="showO(n)">
         <p>Date:{{ n.date }}</p>
       </div>
+    </div>
+    <div v-else>
+      <h2>You have no orders yet</h2>
     </div>
   </details>
 </template>
 
 <script>
-import firebase from "firebase/app";
-import { v4 as uuidv4 } from "uuid";
-import "firebase/firestore";
-import "firebase/storage";
 import OrderDetails from "./OrderDetails.vue";
 
-const collection = firebase.firestore().collection("users");
 export default {
   components: { OrderDetails },
   data() {
     return {
       OD: {},
-      orders: [
-        {
-          id: "345678908765",
-          name: "Hoodie and long sleeves With a touch of rass rass",
-          price: "12000",
-          total: "",
-          date: "20-2-2021",
-          completed: "No",
-          delivered: "No",
-        },
-        {
-          id: "3456789765",
-          name: "Skirt",
-          price: "12000",
-          total: "15000",
-          date: "23-1-2021",
-          completed: "Yes",
-          delivered: "No",
-        },
-        {
-          id: "3456789763455",
-          name: "Suits",
-          price: "32000",
-          total: "35000",
-          date: "23-12-2020",
-          completed: "Yes",
-          delivered: "Yes",
-        },
-      ],
+      // orders: [
+      //   {
+      //     id: "345678908765",
+      //     name: "Hoodie and long sleeves With a touch of rass rass",
+      //     price: "12000",
+      //     total: "",
+      //     date: "20-2-2021",
+      //     completed: "No",
+      //     delivered: "No",
+      //   },
+      // ],
       showModal: false,
       title: "Upload",
       mode: "Pick Up",
@@ -61,44 +41,16 @@ export default {
       check: false,
     };
   },
+  computed: {
+    orders() {
+      return this.$store.state.orders;
+    },
+  },
   methods: {
     showO(data) {
       this.OD = data;
       this.showModal = true;
       // console.log(data);
-    },
-    sumbit() {
-      console.log("body", this.body);
-    },
-
-    submit() {
-      let uid = uuidv4();
-      let data = {
-        id: uid,
-        categories: this.cat,
-        name: this.Pname,
-        details: this.Pdetails,
-        Price: this.Pprice,
-      };
-      console.log(data);
-      collection
-        .doc(uid)
-        .set(data)
-        .then(() => {
-          console.log("UPLOAD-FILE called!");
-          var storageReference = firebase.storage().ref();
-          var file = document.getElementById("pix").files[0];
-
-          let uploadTask = storageReference.child("collection/" + uid).put(file);
-
-          uploadTask.on("state_changed", (snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            this.title = Math.floor(progress) + "% uploaded";
-          });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
     },
   },
 };

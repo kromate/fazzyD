@@ -182,7 +182,7 @@ export default {
       location: "",
       phone: "",
       body: {},
-      check: false,
+      check: true,
     };
   },
   methods: {

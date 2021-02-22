@@ -47,6 +47,7 @@ export default  {
           orders: [],
           C_orders: [],
           cart: [context.state.detailedItem],
+          body:{}
         }
         collection
         .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
@@ -81,6 +82,7 @@ export default  {
           orders: [],
           C_orders: [],
           cart: [context.state.detailedItem],
+          body:{}
         }
         collection
         .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
@@ -115,6 +117,7 @@ export default  {
           orders: [],
           C_orders: [],
           cart: [],
+          body:{}
         }
         collection
         .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
@@ -151,6 +154,7 @@ export default  {
           orders: [],
           C_orders: [context.state.detailedItem],
           cart: [],
+          body:{}
         }
         collection
         .doc(firebase.auth().currentUser.uid).set(data).then(()=>{

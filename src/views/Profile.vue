@@ -4,14 +4,16 @@
     <Measurement />
 
     <Orders />
+    <COrders />
   </div>
 </template>
 
 <script>
 import Measurement from "@/components/profile/Measurement.vue";
 import Orders from "@/components/profile/Orders.vue";
+import COrders from "../components/profile/C_Orders.vue";
 export default {
-  components: { Measurement, Orders },
+  components: { Measurement, Orders, COrders },
 };
 </script>
 

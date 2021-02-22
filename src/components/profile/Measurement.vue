@@ -3,7 +3,7 @@
     <summary
       ><h2>Measurement</h2>
       <button class="primaryBtn cartbtn" v-if="check" @click="edit">Edit</button>
-      <button class="primaryBtn cartbtn" v-else>Save</button>
+      <button class="primaryBtn cartbtn" v-else @click="submit">Save</button>
     </summary>
 
     <form action="" @submit.prevent="sumbit">
@@ -186,7 +186,7 @@ export default {
     },
     submit() {
       console.log("body", this.body);
-      this.$store.commit("setMeasurement", this.body);
+      this.$store.dispatch("setMeasurement", this.body);
       this.check = true;
     },
   },

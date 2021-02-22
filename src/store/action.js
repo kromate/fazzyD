@@ -45,12 +45,12 @@ export default  {
           favourite: [],
           orders: [],
           C_orders: [],
-          cart: [context.state.detailedItem],
-          body:{}
+          cart: [],
+          body:data
         }
         collection
         .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
-          context.commit("ShowNotifyCart");
+          context.commit("ShowNotifyMeasurement");
         }).catch((err)=>{
           console.log(err);
           context.commit("Error");

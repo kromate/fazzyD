@@ -11,4 +11,5 @@ export default {
     C_orders:[],
     total: 0,
     units: {},
+    body:{},
   };

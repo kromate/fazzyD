@@ -62,12 +62,7 @@ export default  {
         .get()
         .then((doc) => {
           if (doc.exists) {
-            context.state.cart = doc.data().cart;
-            console.log(context.state.cart);
-            context.state.cart.forEach((item) => {
-               context.state.units[item.id] = 1;
-               context.commit("getTotal");
-            });
+            context.state.body = doc.data().body;
           } else {
             console.log("Not Found");
           }

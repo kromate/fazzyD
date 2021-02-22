@@ -190,6 +190,9 @@ export default {
       this.check = true;
     },
   },
+  mounted() {
+    this.$store.dispatch("getMeasurement");
+  },
 };
 </script>
 
@@ -270,6 +273,11 @@ input {
   border: 1.8px solid #ff9305;
 }
 
+input:disabled {
+  border: none;
+  box-shadow: 1px 1px #da3d00, -1px -1px #da3d00;
+  color: #da3d00;
+}
 label {
   display: block !important;
   margin-bottom: 10px !important;

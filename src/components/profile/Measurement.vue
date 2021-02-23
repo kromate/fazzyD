@@ -180,7 +180,7 @@ export default {
   },
   computed: {
     body() {
-      return this.$store.state.body;
+      return this.$store.state.body ? this.$store.state.body : {};
     },
   },
 

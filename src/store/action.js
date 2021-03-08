@@ -35,6 +35,7 @@ export default  {
           
           } else {
             console.log("Not Found");
+            context.state.orders = []
           }
         });
     },
@@ -50,6 +51,7 @@ export default  {
             console.log(context.state.C_orders);
           
           } else {
+            context.state.C_orders = []
             console.log("Not Found");
           }
         });

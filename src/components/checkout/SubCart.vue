@@ -95,7 +95,7 @@ export default {
     },
   },
   created() {
-    if (cart) {
+    if (this.cart) {
       return null;
     } else {
       this.$store.dispatch("getCart");

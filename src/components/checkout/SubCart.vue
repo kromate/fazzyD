@@ -94,6 +94,13 @@ export default {
       return this.$store.state.units;
     },
   },
+  created() {
+    if (cart) {
+      return null;
+    } else {
+      this.$store.dispatch("getCart");
+    }
+  },
 };
 </script>
 

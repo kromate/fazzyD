@@ -17,7 +17,7 @@
       </div>
 
       <div class="inputBox">
-        <label for="phone">PHONE NUM</label>
+        <label for="phone">PHONE NUM (Preferably Whatsapp)</label>
         <input type="number" id="phone" placeholder="Enter Your Phone Number" required />
       </div>
     </form>

@@ -3,7 +3,7 @@
   <details>
     <summary><h2>Orders</h2> </summary>
     <div v-if="orders ? orders.length : false">
-      <div class="card" v-for="n in orders" :key="n.id" @click="showO(n)">
+      <div class="O_card" v-for="n in orders" :key="n.id" @click="showO(n)">
         <p>Date:{{ n.date }}</p>
       </div>
     </div>
@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style scoped>
-.card {
+.O_card {
   background: rgb(255, 255, 255);
   width: fit-content;
   display: inline-block;

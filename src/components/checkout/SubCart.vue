@@ -1,5 +1,5 @@
 <template>
-  <div class="subCart">
+  <div class="subCart" v-if="cart">
     <div class="row" v-for="cat in cart" :key="cat.id">
       <div class="firstCol">
         <img :src="cat.img" class="subCartImg" />
@@ -23,7 +23,8 @@
     </div> -->
     <div class="pricing">
       <div class="firstCol">
-        <h1>SubTotal</h1>
+        <h1 v-if="total">SubTotal</h1>
+        <h1 v-else>Loading...</h1>
       </div>
       <div class="otherCol">
         <h3 class="col_org fonc">&#8358; {{ total }}</h3>
@@ -48,6 +49,8 @@
       />
     </div>
   </div>
+
+  <h2 v-else>Loading</h2>
 </template>
 
 <script>
@@ -95,11 +98,12 @@ export default {
     },
   },
   created() {
-    if (this.cart) {
-      return null;
-    } else {
-      this.$store.dispatch("getCart");
-    }
+    this.$store.dispatch("getCart");
+    // if (this.cart) {
+    //   return null;
+    // } else {
+    //   this.$store.dispatch("getCart");
+    // }
   },
 };
 </script>

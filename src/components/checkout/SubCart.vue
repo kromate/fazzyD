@@ -102,7 +102,7 @@ export default {
     },
   },
   created() {
-    console.log();
+    console.log(process.env.NODE_ENV == "development");
     // this.$store.dispatch("getCart");
     if (this.cart.length != 0) {
       return null;

@@ -64,6 +64,7 @@ export default {
     return {
       PBkey: process.env.VUE_APP_FLUTTERWAVE_TEST_KEY,
 
+      img: require("@/assets/logo.jpeg"),
       isProduction: false,
       flwKey: this.PBkey,
       currency: "NGN",

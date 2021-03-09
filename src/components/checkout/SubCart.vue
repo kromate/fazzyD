@@ -45,7 +45,6 @@
         :country="country"
         :custom_title="customizations.title"
         :custom_logo="customizations.logo"
-        :payment_method="paymentMethod"
       />
     </div>
   </div>
@@ -73,15 +72,11 @@ export default {
       flwKey: this.PBkey,
       currency: "NGN",
       country: "NG",
-      customer: {
-        name: "Ugwu Raphael",
-        email: "",
-      },
+
       customizations: {
-        title: "Car Shop",
-        description: "Payment for car service",
+        title: "FazzyD Fashion Store",
+        description: "Get Quality and classic wears at affordable prices",
       },
-      paymentMethod: "",
     };
   },
   computed: {

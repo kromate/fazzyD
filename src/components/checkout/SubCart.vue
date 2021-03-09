@@ -94,8 +94,8 @@ export default {
     units() {
       return this.$store.state.units;
     },
-    units() {
-      return this.$store.state.units;
+    user() {
+      return this.$store.state.user;
     },
   },
   created() {

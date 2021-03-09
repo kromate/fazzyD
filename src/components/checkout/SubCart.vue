@@ -70,7 +70,6 @@ export default {
       currency: "NGN",
       country: "NG",
       reference: uuidv4(),
-
       customizations: {
         title: "FazzyD Fashion Store",
         description: "Get Quality and classic wears at affordable prices",

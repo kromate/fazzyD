@@ -40,7 +40,7 @@
         :reference="reference"
         :flw-key="flwKey"
         :callback="callback"
-        :close="close"
+        :close="close()"
         :currency="currency"
         :country="country"
         :custom_title="customizations.title"
@@ -76,6 +76,11 @@ export default {
         description: "Get Quality and classic wears at affordable prices",
       },
     };
+  },
+  methods: {
+    close() {
+      this.$store.commit("RemoveNotifyCart");
+    },
   },
   computed: {
     total() {

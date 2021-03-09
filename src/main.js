@@ -20,13 +20,7 @@ const firebaseConfig = {
     // appId: process.env.VUE_APP_APP_ID,
     // measurementId: process.env.VUE_APP_MEASURE_ID
 
-    apiKey: "",
-    authDomain: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "284959917020",
-    appId: "1:284959917020:web:42d5b84897ff79e6b40519",
-    measurementId: "G-459GBYTY75"
+  
   };
   
   firebase.initializeApp(firebaseConfig);

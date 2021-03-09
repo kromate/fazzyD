@@ -91,13 +91,13 @@ export default {
     },
   },
   created() {
-    console.log(this.cart);
+    console.log();
     // this.$store.dispatch("getCart");
-    // if (this.cart) {
-    //   return null;
-    // } else {
-    //   this.$store.dispatch("getCart");
-    // }
+    if (this.cart.length != 0) {
+      return null;
+    } else {
+      this.$store.dispatch("getCart");
+    }
   },
 };
 </script>

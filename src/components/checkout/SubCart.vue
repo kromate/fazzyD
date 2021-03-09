@@ -79,7 +79,7 @@ export default {
   },
   methods: {
     close() {
-      this.$store.commit("RemoveNotifyCart");
+      this.$store.commit("FW_closeFunction");
     },
   },
   computed: {

@@ -20,6 +20,15 @@ export default {
         state.showNotify = false
       }, 1000);
   },
+  FW_closeFunction(state){
+    state.showNotifyImage = ''
+    state.showNotifyText = "Payment Successful"
+    state.showNotify = true
+
+    setTimeout(() => { 
+      state.showNotify = false
+    }, 1000);
+  },
   Error(state){
     state.showNotifyImage = require("@/assets/icon/none.svg")
     state.showNotifyText = "Oops, Something went wrong"

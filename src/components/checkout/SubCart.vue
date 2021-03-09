@@ -65,7 +65,7 @@ export default {
       PBkey: process.env.VUE_APP_FLUTTERWAVE_TEST_KEY,
 
       logo: require("@/assets/logo.jpeg"),
-      isProduction: false,
+      isProduction: process.env.NODE_ENV == "development" ? false : true,
       flwKey: this.PBkey,
       currency: "NGN",
       country: "NG",
@@ -102,7 +102,7 @@ export default {
     },
   },
   created() {
-    console.log(process.env.NODE_ENV == "development");
+    console.log();
     // this.$store.dispatch("getCart");
     if (this.cart.length != 0) {
       return null;

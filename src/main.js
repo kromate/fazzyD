@@ -20,8 +20,8 @@ const firebaseConfig = {
     // appId: process.env.VUE_APP_APP_ID,
     // measurementId: process.env.VUE_APP_MEASURE_ID
 
-    apiKey: "AIzaSyAe9FWDc1bXOd8ShTA0OSlhLTWD7cehfco",
-    authDomain: "fazzyd-1.firebaseapp.com",
+    apiKey: "",
+    authDomain: "",
     projectId: "fazzyd-1",
     storageBucket: "fazzyd-1.appspot.com",
     messagingSenderId: "284959917020",

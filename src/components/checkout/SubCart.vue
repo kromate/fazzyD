@@ -89,7 +89,8 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("getCart");
+    console.log(this.cart);
+    // this.$store.dispatch("getCart");
     // if (this.cart) {
     //   return null;
     // } else {

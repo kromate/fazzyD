@@ -39,7 +39,7 @@
         :amount="total"
         :reference="reference"
         :flw-key="flwKey"
-        :callback="callback"
+        :callback="callback()"
         :close="close()"
         :currency="currency"
         :country="country"
@@ -79,7 +79,12 @@ export default {
   },
   methods: {
     close() {
-      this.$store.commit("FW_closeFunction");
+      return null;
+      // this.$store.commit("FW_closeFunction");
+    },
+    callback() {
+      return null;
+      // this.$store.commit("FW_closeFunction");
     },
   },
   computed: {

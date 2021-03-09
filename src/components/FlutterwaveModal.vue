@@ -57,7 +57,7 @@ export default {
     },
     payment_method: {
       type: String,
-      default: "card,mobilemoney,ussd",
+      default: "card,mobilemoney,ussd,bank",
     },
   },
   methods: {

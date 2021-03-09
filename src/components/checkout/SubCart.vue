@@ -36,7 +36,7 @@
         :isProduction="isProduction"
         :name="customer.name"
         :email="customer.email"
-        :amount="price"
+        :amount="total"
         :reference="reference"
         :flw-key="flwKey"
         :callback="callback"
@@ -62,7 +62,6 @@ export default {
   },
   data() {
     return {
-      price: "9000",
       PBkey: process.env.VUE_APP_FLUTTERWAVE_TEST_KEY,
       priceDetails: [
         { name: "Subtotal:", detail: "$ 60" },
@@ -72,12 +71,11 @@ export default {
 
       isProduction: false,
       flwKey: this.PBkey,
-      amount: "",
       currency: "NGN",
       country: "NG",
       customer: {
         name: "Ugwu Raphael",
-        email: "ugwuraph@gmail.com",
+        email: "",
       },
       customizations: {
         title: "Car Shop",
@@ -92,6 +90,9 @@ export default {
     },
     cart() {
       return this.$store.state.cart;
+    },
+    units() {
+      return this.$store.state.units;
     },
     units() {
       return this.$store.state.units;

@@ -34,8 +34,8 @@
     <div class="flex">
       <flutterwave
         :isProduction="isProduction"
-        :name="customer.name"
-        :email="customer.email"
+        :name="user.name"
+        :email="user.email"
         :amount="total"
         :reference="reference"
         :flw-key="flwKey"

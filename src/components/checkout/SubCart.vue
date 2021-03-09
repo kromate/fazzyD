@@ -62,11 +62,6 @@ export default {
   data() {
     return {
       PBkey: process.env.VUE_APP_FLUTTERWAVE_TEST_KEY,
-      priceDetails: [
-        { name: "Subtotal:", detail: "$ 60" },
-        { name: "Delivery Fees:", detail: "$ 10" },
-        { name: "Total:", detail: "$ 70" },
-      ],
 
       isProduction: false,
       flwKey: this.PBkey,

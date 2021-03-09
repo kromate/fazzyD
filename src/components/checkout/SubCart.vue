@@ -44,7 +44,7 @@
         :currency="currency"
         :country="country"
         :custom_title="customizations.title"
-        :custom_logo="customizations.logo"
+        :custom_logo="logo"
       />
     </div>
   </div>
@@ -64,7 +64,7 @@ export default {
     return {
       PBkey: process.env.VUE_APP_FLUTTERWAVE_TEST_KEY,
 
-      img: require("@/assets/logo.jpeg"),
+      logo: require("@/assets/logo.jpeg"),
       isProduction: false,
       flwKey: this.PBkey,
       currency: "NGN",

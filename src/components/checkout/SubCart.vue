@@ -64,7 +64,7 @@ export default {
     return {
       flwKey: process.env.VUE_APP_FLUTTERWAVE_TEST_KEY,
 
-      logo: require("@/assets/logo.jpeg"),
+      logo: "https://fazzyd.netlify.app/img/logo.8090e318.jpeg",
       isProduction: process.env.NODE_ENV == "development" ? false : true,
       currency: "NGN",
       country: "NG",

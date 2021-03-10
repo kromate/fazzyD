@@ -61,10 +61,36 @@ export default {
     },
   },
   methods: {
+    pay() {
+      getpaidSetup({
+        PBFPubKey: PBFKey,
+        customer_email: email,
+        customer_firstname: fullName,
+        amount: 2500,
+        customer_phone: phone,
+        payment_method: "card,account,ussd",
+        country: "NG",
+        currency: "NGN",
+        txref: txRef, // Pass your UNIQUE TRANSACTION REFERENCE HERE.
+        //integrity_hash: hashedValue, // pass the sha256 hashed value here.
+        onclose: function() {},
+        callback: function(response) {
+          flw_ref = response.tx.flwRef; // collect flwRef returned and pass to a 					server page to complete status check.
+          console.log("This is the response returned after a charge", response);
+          addBasicPlan({ email: email });
+          console.log("done");
+          if (response.tx.chargeResponse == "00" || response.tx.chargeResponse == "0") {
+            // redirect to a success page
+          } else {
+            // redirect to a failure page.
+          }
+        },
+      });
+    },
     makePayment() {
       console.log(this.flwKey);
       window.FlutterwaveCheckout({
-        public_key: this.flwKey,
+        public_key: "FLWPUBK-4dcce91448659808b4c889f22b994ce6-X",
         tx_ref: this.reference,
         amount: this.amount,
         currency: this.currency,

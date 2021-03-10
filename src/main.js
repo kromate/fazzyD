@@ -9,6 +9,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import './theme/main.css'
+import "@/helper/flw.js";
 
 const firebaseConfig = {
     apiKey: process.env.VUE_APP_API_KEY,

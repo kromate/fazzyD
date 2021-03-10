@@ -33,7 +33,7 @@
 
     <div class="flex">
       <flutterwave
-        :isProduction="isProduction"
+        :isProduction="true"
         :name="user.name"
         :email="user.email"
         :amount="total"
@@ -44,7 +44,7 @@
         :currency="currency"
         :country="country"
         :custom_title="customizations.title"
-        :custom_logo="logo"
+        custom_logo="https://fazzyd.netlify.app/img/logo.8090e318.jpeg"
       />
     </div>
   </div>

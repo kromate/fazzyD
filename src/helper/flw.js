@@ -288,13 +288,14 @@ let _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     //document.addEventListener("DOMContentLoaded", function(event) {
     function generateQueryString(obj) {
-        // let str = [];
+        let str = [];
         for (let prop in obj) {
-            if (obj.hasOwnProperty(prop)) {
+            // let di_ = obj.hasOwnProperty(prop)
+            // if (di_) {
                 let v = obj[prop];
                 v = encodeURIComponent(v);
                 str.push(prop + "=" + v);
-            }
+            // }
         }
         return str.join("&");
     }

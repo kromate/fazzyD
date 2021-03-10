@@ -1,5 +1,5 @@
 <template>
-  <button class="secondaryBtn btn" @click="pay">PAY</button>
+  <button class="secondaryBtn btn" @click="makePayment">PAY</button>
 </template>
 
 <script>
@@ -61,35 +61,10 @@ export default {
     },
   },
   methods: {
-    pay() {
-      getpaidSetup({
-        PBFPubKey: "FLWPUBK-4dcce91448659808b4c889f22b994ce6-X",
-        customer_email: this.email,
-        customer_firstname: this.name,
-        amount: this.amount,
-        customer_phone: this.email,
-        payment_method: "card,account,ussd",
-        country: "NG",
-        currency: "NGN",
-        txref: this.reference, // Pass your UNIQUE TRANSACTION REFERENCE HERE.
-        //integrity_hash: hashedValue, // pass the sha256 hashed value here.
-        onclose: function() {},
-        callback: function(response) {
-          // flw_ref = response.tx.flwRef; // collect flwRef returned and pass to a 					server page to complete status check.
-          console.log("This is the response returned after a charge", response);
-          console.log("done");
-          if (response.tx.chargeResponse == "00" || response.tx.chargeResponse == "0") {
-            // redirect to a success page
-          } else {
-            // redirect to a failure page.
-          }
-        },
-      });
-    },
     makePayment() {
       console.log(this.flwKey);
       window.FlutterwaveCheckout({
-        public_key: "FLWPUBK-4dcce91448659808b4c889f22b994ce6-X",
+        public_key: "FLWPUBK-793faff5bca2def5d143527c48d85356-X",
         tx_ref: this.reference,
         amount: this.amount,
         currency: this.currency,

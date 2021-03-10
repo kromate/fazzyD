@@ -66,7 +66,6 @@ export default {
 
       logo: require("@/assets/logo.jpeg"),
       isProduction: process.env.NODE_ENV == "development" ? false : true,
-      flwKey: this.PBkey,
       currency: "NGN",
       country: "NG",
       reference: uuidv4(),

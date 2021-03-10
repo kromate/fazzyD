@@ -62,6 +62,7 @@ export default {
   },
   methods: {
     makePayment() {
+      console.log(this.flwKey);
       window.FlutterwaveCheckout({
         public_key: this.flwKey,
         tx_ref: this.reference,

@@ -38,7 +38,7 @@
         :email="user.email"
         :amount="total"
         :reference="reference"
-        :flw-key="flwKey"
+        :flwKey="flwKey"
         :callback="callback()"
         :close="close()"
         :currency="currency"
@@ -62,7 +62,7 @@ export default {
   },
   data() {
     return {
-      PBkey: process.env.VUE_APP_FLUTTERWAVE_TEST_KEY,
+      flwKey: process.env.VUE_APP_FLUTTERWAVE_TEST_KEY,
 
       logo: require("@/assets/logo.jpeg"),
       isProduction: process.env.NODE_ENV == "development" ? false : true,

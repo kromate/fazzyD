@@ -70,6 +70,9 @@ export default {
     mode() {
       return this.$store.state.mode;
     },
+    location() {
+      return this.$store.state.location;
+    },
   },
   methods: {
     makePayment() {
@@ -104,7 +107,7 @@ export default {
   },
 
   created() {
-    let item = { phone: this.phone, order: [...this.cart], pickUp: this.mode };
+    let item = { phone: this.phone, order: [...this.cart], pickUp: this.mode, location:this.location };
     console.log(item);
     console.log("closeeeeeeeee");
     const script = document.createElement("script");

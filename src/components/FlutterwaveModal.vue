@@ -1,5 +1,5 @@
 <template>
-  <button class="secondaryBtn btn" @click="check" :disabled="!phone">PAY</button>
+  <button class="secondaryBtn btn" @click="makePayment" :disabled="!phone">PAY</button>
 </template>
 
 <script>

@@ -29,8 +29,10 @@
   </div>
 
   <div v-else>
-    <Loader w="689" h="106" b="4" />
-    <p class="lood">loading....</p>
+    <div>
+      <Loader w="689" h="106" b="4" />
+      <p class="lood">loading....</p>
+    </div>
   </div>
 </template>
 
@@ -41,6 +43,7 @@ import Loader from "@/components/imgLoader.vue";
 export default {
   name: "TableRow",
   components: { Loader },
+  
 
   computed: {
     cart() {

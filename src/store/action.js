@@ -157,17 +157,18 @@ export default  {
     // ============================================================================================================
       removeFromCart(context) {
         const collection = firebase.firestore().collection("users");
-        collection
+        context.state.cart.forEach((item)=>{
+          collection
           .doc(context.state.user.uid)
           .update({
-
-            cart: firebase.firestore.FieldValue.arrayRemove(context.state.cart.join(',')),
-          })
-       
-          .catch((err) => {
+            cart: firebase.firestore.FieldValue.arrayRemove(item),
+          })  .catch((err) => {
             context.commit("wrong");
             console.log(err);
           });
+        })
+       
+        
       },
     
        // ============================================================================================================

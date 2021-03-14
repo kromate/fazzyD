@@ -14,6 +14,7 @@ export default  {
       .doc(firebase.auth().currentUser.uid)
       .update({
         orders:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
+        context.dispatch("removeFromCart");
         context.commit("FW_closeFunction");
       }).catch((err)=>{
         console.log(err);
@@ -137,6 +138,20 @@ export default  {
         })
       }
     },
+      removeFromCart(context) {
+        const collection = firebase.firestore().collection("users");
+        collection
+          .doc(context.state.user.uid)
+          .update({
+            favourite: firebase.firestore.FieldValue.arrayRemove(context.state.detailedItem.order),
+          })
+       
+          .catch((err) => {
+            context.commit("wrong");
+            console.log(err);
+          });
+      },
+    
     async addToCart(context){
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{

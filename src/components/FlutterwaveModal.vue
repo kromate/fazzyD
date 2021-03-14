@@ -93,7 +93,9 @@ export default {
           console.log("closeeeeeeeee");
         },
         callback: () => {
-          // this.$store.commit("updatedetailedItem", item);
+           let item = { phone: this.phone, order: [...this.cart], pickUp: this.mode, location:this.location };
+
+          this.$store.commit("updatedetailedItem", item);
           // this.$store.dispatch("addToCart");
           // console.log("Payment suceesfull");
         },
@@ -107,9 +109,7 @@ export default {
   },
 
   created() {
-    let item = { phone: this.phone, order: [...this.cart], pickUp: this.mode, location:this.location };
-    console.log(item);
-    console.log("closeeeeeeeee");
+   
     const script = document.createElement("script");
     script.src = !this.isProduction
       ? "https://ravemodal-dev.herokuapp.com/v3.js"

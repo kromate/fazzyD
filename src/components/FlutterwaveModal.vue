@@ -1,8 +1,9 @@
 <template>
-  <button class="secondaryBtn btn" @click="makePayment" :disabled="!phone">PAY</button>
+  <button class="secondaryBtn btn" @click="check" :disabled="!phone">PAY</button>
 </template>
 
 <script>
+import { v4 as uuidv4 } from "uuid";
 export default {
   name: "FlutterwaveModal",
   props: {
@@ -78,6 +79,7 @@ export default {
   methods: {
     check() {
       let item = {
+        id: uuidv4(),
         phone: this.phone,
         order: [...this.cart],
         pickUp: this.mode,

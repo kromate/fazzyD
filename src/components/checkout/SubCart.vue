@@ -68,7 +68,7 @@ export default {
       isProduction: process.env.NODE_ENV == "development" ? false : true,
       currency: "NGN",
       country: "NG",
-      reference: uuidv4(),
+      reference: this.$store.state.id,
       customizations: {
         title: "FazzyD Fashion Store",
         description: "Get Quality and classic wears at affordable prices",

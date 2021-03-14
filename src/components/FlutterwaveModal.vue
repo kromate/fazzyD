@@ -67,8 +67,8 @@ export default {
     phone() {
       return this.$store.state.phone;
     },
-    pickUp() {
-      return this.$store.state.pickUp;
+    mode() {
+      return this.$store.state.mode;
     },
   },
   methods: {
@@ -104,7 +104,7 @@ export default {
   },
 
   created() {
-    let item = { phone: this.phone, order: [...this.cart], pickUp: this.pickUp };
+    let item = { phone: this.phone, order: [...this.cart], pickUp: this.mode };
     console.log(item);
     console.log("closeeeeeeeee");
     const script = document.createElement("script");

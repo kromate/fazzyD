@@ -29,11 +29,20 @@ export default {
   name: "MetaData",
   data() {
     return {
-      mode: "",
       location: "",
       searchResults: [],
       service: null, // will reveal this later 🕵️
     };
+  },
+  computed: {
+    mode: {
+      get() {
+        return this.$store.state.cart;
+      },
+      set(value) {
+        console.log(value);
+      },
+    },
   },
 
   metaInfo() {

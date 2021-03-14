@@ -100,6 +100,7 @@ export default {
     },
   },
   created() {
+    console.log(this.cart);
     console.log();
     // this.$store.dispatch("getCart");
     if (this.cart.length != 0) {

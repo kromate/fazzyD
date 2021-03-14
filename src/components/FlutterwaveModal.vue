@@ -60,6 +60,17 @@ export default {
       default: "card,mobilemoney,ussd,bank",
     },
   },
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    },
+    phone() {
+      return this.$store.state.phone;
+    },
+    pickUp() {
+      return this.$store.state.pickUp;
+    },
+  },
   methods: {
     makePayment() {
       console.log(this.flwKey);
@@ -73,9 +84,15 @@ export default {
           name: this.name,
           email: this.email,
         },
-        close: () => {},
+        close: () => {
+          let item = { phone: this.phone, ...this.cart };
+          console.log(item);
+          console.log("closeeeeeeeee");
+        },
         callback: () => {
-          console.log("Payment suceesfull");
+          // this.$store.commit("updatedetailedItem", item);
+          // this.$store.dispatch("addToCart");
+          // console.log("Payment suceesfull");
         },
         customizations: {
           title: this.custom_title,
@@ -87,6 +104,9 @@ export default {
   },
 
   created() {
+    let item = { phone: this.phone, order: [...this.cart], pickUp: };
+    console.log(item);
+    console.log("closeeeeeeeee");
     const script = document.createElement("script");
     script.src = !this.isProduction
       ? "https://ravemodal-dev.herokuapp.com/v3.js"

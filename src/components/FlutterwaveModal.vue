@@ -84,6 +84,11 @@ export default {
         order: [...this.cart],
         pickUp: this.mode,
         location: this.location,
+        date: new Date()
+          .toUTCString()
+          .split(" ")
+          .slice(0, 5)
+          .join(" "),
       };
       this.$store.commit("updatedetailedItem", item);
       this.$store.dispatch("addToOrders");

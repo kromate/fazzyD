@@ -167,6 +167,7 @@ export default {
   border-radius: 100%;
   padding: 4px;
   height: 22px;
+  width: 22px;
   position: relative;
   top: -105px;
   right: -5px;

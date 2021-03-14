@@ -13,7 +13,7 @@ export default  {
       collection
       .doc(firebase.auth().currentUser.uid)
       .update({
-        cart:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
+        orders:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
         context.commit("ShowNotifyCart");
       }).catch((err)=>{
         console.log(err);
@@ -23,10 +23,7 @@ export default  {
       const data =   {
         id: context.state.user.uid,
         email: context.state.user.email,
-        favourite: [],
-        orders: [],
-        C_orders: [],
-        cart: [context.state.detailedItem],
+        orders: [context.state.detailedItem],
         body:{}
       }
       collection

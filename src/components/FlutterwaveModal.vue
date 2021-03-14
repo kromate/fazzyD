@@ -113,7 +113,11 @@ export default {
             order: [...this.cart],
             pickUp: this.mode,
             location: this.location,
-
+            date: new Date()
+              .toUTCString()
+              .split(" ")
+              .slice(0, 5)
+              .join(" "),
           };
 
           this.$store.commit("updatedetailedItem", item);
@@ -130,7 +134,6 @@ export default {
   },
 
   created() {
-   
     const script = document.createElement("script");
     script.src = !this.isProduction
       ? "https://ravemodal-dev.herokuapp.com/v3.js"

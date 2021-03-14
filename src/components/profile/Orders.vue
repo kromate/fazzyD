@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import OrderDetails from "./OrderDetails.vue";
+import OrderDetails from "@/components/profile/OrderDetails.vue";
 
 export default {
   components: { OrderDetails },

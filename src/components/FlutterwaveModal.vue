@@ -74,7 +74,20 @@ export default {
       return this.$store.state.location;
     },
   },
+
   methods: {
+    check() {
+      let item = {
+        phone: this.phone,
+        order: [...this.cart],
+        pickUp: this.mode,
+        location: this.location,
+      };
+      this.$store.commit("updatedetailedItem", item);
+      this.$store.dispatch("addToOrders");
+      console.log("Payment suceesfull");
+    },
+
     makePayment() {
       console.log(this.flwKey);
       window.FlutterwaveCheckout({
@@ -93,11 +106,16 @@ export default {
           console.log("closeeeeeeeee");
         },
         callback: () => {
-           let item = { phone: this.phone, order: [...this.cart], pickUp: this.mode, location:this.location };
+          let item = {
+            phone: this.phone,
+            order: [...this.cart],
+            pickUp: this.mode,
+            location: this.location,
+          };
 
           this.$store.commit("updatedetailedItem", item);
-          // this.$store.dispatch("addToCart");
-          // console.log("Payment suceesfull");
+          this.$store.dispatch("addToOrders");
+          console.log("Payment suceesfull");
         },
         customizations: {
           title: this.custom_title,
@@ -109,7 +127,6 @@ export default {
   },
 
   created() {
-   
     const script = document.createElement("script");
     script.src = !this.isProduction
       ? "https://ravemodal-dev.herokuapp.com/v3.js"

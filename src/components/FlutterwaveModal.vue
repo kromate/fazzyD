@@ -1,5 +1,5 @@
 <template>
-  <button class="secondaryBtn btn" @click="makePayment">PAY</button>
+  <button class="secondaryBtn btn" @click="makePayment" :disabled="phone">PAY</button>
 </template>
 
 <script>
@@ -120,5 +120,8 @@ export default {
 .btn {
   font-size: 1.3rem;
   font-weight: 700;
+}
+.btn:disabled {
+     background: #00000066;
 }
 </style>

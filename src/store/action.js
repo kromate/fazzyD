@@ -157,7 +157,7 @@ export default  {
     // ============================================================================================================
       removeFromCart(context) {
         const collection = firebase.firestore().collection("users");
-        context.state.detailedItem.order.forEach((item)=>{
+        context.state.cart.forEach((item)=>{
           collection
           .doc(context.state.user.uid)
           .update({

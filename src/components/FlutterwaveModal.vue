@@ -104,7 +104,7 @@ export default {
   },
 
   created() {
-    let item = { phone: this.phone, order: [...this.cart], pickUp: };
+    let item = { phone: this.phone, order: [...this.cart], pickUp: this.pickUp };
     console.log(item);
     console.log("closeeeeeeeee");
     const script = document.createElement("script");

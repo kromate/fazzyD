@@ -18,7 +18,13 @@
 
       <div class="inputBox">
         <label for="phone">PHONE NUM (Preferably Whatsapp)</label>
-        <input type="number" id="phone" placeholder="Enter Your Phone Number" required />
+        <input
+          type="number"
+          id="phone"
+          placeholder="Enter Your Phone Number"
+          required
+          v-model="phone"
+        />
       </div>
     </form>
   </div>
@@ -37,10 +43,20 @@ export default {
   computed: {
     mode: {
       get() {
-        return this.$store.state.cart;
+        return this.$store.state.mode;
       },
       set(value) {
         console.log(value);
+        this.$store.state.mode = value;
+      },
+    },
+    phone: {
+      get() {
+        return this.$store.state.phone;
+      },
+      set(value) {
+        console.log(value);
+        this.$store.state.phone = value;
       },
     },
   },

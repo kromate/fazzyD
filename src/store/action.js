@@ -25,17 +25,20 @@ export default  {
         id: context.state.user.uid,
         email: context.state.user.email,
         orders: [context.state.detailedItem],
-        body:{}
       }
       collection
       .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
-        context.commit("ShowNotifyCart");
+        context.commit("FW_closeFunction");
+        context.dispatch("removeFromCart");
       }).catch((err)=>{
         console.log(err);
         context.commit("Error");
       })
     }
   },
+
+   // ============================================================================================================
+
     async getCart(context){
       context.state.cart = [];
       const collection = firebase.firestore().collection("users");
@@ -55,6 +58,9 @@ export default  {
           }
         });
     },
+
+     // ============================================================================================================
+     
     async getOrders(context){
       context.state.cart = [];
       const collection = firebase.firestore().collection("users");
@@ -72,6 +78,9 @@ export default  {
           }
         });
     },
+
+     // ============================================================================================================
+
     async getC_Orders(context){
       context.state.cart = [];
       const collection = firebase.firestore().collection("users");
@@ -89,6 +98,9 @@ export default  {
           }
         });
     },
+
+     // ============================================================================================================
+
     async getMeasurement(context){
       context.state.cart = [];
       const collection = firebase.firestore().collection("users");
@@ -103,6 +115,9 @@ export default  {
           }
         });
     },
+
+     // ============================================================================================================
+
     async setMeasurement(context, data){
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
@@ -138,12 +153,15 @@ export default  {
         })
       }
     },
+
+    // ============================================================================================================
       removeFromCart(context) {
         const collection = firebase.firestore().collection("users");
         collection
           .doc(context.state.user.uid)
           .update({
-            favourite: firebase.firestore.FieldValue.arrayRemove(context.state.detailedItem.order),
+
+            favourite: firebase.firestore.FieldValue.arrayRemove(context.state.detailedItem.order.join(',')),
           })
        
           .catch((err) => {
@@ -152,6 +170,8 @@ export default  {
           });
       },
     
+       // ============================================================================================================
+
     async addToCart(context){
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
@@ -187,6 +207,10 @@ export default  {
         })
       }
     },
+
+     // ============================================================================================================
+
+
     async addToFaV(context){
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
@@ -223,6 +247,8 @@ export default  {
       }
     
     },
+
+     // ============================================================================================================
 
     async addToC_Order(context){
       const collection = firebase.firestore().collection("users")

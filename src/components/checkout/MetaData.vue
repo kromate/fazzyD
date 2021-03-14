@@ -29,7 +29,7 @@ export default {
   name: "MetaData",
   data() {
     return {
-      mode: "Pick Up",
+      mode: "",
       location: "",
       searchResults: [],
       service: null, // will reveal this later 🕵️

@@ -12,4 +12,6 @@ export default {
     total: 0, 
     units: {},
     body:{},
+    mode:"Pick Up",
+    phone:""
   };

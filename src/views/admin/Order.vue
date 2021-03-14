@@ -19,6 +19,44 @@
 import OrderDetails from "@/components/profile/OrderDetails.vue";
 export default {
   components: { OrderDetails },
+  data() {
+    return {
+      OD: {},
+      // orders: [
+      //   {
+      //     id: "345678908765",
+      //     name: "Hoodie and long sleeves With a touch of rass rass",
+      //     price: "12000",
+      //     total: "",
+      //     date: "20-2-2021",
+      //     completed: "No",
+      //     delivered: "No",
+      //   },
+      // ],
+      showModal: false,
+      title: "Upload",
+      mode: "Pick Up",
+      location: "",
+      phone: "",
+      body: {},
+      check: false,
+    };
+  },
+  computed: {
+    orders() {
+      return this.$store.state.orders;
+    },
+  },
+  methods: {
+    showO(data) {
+      this.OD = data;
+      this.showModal = true;
+      // console.log(data);
+    },
+  },
+  mounted() {
+    this.$store.dispatch("getOrders");
+  },
 };
 </script>
 

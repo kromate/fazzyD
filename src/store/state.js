@@ -13,5 +13,6 @@ export default {
     units: {},
     body:{},
     mode:"Pick Up",
-    phone:""
+    phone:"",
+    location:""
   };

@@ -35,7 +35,6 @@ export default {
   name: "MetaData",
   data() {
     return {
-      location: "",
       searchResults: [],
       service: null, // will reveal this later 🕵️
     };
@@ -57,6 +56,16 @@ export default {
       set(value) {
         console.log(value);
         this.$store.state.phone = value;
+      },
+    },
+
+    location: {
+      get() {
+        return this.$store.state.location;
+      },
+      set(value) {
+        console.log(value);
+        this.$store.state.location = value;
       },
     },
   },

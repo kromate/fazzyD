@@ -54,7 +54,7 @@
 
 <script>
 import Flutterwave from "@/components/FlutterwaveModal.vue";
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 export default {
   name: "Subcart",
   components: {
@@ -68,7 +68,7 @@ export default {
       isProduction: process.env.NODE_ENV == "development" ? false : true,
       currency: "NGN",
       country: "NG",
-      reference: this.$store.state.id,
+      reference: uuidv4(),
       customizations: {
         title: "FazzyD Fashion Store",
         description: "Get Quality and classic wears at affordable prices",

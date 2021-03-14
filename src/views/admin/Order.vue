@@ -1,9 +1,22 @@
 <template>
-  <h1>Ordder Admin</h1>
+  <div class="container">
+    <Table />
+  </div>
 </template>
 
 <script>
-export default {};
+import Table from "@/components/order/OrderTable.vue";
+export default {
+  components: { Table },
+  created() {
+    let date = new Date()
+      .toUTCString()
+      .split(" ")
+      .slice(0, 5)
+      .join(" ");
+    console.log(date);
+  },
+};
 </script>
 
 <style></style>

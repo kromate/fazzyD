@@ -14,7 +14,7 @@ export default  {
       .doc(firebase.auth().currentUser.uid)
       .update({
         orders:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
-        context.commit("ShowNotifyCart");
+        context.commit("FW_closeFunction");
       }).catch((err)=>{
         console.log(err);
         context.commit("Error");

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="Empty_Cart">
     <Table />
     <div class="flex end length ">
       <button class="primaryBtn shopBtn" @click="$router.push('home')">CONTINUE SHOPPING</button>
@@ -16,6 +16,11 @@ import Table from "@/components/cart/Table.vue";
 export default {
   components: { Table },
   name: "Cart",
+  computed: {
+    Empty_Cart() {
+      return false;
+    },
+  },
 
   created() {
     this.$store.dispatch("getCart");

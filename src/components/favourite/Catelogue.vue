@@ -86,7 +86,7 @@ export default {
         .get()
         .then((doc) => {
           if (doc.exists) {
-            if (this.favourite.length) {
+            if (doc.data().favourite.length) {
               this.favourite = doc.data().favourite;
             } else {
               this.$store.commit("updateFavState", true);
@@ -127,6 +127,7 @@ export default {
     },
   },
   mounted() {
+    this.$store.commit("updateFavState", false);
     this.show();
     this.init();
   },

@@ -19,7 +19,7 @@ export default {
   components: { Catelogue },
   computed: {
     Empty_Fav() {
-      return this.$store.state.Empty_Fav;
+      return !this.$store.state.Empty_Fav;
     },
   },
 };

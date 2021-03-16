@@ -85,7 +85,11 @@ export default {
         .get()
         .then((doc) => {
           if (doc.exists) {
-            this.favourite = doc.data().favourite;
+            if (this.favourite) {
+              this.favourite = doc.data().favourite;
+            } else {
+              this.$store.commit("updateFavState", false);
+            }
           } else {
             console.log("Not Found");
           }

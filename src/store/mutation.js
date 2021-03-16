@@ -6,7 +6,7 @@ export default {
     state.Empty_Cart = payload
   },
   updateFavState(state, payload){
-    state.detailedItem = payload
+    state.Empty_Fav = payload
   },
   ShowNotifyMeasurement(state){
       state.showNotifyImage = ''

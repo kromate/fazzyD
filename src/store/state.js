@@ -12,6 +12,8 @@ export default {
     total: 0, 
     units: {},
     body:{},
+    Empty_Cart: false,
+    Empty_Fav: false,
     mode:"Pick Up",
     phone:"",
     location:""

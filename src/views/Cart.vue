@@ -24,7 +24,7 @@ export default {
   name: "Cart",
   computed: {
     Empty_Cart() {
-      return false;
+      return !this.$store.state.Empty_Cart;
     },
   },
 

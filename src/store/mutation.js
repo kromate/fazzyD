@@ -2,6 +2,12 @@ export default {
   updatedetailedItem(state, payload){
     state.detailedItem = payload
   },
+  updateCartState(state, payload){
+    state.Empty_Cart = payload
+  },
+  updateFavState(state, payload){
+    state.detailedItem = payload
+  },
   ShowNotifyMeasurement(state){
       state.showNotifyImage = ''
       state.showNotifyText = "Body Measurement successfully updated"

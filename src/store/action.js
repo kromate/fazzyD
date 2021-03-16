@@ -49,11 +49,17 @@ export default  {
           if (doc.exists) {
             context.state.cart = doc.data().cart;
             console.log(context.state.cart);
-            context.state.cart.forEach((item) => {
-               context.state.units[item.id] = 1;
-               context.commit("getTotal");
-            });
+            if(context.state.cart.length){
+              context.state.cart.forEach((item) => {
+                context.state.units[item.id] = 1;
+                context.commit("getTotal");
+             });
+            }else{
+              context.commit("updateCartState", true)
+            }
+          
           } else {
+
             console.log("Not Found");
           }
         });

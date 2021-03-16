@@ -1,27 +1,16 @@
 <template>
-  <div class="container" v-if="Empty_Fav">
+  <div class="container">
     <h1>Favourite</h1>
     <div class="favImg">
       <Catelogue />
     </div>
   </div>
-
-  <p class="empty" v-else>
-    You currently Have no item in Favourite <br />
-    click <router-link class="box" to="/home" style="margin: 1rem;">Here </router-link> to go to
-    home page
-  </p>
 </template>
 
 <script>
 import Catelogue from "@/components/favourite/Catelogue.vue";
 export default {
   components: { Catelogue },
-  computed: {
-    Empty_Fav() {
-      return !this.$store.state.Empty_Fav;
-    },
-  },
 };
 </script>
 

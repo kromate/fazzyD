@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="Empty_Fav">
     <div class="catCon" v-if="favourite.length">
       <div v-for="(cat, index) in favourite" :key="index" class="catItem">
         <div class="item">
@@ -31,6 +31,11 @@
       <p class="lood">loading....</p>
     </div>
   </div>
+  <p class="empty" v-else>
+    You currently Have no item in Favourite <br />
+    click <router-link class="box" to="/home" style="margin: 1rem;">Here </router-link> to go to
+    home page
+  </p>
   <ShareProduct :showModal="showModal" :url="url" @close="showModal = !showModal" />
 </template>
 
@@ -49,6 +54,11 @@ export default {
       inter: "",
       favourite: [],
     };
+  },
+  computed: {
+    Empty_Fav() {
+      return !this.$store.state.Empty_Fav;
+    },
   },
   methods: {
     switchToDetailPage(data) {

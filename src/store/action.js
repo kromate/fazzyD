@@ -40,6 +40,7 @@ export default  {
    // ============================================================================================================
 
     async getCart(context){
+      context.commit("updateCartState", false)
       context.state.cart = [];
       const collection = firebase.firestore().collection("users");
       collection

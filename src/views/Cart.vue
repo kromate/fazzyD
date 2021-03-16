@@ -11,7 +11,7 @@
 
   <p class="empty" v-else>
     You currently Have no item in cart <br />
-    click <router-link class="box" to="/home" style="margin: 1rem;">Here </router-link> to return to
+    click <router-link class="box" to="/home" style="margin: 1rem;">Here </router-link> to go to
     home page
   </p>
 </template>

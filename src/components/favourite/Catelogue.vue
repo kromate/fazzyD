@@ -78,6 +78,7 @@ export default {
         });
     },
     init() {
+      this.$store.commit("updateFavState", false);
       this.favourite = [];
       const collection = firebase.firestore().collection("users");
       collection
@@ -85,10 +86,10 @@ export default {
         .get()
         .then((doc) => {
           if (doc.exists) {
-            if (this.favourite) {
+            if (this.favourite.length) {
               this.favourite = doc.data().favourite;
             } else {
-              this.$store.commit("updateFavState", false);
+              this.$store.commit("updateFavState", true);
             }
           } else {
             console.log("Not Found");

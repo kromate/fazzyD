@@ -54,16 +54,15 @@ a {
   text-decoration: none;
 }
 .empty {
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: center;
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 4px 2px rgba(0, 0, 0, 0.541);
   font-weight: 900;
   text-decoration: none;
   width: 260px;
-  vertical-align: 20px;
+  vertical-align: 10px;
   margin-top: 2rem;
   color: #f4ae53;
-  text-align: center;
   margin: 2rem auto;
 }
 

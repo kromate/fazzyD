@@ -110,6 +110,7 @@ export default {
         });
     },
     share(data) {
+      this.$store.commit("updateLoading", true);
       if (navigator.share) {
         navigator
           .share({
@@ -117,9 +118,16 @@ export default {
             text: `Check out this nice wear on ${window.location.origin}`,
             url: `${window.location.origin}/details/?id=${data} `,
           })
-          .then(() => console.log("Successful share"))
-          .catch((error) => console.log("Error sharing", error));
+          .then(() => {
+            this.$store.commit("updateLoading", false);
+            console.log("Successful share");
+          })
+          .catch((error) => {
+            this.$store.commit("updateLoading", false);
+            console.log("Error sharing", error);
+          });
       } else {
+        this.$store.commit("updateLoading", false);
         this.url = `${window.location.origin}/details/?id=${data} `;
         this.showModal = true;
       }

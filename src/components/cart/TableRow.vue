@@ -43,7 +43,6 @@ import Loader from "@/components/imgLoader.vue";
 export default {
   name: "TableRow",
   components: { Loader },
-  
 
   computed: {
     cart() {
@@ -65,6 +64,7 @@ export default {
       this.$store.dispatch("addToFaV");
     },
     removeCart(data) {
+      this.$store.commit("updateLoading", true);
       console.log(data);
       const collection = firebase.firestore().collection("users");
       collection
@@ -73,10 +73,12 @@ export default {
           cart: firebase.firestore.FieldValue.arrayRemove(data),
         })
         .then(() => {
+          this.$store.commit("updateLoading", false);
           this.$store.commit("RemoveNotifyCart");
           this.$store.dispatch("getCart");
         })
         .catch((err) => {
+          this.$store.commit("updateLoading", false);
           this.$store.commit("wrong");
           console.log(err);
         });

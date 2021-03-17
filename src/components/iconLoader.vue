@@ -15,7 +15,7 @@ export default {};
   height: 40px;
 
   position: relative;
-  margin: 100px auto;
+  margin: 10px;
 }
 
 .double-bounce1,

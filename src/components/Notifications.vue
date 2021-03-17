@@ -7,7 +7,7 @@
   </transition>
 
   <transition name="slide" appear>
-    <div class="bg" v-if="showModal" @click="close()">
+    <div class="bg" v-if="showModal">
       <div class="card">
         <loader />
         <h2>Loading...</h2>
@@ -71,7 +71,7 @@ export default {
 .bg {
   position: fixed;
   top: 0;
-  background-color: rgba(26, 25, 25, 0.859);
+  background-color: rgba(26, 25, 25, 0.514);
   min-width: 100%;
   min-height: 100%;
   z-index: 10;
@@ -84,7 +84,7 @@ export default {
 .card {
   margin-top: 5rem;
   padding: 1rem;
-  width: 420px;
+  width: 200px;
   max-width: 85vw;
   height: fit-content;
   display: flex;
@@ -94,9 +94,9 @@ export default {
   text-align: center;
   border-radius: 4px;
 }
-h2 {
+/* h2 {
   margin-bottom: 1rem;
-}
+} */
 .slide-enter-active,
 .slide-leave-active {
   transition: transform 0.5s;

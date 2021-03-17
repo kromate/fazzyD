@@ -78,7 +78,8 @@ export default  {
           if (doc.exists) {
             console.log(doc.data());
             context.state.orders = doc.data().orders;
-            console.log(context.state.cart);
+            console.log(context.state.orders);
+            console.log(typeof context.state.orders);
           
           } else {
             console.log("Not Found");

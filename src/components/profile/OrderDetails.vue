@@ -7,7 +7,7 @@
           <img :src="data.img" alt="" class="cartImg" />
           <div class="flexd">
             <p class="block">
-              <span class="tt">Name: </span> <span>{{ data.name }}</span>
+              <span class="tt">Name: </span> <span>{{ data }}</span>
             </p>
             <p class="block">
               <span class="tt">Price: </span> <span>&#8358; {{ data.price }}</span>
@@ -47,13 +47,11 @@ export default {
 
   methods: {
     close(e) {
+      console.log("itemhvcgcgh", this.item);
       if (e.target.className == "bg") {
         this.$emit("close");
       }
     },
-  },
-  mounted() {
-    console.log(this.item);
   },
 };
 </script>

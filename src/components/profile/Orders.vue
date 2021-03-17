@@ -1,21 +1,22 @@
 <template>
-  <OrderDetails :showModal="showModal" :data="OD" @close="showModal = false" />
-  <details>
-    <summary><h2>Orders</h2> </summary>
-    <div v-if="orders ? orders.length : false">
-      <div class="O_card" v-for="n in orders" :key="n.id" @click="showO(n)">
-        <p>Date:{{ n.date }}</p>
+  <div class="container">
+    <OrderDetails :showModal="showModal" :item="OD" @close="showModal = false" />
+    <details>
+      <summary><h2>Orders</h2> </summary>
+      <div v-if="orders ? orders.length : false">
+        <div class="O_card" v-for="n in orders" :key="n.id" @click="showO(n)">
+          <p>Date:{{ n.date }}</p>
+        </div>
       </div>
-    </div>
-    <div v-else>
-      <h2>You have no orders yet</h2>
-    </div>
-  </details>
+      <div v-else>
+        <h2>You have no orders yet</h2>
+      </div>
+    </details>
+  </div>
 </template>
 
 <script>
 import OrderDetails from "@/components/profile/OrderDetails.vue";
-
 export default {
   components: { OrderDetails },
   data() {
@@ -48,7 +49,8 @@ export default {
   },
   methods: {
     showO(data) {
-      this.OD = data;
+      console.log("qwerty", typeof data);
+      this.OD = data.order;
       this.showModal = true;
       // console.log(data);
     },
@@ -60,6 +62,11 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .O_card {
   background: rgb(255, 255, 255);
   width: fit-content;

@@ -9,24 +9,21 @@
   <transition name="slide" appear>
     <div class="bg" v-if="showModal" @click="close()">
       <div class="card">
-        <h2>About Us</h2>
-        <p>
-          Fazzy D is a Growing designer company established August 2019. Fazzy D is a brand that's
-          all about your comfort. "You don't have to be uncomfortable to look your best, Fashion is
-          not that", Fazzy D is a home to a lot of street wear products designed and made to fit in
-          to your daily activities.
-        </p>
+        <loader />
+        <h2>Loading...</h2>
       </div>
     </div>
   </transition>
 </template>
 
 <script>
+import loader from "@/components/iconLoader.vue";
 export default {
+  components: { loader },
   name: "Notification",
   data() {
     return {
-      showModal: false,
+      showModal: true,
     };
   },
   computed: {
@@ -53,7 +50,7 @@ export default {
 };
 </script>
 
-<style scoped> 
+<style scoped>
 .notify {
   background: black;
   width: fit-content;
@@ -93,7 +90,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  /* flex-direction: column; */
   text-align: center;
   border-radius: 4px;
 }

@@ -74,6 +74,15 @@ export default {
     location() {
       return this.$store.state.location;
     },
+    Ocart() {
+      let cartStuff = this.cart;
+      cartStuff.forEach((item) => {
+        item.completed = "No";
+        item.delivered = "No";
+      });
+
+      return cartStuff;
+    },
   },
 
   methods: {
@@ -81,7 +90,7 @@ export default {
       let item = {
         id: uuidv4(),
         phone: this.phone,
-        order: [...this.cart],
+        order: this.Ocart,
         pickUp: this.mode,
         location: this.location,
         date: new Date()
@@ -90,9 +99,12 @@ export default {
           .slice(0, 5)
           .join(" "),
       };
-      this.$store.commit("updatedetailedItem", item);
-      this.$store.dispatch("addToOrders");
-      console.log("Payment suceesfull");
+
+      console.log(this.Ocart);
+      console.log(item);
+      // this.$store.commit("updatedetailedItem", item);
+      // this.$store.dispatch("addToOrders");
+      // console.log("Payment suceesfull");
     },
 
     makePayment() {
@@ -115,7 +127,7 @@ export default {
         callback: () => {
           let item = {
             phone: this.phone,
-            order: [...this.cart],
+            order: this.Ocart,
             pickUp: this.mode,
             location: this.location,
             date: new Date()

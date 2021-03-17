@@ -3,7 +3,7 @@
     <div class="bg" v-if="showModal">
       <div class="cardx">
         <button class="primaryBtn floatR" @click="$emit('close')">X</button>
-        <div class="flexb">
+        <div class="flexb" v-for="(index, data) in item" :key="index">
           <img :src="data.img" alt="" class="cartImg" />
           <div class="flexd">
             <p class="block">
@@ -43,7 +43,7 @@ export default {
     };
   },
 
-  props: ["showModal", "data"],
+  props: ["showModal", "item"],
 
   methods: {
     close(e) {
@@ -51,6 +51,9 @@ export default {
         this.$emit("close");
       }
     },
+  },
+  mounted() {
+    console.log(this.item);
   },
 };
 </script>

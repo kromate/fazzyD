@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <OrderDetails :showModal="showModal" :data="OD" @close="showModal = false" />
+    <OrderDetails :showModal="showModal" :item="OD" @close="showModal = false" />
     <details>
       <summary><h2>Orders</h2> </summary>
       <div v-if="orders ? orders.length : false">
@@ -49,8 +49,9 @@ export default {
   },
   methods: {
     showO(data) {
-      this.OD = data;
-      this.showModal = true;
+      console.log("qwerty", data);
+      this.OD = data.order;
+      // this.showModal = true;
       // console.log(data);
     },
   },

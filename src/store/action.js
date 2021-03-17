@@ -163,13 +163,17 @@ export default  {
 
     // ============================================================================================================
       removeFromCart(context) {
+        context.commit("updateLoading", true);
         const collection = firebase.firestore().collection("users");
         context.state.cart.forEach((item)=>{
           collection
           .doc(context.state.user.uid)
           .update({
             cart: firebase.firestore.FieldValue.arrayRemove(item),
+          }).then(()=>{
+            context.commit("updateLoading", false);
           })  .catch((err) => {
+            context.commit("updateLoading", false);
             context.commit("wrong");
             console.log(err);
           });

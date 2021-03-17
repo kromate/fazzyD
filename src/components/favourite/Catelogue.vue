@@ -71,6 +71,7 @@ export default {
       this.$store.dispatch("addToCart");
     },
     removeFavourite(data) {
+      this.$store.commit("updateLoading", true);
       console.log(data);
       const collection = firebase.firestore().collection("users");
       collection
@@ -81,8 +82,10 @@ export default {
         .then(() => {
           this.$store.commit("RemoveNotifyFav");
           this.init();
+          this.$store.commit("updateLoading", false);
         })
         .catch((err) => {
+          this.$store.commit("updateLoading", false);
           this.$store.commit("wrong");
           console.log(err);
         });

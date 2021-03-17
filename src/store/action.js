@@ -70,12 +70,13 @@ export default  {
      
     async getOrders(context){
       context.state.cart = [];
-      const collection = firebase.firestore().collection("users");
+      const collection = firebase.firestore().collection("Orders");
       collection
         .doc(context.state.user.uid)
         .get()
         .then((doc) => {
           if (doc.exists) {
+            console.log(doc.data());
             context.state.orders = doc.data().orders;
             console.log(context.state.cart);
           

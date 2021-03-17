@@ -7,7 +7,7 @@
   </transition>
 
   <transition name="slide" appear>
-    <div class="bg" v-if="showModal">
+    <div class="bg" v-if="loading">
       <div class="card">
         <loader />
         <h2>Loading...</h2>
@@ -21,12 +21,11 @@ import loader from "@/components/iconLoader.vue";
 export default {
   components: { loader },
   name: "Notification",
-  data() {
-    return {
-      showModal: true,
-    };
-  },
+
   computed: {
+    loading() {
+      return this.$store.state.loading;
+    },
     notifyImage() {
       return this.$store.state.showNotifyImage;
     },

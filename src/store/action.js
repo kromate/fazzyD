@@ -185,6 +185,7 @@ export default  {
        // ============================================================================================================
 
     async addToCart(context){
+      context.commit("updateLoading", true);
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
         console.log(err);
@@ -195,8 +196,10 @@ export default  {
         .doc(firebase.auth().currentUser.uid)
         .update({
           cart:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
+            context.commit("updateLoading", false);
           context.commit("ShowNotifyCart");
         }).catch((err)=>{
+          context.commit("updateLoading", false);
           console.log(err);
           context.commit("Error");
         })
@@ -212,8 +215,10 @@ export default  {
         }
         collection
         .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
+          context.commit("updateLoading", false);
           context.commit("ShowNotifyCart");
         }).catch((err)=>{
+          context.commit("updateLoading", false);
           console.log(err);
           context.commit("Error");
         })
@@ -224,6 +229,7 @@ export default  {
 
 
     async addToFaV(context){
+      context.commit("updateLoading", true);
       const collection = firebase.firestore().collection("users")
       const user = await collection.doc(context.state.user.uid).get().catch((err)=>{
         console.log(err);
@@ -234,8 +240,10 @@ export default  {
         .doc(firebase.auth().currentUser.uid)
         .update({
           favourite:firebase.firestore.FieldValue.arrayUnion(context.state.detailedItem)}).then(()=>{
+            context.commit("updateLoading", false);
           context.commit("ShowNotifyFav");
         }).catch((err)=>{
+          context.commit("updateLoading", false);
           console.log(err);
           context.commit("Error");
         })
@@ -251,8 +259,10 @@ export default  {
         }
         collection
         .doc(firebase.auth().currentUser.uid).set(data).then(()=>{
+          context.commit("updateLoading", false);
           context.commit("ShowNotifyFav");
         }).catch((err)=>{
+          context.commit("updateLoading", false);
           console.log(err);
           context.commit("Error");
         })

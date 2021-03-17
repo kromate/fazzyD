@@ -3,21 +3,18 @@
     <div class="bg" v-if="showModal">
       <div class="cardx">
         <button class="primaryBtn floatR" @click="$emit('close')">X</button>
-        <div class="flexb" v-for="(index, data) in item" :key="index">
+        <div class="flexb" v-for="(data, index) in item" :key="index">
           <img :src="data.img" alt="" class="cartImg" />
           <div class="flexd">
             <p class="block">
-              <span class="tt">Name: </span> <span>{{ data }}</span>
+              <span class="tt">Name: </span> <span>{{ data.name }}</span>
             </p>
             <p class="block">
               <span class="tt">Price: </span> <span>&#8358; {{ data.price }}</span>
             </p>
+
             <p class="block">
-              <span class="tt">Total Price:</span>
-              <span>&#8358; {{ data.total ? data.total : "-" }}</span>
-            </p>
-            <p class="block">
-              <span class="tt">Ordered date: </span> <span>{{ data.date }}</span>
+              <span class="tt">Count: </span> <span>{{ data.count }}</span>
             </p>
             <p class="block">
               <span class="tt">Completed: </span> <span>{{ data.completed }}</span>

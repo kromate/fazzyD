@@ -1,4 +1,7 @@
 export default {
+  updateLoading(state, payload){
+state.loading = payload
+  },
   updatedetailedItem(state, payload){
     state.detailedItem = payload
   },

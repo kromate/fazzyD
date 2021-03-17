@@ -69,6 +69,7 @@ export default  {
      // ============================================================================================================
      
     async getOrders(context){
+      context.commit("updateOrdersLoading", true)
       context.state.cart = [];
       const collection = firebase.firestore().collection("Orders");
       collection

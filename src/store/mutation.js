@@ -1,4 +1,7 @@
 export default {
+  updateOrdersLoading(state, payload){
+state.ordersLoading = payload
+  },
   updateLoading(state, payload){
 state.loading = payload
   },

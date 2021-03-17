@@ -3,7 +3,10 @@
     <OrderDetails :showModal="showModal" :item="OD" @close="showModal = false" />
     <details>
       <summary><h2>Orders</h2> </summary>
-      <div v-if="orders ? orders.length : false">
+      <div v-if="ordersLoading">
+        <h2>loading...</h2>
+      </div>
+      <div v-else-if="orders ? orders.length : false">
         <div class="O_card" v-for="n in orders" :key="n.id" @click="showO(n)">
           <p>{{ n.date }}</p>
         </div>
@@ -43,6 +46,9 @@ export default {
     };
   },
   computed: {
+    ordersLoading() {
+      return this.$store.state.ordersLoading;
+    },
     orders() {
       return this.$store.state.orders;
     },

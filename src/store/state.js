@@ -17,5 +17,6 @@ export default {
     mode:"Pick Up",
     phone:"",
     location:"",
+    ordersLoading:false,
     loading:false,
   };

@@ -91,6 +91,31 @@ export default  {
 
      // ============================================================================================================
 
+     // ============================================================================================================
+     
+    async getAdminOrders(context){
+      context.commit("updateOrdersLoading", true)
+      context.state.cart = [];
+      const collection = firebase.firestore().collection("Orders");
+      collection
+        .get()
+        .then((doc) => { 
+          console.log(doc);
+          if (doc.exists) {
+            console.log(doc.data());
+            context.state.orders = doc.data().orders;
+            context.commit("updateOrdersLoading", false)
+          
+          } else {
+            context.commit("updateOrdersLoading", false)
+            console.log("Not Found");
+            context.state.orders = []
+          }
+        });
+    },
+
+     // ============================================================================================================
+
     async getC_Orders(context){
       context.state.cart = [];
       const collection = firebase.firestore().collection("users");

@@ -67,7 +67,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("getOrders");
+    this.$store.dispatch("getAdminOrders");
   },
 };
 </script>

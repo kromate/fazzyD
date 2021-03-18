@@ -3,9 +3,12 @@
     <OrderDetails :showModal="showModal" :item="OD" @close="showModal = false" />
     <details>
       <summary><h2>Orders</h2> </summary>
-      <div v-if="orders ? orders.length : false">
+      <div v-if="ordersLoading">
+        <h2>loading...</h2>
+      </div>
+      <div v-else-if="orders ? orders.length : false">
         <div class="O_card" v-for="n in orders" :key="n.id" @click="showO(n)">
-          <p>Date:{{ n.date }}</p>
+          <p>{{ n.date }}</p>
         </div>
       </div>
       <div v-else>
@@ -43,15 +46,23 @@ export default {
     };
   },
   computed: {
+    ordersLoading() {
+      return this.$store.state.ordersLoading;
+    },
     orders() {
       return this.$store.state.orders;
     },
   },
   methods: {
     showO(data) {
-      console.log("qwerty", data);
-      this.OD = data.order;
-      // this.showModal = true;
+      let Array_Order = [];
+      Object.keys(data.order).map((key) => {
+        Array_Order.push(data.order[key]);
+      });
+      console.log(Array.from(Array_Order));
+      console.log("qwerty", typeof data.order);
+      this.OD = Array.from(Array_Order);
+      this.showModal = true;
       // console.log(data);
     },
   },

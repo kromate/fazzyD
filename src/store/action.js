@@ -103,8 +103,12 @@ export default  {
           console.log(querySnapshot);
           if (!querySnapshot.empty) {
             console.log(querySnapshot.docs());
-            // context.state.orders = doc.data().orders;
-            context.commit("updateOrdersLoading", false)
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              console.log(doc.id, " => ", doc.data());
+              
+          });
+          context.commit("updateOrdersLoading", false)
           
           } else {
             context.commit("updateOrdersLoading", false)

@@ -99,11 +99,11 @@ export default  {
       const collection = firebase.firestore().collection("Orders");
       collection
         .get()
-        .then((doc) => { 
-          console.log(doc);
-          if (doc.exists) {
-            console.log(doc.data());
-            context.state.orders = doc.data().orders;
+        .then((querySnapshot) => { 
+          console.log(querySnapshot);
+          if (!querySnapshot.empty) {
+            console.log(querySnapshot.docs());
+            // context.state.orders = doc.data().orders;
             context.commit("updateOrdersLoading", false)
           
           } else {

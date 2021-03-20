@@ -2,7 +2,9 @@
   <div class="container">
     <OrderDetails :showModal="showModal" :item="OD" @close="showModal = false" />
     <details v-for="n in orders" :key="n.id">
-      <summary><h2>Orders</h2> </summary>
+      <summary
+        ><h4>{{ n.id }}--{{ n.email }}</h4>
+      </summary>
       <div v-if="ordersLoading">
         <h2>loading...</h2>
       </div>
@@ -112,7 +114,7 @@ summary {
   border-radius: 0.2rem;
   cursor: pointer;
   outline: none;
-  padding: 0.2rem 0.8rem;
+  padding: 0.8rem;
   background-color: black;
   display: flex;
   align-items: center;

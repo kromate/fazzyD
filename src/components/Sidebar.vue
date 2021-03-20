@@ -39,12 +39,12 @@
             <p>Cart</p>
           </div>
         </router-link>
-        <router-link class="box" to="/custom_order" style="margin: 1rem;">
+        <a href="https://wa.me/message/UNJ6CX6YICVEK1" target="_blank">
           <div class="navCase">
             <img src="@/assets/icon/Buy.svg" alt="" />
             <p>Custom Order</p>
           </div>
-        </router-link>
+        </a>
         <router-link class="box" to="/favourite" style="margin: 1rem;">
           <div class="navCase">
             <img src="@/assets/icon/Heart.svg" alt="" />

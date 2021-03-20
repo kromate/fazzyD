@@ -94,6 +94,7 @@ export default  {
      // ============================================================================================================
      
     async getAdminOrders(context){
+      context.state.Admin_orders = []
       context.commit("updateOrdersLoading", true)
       context.state.cart = [];
       const collection = firebase.firestore().collection("Orders");
@@ -106,7 +107,8 @@ export default  {
             querySnapshot.forEach((doc) => {
               // doc.data() is never undefined for query doc snapshots
               console.log(doc.id, " => ", doc.data());
-              
+              context.state.Admin_orders.push(doc.data())
+              console.log(context.state.Admin_orders);
           });
           context.commit("updateOrdersLoading", false)
           

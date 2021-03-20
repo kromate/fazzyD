@@ -50,7 +50,7 @@ export default {
       return this.$store.state.ordersLoading;
     },
     orders() {
-      return this.$store.state.orders;
+      return this.$store.state.Admin_orders;
     },
   },
   methods: {

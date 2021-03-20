@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <OrderDetails :showModal="showModal" :item="OD" @close="showModal = false" />
-    <details>
+    <details v-for="n in orders" :key="n.id">
       <summary><h2>Orders</h2> </summary>
       <div v-if="ordersLoading">
         <h2>loading...</h2>
@@ -25,17 +25,7 @@ export default {
   data() {
     return {
       OD: {},
-      // orders: [
-      //   {
-      //     id: "345678908765",
-      //     name: "Hoodie and long sleeves With a touch of rass rass",
-      //     price: "12000",
-      //     total: "",
-      //     date: "20-2-2021",
-      //     completed: "No",
-      //     delivered: "No",
-      //   },
-      // ],
+
       showModal: false,
       title: "Upload",
       mode: "Pick Up",
@@ -50,7 +40,12 @@ export default {
       return this.$store.state.ordersLoading;
     },
     orders() {
-      return this.$store.state.Admin_orders;
+      let Array_Order = [];
+      Object.keys(this.$store.state.Admin_orders).map((key) => {
+        Array_Order.push(this.$store.state.Admin_orders[key]);
+      });
+      console.log(Array.from(Array_Order));
+      return Array.from(Array_Order);
     },
   },
   methods: {

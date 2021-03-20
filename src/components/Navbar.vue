@@ -47,12 +47,12 @@
             </router-link>
           </li>
           <li>
-            <router-link class="box" to="/custom_order">
+            <a href="https://wa.me/message/UNJ6CX6YICVEK1" target="_blank">
               <div class="navCase" style="width:130px">
                 <img src="@/assets/icon/Buy.svg" alt="" />
                 <p>Custom Order</p>
               </div>
-            </router-link>
+            </a>
           </li>
         </ul>
       </div>

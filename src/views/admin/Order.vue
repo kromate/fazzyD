@@ -9,7 +9,7 @@
         <h2>loading...</h2>
       </div>
       <div v-else-if="orders ? orders.length : false">
-        <div class="O_card" v-for="jen in n.orders" :key="jen.id" @click="showO(n)">
+        <div class="O_card" v-for="jen in n.orders" :key="jen.id" @click="showO(jen)">
           <p>{{ jen.date }}</p>
         </div>
       </div>
@@ -52,15 +52,10 @@ export default {
   },
   methods: {
     showO(data) {
-      // let Array_Order = [];
-      // Object.keys(data.order).map((key) => {
-      //   Array_Order.push(data.order[key]);
-      // });
-      // console.log(Array.from(Array_Order));
-      // console.log("qwerty", typeof data.order);
-      this.OD = data;
+      console.log(data.order);
+
+      this.OD = data.order;
       this.showModal = true;
-      // console.log(data);
     },
   },
   mounted() {

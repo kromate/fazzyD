@@ -110,7 +110,7 @@ export default {
     makePayment() {
       console.log(this.flwKey);
       window.FlutterwaveCheckout({
-        public_key: "FLWPUBK_TEST-844a741225fb004d23aa57060bb9e28a-X", //"FLWPUBK_TEST-844a741225fb004d23aa57060bb9e28a-X", //"FLWPUBK-4dcce91448659808b4c889f22b994ce6-X",
+        public_key: "FLWPUBK-4dcce91448659808b4c889f22b994ce6-X", //"FLWPUBK_TEST-844a741225fb004d23aa57060bb9e28a-X", //"FLWPUBK-4dcce91448659808b4c889f22b994ce6-X",
         tx_ref: this.reference,
         amount: this.amount,
         currency: this.currency,

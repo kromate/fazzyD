@@ -71,6 +71,9 @@ export default {
     mode() {
       return this.$store.state.mode;
     },
+    AddDet() {
+      return this.$store.state.AddDet;
+    },
     location() {
       return this.$store.state.location;
     },
@@ -92,6 +95,7 @@ export default {
         phone: this.phone,
         order: this.Ocart,
         pickUp: this.mode,
+        AddDet: this.AddDet,
         location: this.location,
         date: new Date()
           .toUTCString()
@@ -129,6 +133,7 @@ export default {
             phone: this.phone,
             order: this.Ocart,
             pickUp: this.mode,
+            AddDet: this.AddDet,
             location: this.location,
             date: new Date()
               .toUTCString()

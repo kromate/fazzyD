@@ -17,6 +17,7 @@ export default {
     Empty_Fav: false,
     mode:"Pick Up",
     phone:"",
+    AddDet:"",
     location:"",
     ordersLoading:false,
     loading:false,

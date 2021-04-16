@@ -33,7 +33,7 @@
           id="phone"
           placeholder="Any Additional details you would like to add ?"
           required
-          v-model="phone"
+          v-model="AddDet"
         />
       </div>
     </form>
@@ -62,6 +62,15 @@ export default {
     phone: {
       get() {
         return this.$store.state.phone;
+      },
+      set(value) {
+        console.log(value);
+        this.$store.state.phone = value;
+      },
+    },
+    AddDet: {
+      get() {
+        return this.$store.state.AddDet;
       },
       set(value) {
         console.log(value);

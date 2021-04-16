@@ -24,7 +24,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
 import Loader from "@/components/imgLoader.vue";
-const storageReference = firebase.storage().ref();
+// const storageReference = firebase.storage().ref();
 export default {
   components: { Loader },
   name: "gallery",
@@ -46,17 +46,7 @@ export default {
         .delete()
         .then(() => {
           console.log("Document successfully deleted!");
-
-          storageReference
-            .child("collection/" + id)
-            .delete()
-            .then(() => {
-              this.init();
-            })
-            .catch((error) => {
-              console.log(error);
-              alert("Error removing document: ", error);
-            });
+          this.init();
         })
         .catch((error) => {
           console.log(error);

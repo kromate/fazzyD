@@ -6,7 +6,7 @@
   transition: 0.3s;
   /* overflow-x: hidden; */
   outline: none !important;
-  user-select: none;
+  /* user-select: none; */
 }
 button {
   outline: none;

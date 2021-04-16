@@ -48,17 +48,7 @@ export default {
         .delete()
         .then(() => {
           console.log("Document successfully deleted!");
-
-          storageReference
-            .child("collection/" + id)
-            .delete()
-            .then(() => {
-              this.init();
-            })
-            .catch((error) => {
-              console.log(error);
-              alert("Error removing document: ", error);
-            });
+          this.init();
         })
         .catch((error) => {
           console.log(error);

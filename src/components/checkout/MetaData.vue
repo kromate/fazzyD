@@ -26,6 +26,16 @@
           v-model="phone"
         />
       </div>
+      <div class="inputBox">
+        <label for="phone">Additional Details</label>
+        <textarea
+          type="number"
+          id="phone"
+          placeholder="Any Additional details you would like to add ?"
+          required
+          v-model="phone"
+        />
+      </div>
     </form>
   </div>
 </template>
@@ -92,13 +102,24 @@ export default {
   padding: 10px;
   width: 500px;
   max-width: 95vw;
-  max-height: 300px;
+  max-height: fit-content;
 }
 .inputBox {
   margin-top: 15px;
 }
 ::placeholder {
   color: #d79947a5;
+}
+textarea {
+  resize: vertical;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.445);
+  outline: none;
+  border: 1px solid black;
+  color: #d79947;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 279px;
 }
 input {
   padding: 10px;

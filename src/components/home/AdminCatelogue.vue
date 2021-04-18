@@ -161,7 +161,6 @@ export default {
   color: #d79947;
 }
 .Hname {
-  /* text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 2px 2px rgba(206, 199, 184, 0.235); */
   font-size: 1.1rem;
   text-align: center;
   font-weight: 600;

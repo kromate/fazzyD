@@ -162,12 +162,13 @@ export default {
 }
 .Hname {
   /* text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.315), 0px 2px 2px rgba(206, 199, 184, 0.235); */
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: center;
   font-weight: 600;
   margin-top: -1.5rem;
   color: #d79947;
   text-decoration: dotted;
+  width: 130px;
 }
 .HcatHitem {
   margin: 12px 9px;

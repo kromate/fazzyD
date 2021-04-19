@@ -74,7 +74,7 @@ export default {
       },
       set(value) {
         console.log(value);
-        this.$store.state.phone = value;
+        this.$store.state.AddDet = value;
       },
     },
 

@@ -55,7 +55,6 @@ export default {
         return this.$store.state.mode;
       },
       set(value) {
-        console.log(value);
         this.$store.state.mode = value;
       },
     },
@@ -64,7 +63,6 @@ export default {
         return this.$store.state.phone;
       },
       set(value) {
-        console.log(value);
         this.$store.state.phone = value;
       },
     },
